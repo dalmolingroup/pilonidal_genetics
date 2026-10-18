@@ -9,6 +9,7 @@ data/*.bim
 data/*.fam
 data/raw/
 data/processed/
+data/GSE*/
 
 # Python virtual environments and caches
 .venv/
