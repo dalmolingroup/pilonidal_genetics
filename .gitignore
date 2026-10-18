@@ -10,6 +10,9 @@ data/*.fam
 data/raw/
 data/processed/
 data/GSE*/
+data/ldsc_ref/
+data/ldsc_sumstats_hm3/
+!data/ldsc_seg_genesets/*.tsv
 
 # Python virtual environments and caches
 .venv/
