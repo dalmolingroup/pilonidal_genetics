@@ -1,0 +1,20 @@
+gene_symbol	ensembl_id	locus	evidence_source	biological_role	prior_z_weight
+TWIST1	ENSG00000122691	7p21.1	GWAS_2024 + OpenTargets_HP_0010771	Mesenchymal/dermal condensation & cranial-caudal neural crest/Wnt patterning	6.2
+HDAC9	ENSG00000048052	7p21.1	GWAS_2024 + OpenTargets_HP_0010771	Epigenetic regulator adjacent to TWIST1; androgenetic alopecia & hair patterning locus	6.0
+DKK1	ENSG00000107984	10q21.1	OpenTargets_HP_0010771	Dickkopf Wnt signaling pathway inhibitor 1; dermal papilla hair follicle cycling & fibrosis	5.8
+MBL2	ENSG00000165471	10q21.1	OpenTargets_HP_0010771	Mannose-binding lectin 2; innate lectin-complement opsonization of S. aureus and anaerobes	4.9
+TBX15	ENSG00000092607	1p12	GWAS_2024	T-box transcription factor 15; dorsal-ventral mesenchymal & gluteal/subcutaneous adipose patterning	5.9
+WARS2	ENSG00000116874	1p12	GWAS_2024	Mitochondrial tryptophanyl-tRNA synthetase 2; waist-hip ratio & subcutaneous fat distribution locus	5.7
+PRKAR1B	ENSG00000188191	7p22.3	GWAS_2024 + OpenTargets_HP_0010771	cAMP-dependent protein kinase type I-beta regulatory subunit	5.5
+PDGFA	ENSG00000197461	7p22.3	OpenTargets_HP_0010771	Platelet-derived growth factor subunit A; mesenchymal dermal papilla & fibroblast proliferation	5.2
+NEK9	ENSG00000119638	14q24.3	GWAS_2024	NIMA-related kinase 9; mutated in follicular keratosis / nevus comedonicus & hair follicle cycling	5.8
+EIF2B2	ENSG00000119718	14q24.3	GWAS_2024	Eukaryotic translation initiation factor 2B subunit beta (14q24.3 locus with NEK9)	5.3
+GPATCH2L	ENSG00000089965	14q24.3	GWAS_2024	G-patch domain containing 2 like (14q24.3 locus)	5.3
+TMED10	ENSG00000170348	14q24.3	OpenTargets_HP_0010771	Transmembrane p24 trafficking protein 10; unconventional secretion of IL-1beta	5.0
+FERD3L	ENSG00000175048	7p21.1	OpenTargets_HP_0010771	Fer3-like bHLH transcription factor at 7p21.1 locus	4.6
+TCHH	ENSG00000159450	1q21.3	Exome_Rare_2024 + OpenTargets_HP_0010771	Trichohyalin; inner root sheath & hair shaft medulla cross-linking (OR 4.81 in PSD)	5.6
+PADI3	ENSG00000142619	1p36.13	Exome_Candidate_2024	Peptidyl arginine deiminase 3; hair shaft modification & uncombable hair syndrome pathway	3.8
+TGM3	ENSG00000125780	20p13	Exome_Candidate_2024	Transglutaminase 3; hair follicle inner root sheath & cornified envelope cross-linking	3.8
+RNFT2	ENSG00000135119	12q24.22	OpenTargets_HP_0010769	Ring finger protein transmembrane 2; E3 ubiquitin ligase regulating IL-3R/innate cytokine signaling	5.4
+CHRM3	ENSG00000133019	1q43	OpenTargets_HP_0010769	Muscarinic acetylcholine receptor M3; primary driver of eccrine sweat gland secretion	5.1
+TTK	ENSG00000112742	6q14.1	UKB_Derm_GWAS_2025	TTK protein kinase (Mps1); mitotic spindle checkpoint in rapidly dividing epithelial progenitors	4.8

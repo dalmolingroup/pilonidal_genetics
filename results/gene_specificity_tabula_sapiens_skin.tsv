@@ -1,0 +1,701 @@
+atlas	group_col	cell_type	n_cells	gene	mean_log1p_expr	pct_expressing	specificity_z
+tabula_sapiens_skin	cell_type	B cell	7	TWIST1	0.0	0.0	-0.4003
+tabula_sapiens_skin	cell_type	B cell	7	HDAC9	0.0	0.0	-0.8457
+tabula_sapiens_skin	cell_type	B cell	7	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	B cell	7	DKK1	0.0	0.0	-0.3283
+tabula_sapiens_skin	cell_type	B cell	7	NEK9	0.2131	14.29	1.9557
+tabula_sapiens_skin	cell_type	B cell	7	WARS2	0.0	0.0	-0.8233
+tabula_sapiens_skin	cell_type	B cell	7	TCHH	0.0	0.0	-0.3687
+tabula_sapiens_skin	cell_type	B cell	7	PRKAR1B	0.0	0.0	-0.8894
+tabula_sapiens_skin	cell_type	B cell	7	RNFT2	0.0	0.0	-0.7977
+tabula_sapiens_skin	cell_type	B cell	7	EIF2B2	0.0	0.0	-0.7366
+tabula_sapiens_skin	cell_type	B cell	7	GPATCH2L	0.0014	14.29	-1.5829
+tabula_sapiens_skin	cell_type	B cell	7	PDGFA	0.0	0.0	-0.5772
+tabula_sapiens_skin	cell_type	B cell	7	CHRM3	0.0	0.0	-0.3673
+tabula_sapiens_skin	cell_type	B cell	7	TMED10	0.0	0.0	-1.575
+tabula_sapiens_skin	cell_type	B cell	7	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	B cell	7	TTK	0.0	0.0	-0.5021
+tabula_sapiens_skin	cell_type	B cell	7	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	B cell	7	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	B cell	7	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	B cell	7	SPRING1	0.0	0.0	-1.2839
+tabula_sapiens_skin	cell_type	B cell	7	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	B cell	7	FBXW8	0.0	0.0	-0.8672
+tabula_sapiens_skin	cell_type	B cell	7	WNT9A	0.0	0.0	-0.5212
+tabula_sapiens_skin	cell_type	B cell	7	MON1B	0.0	0.0	-1.3984
+tabula_sapiens_skin	cell_type	B cell	7	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	B cell	7	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	B cell	7	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	B cell	7	RYR2	0.0	0.0	-0.4118
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	TWIST1	0.0257	2.47	-0.3153
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	HDAC9	0.1316	9.04	0.3117
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	DKK1	0.0028	0.27	-0.2405
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	NEK9	0.0704	7.95	-0.0047
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	WARS2	0.0612	5.21	0.3806
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	TCHH	0.0	0.0	-0.3687
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	PRKAR1B	0.0272	2.74	-0.2162
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	RNFT2	0.0135	1.64	0.1204
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	EIF2B2	0.0446	4.66	-0.157
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	GPATCH2L	0.2728	26.3	0.295
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	PDGFA	0.0156	1.92	-0.5031
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	CHRM3	0.0081	1.1	-0.3
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	TMED10	0.3379	30.68	-0.5429
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	TTK	0.0029	0.27	-0.0255
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	SPRING1	0.1143	10.96	0.6971
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	FBXW8	0.0388	3.84	0.0243
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	WNT9A	0.003	0.27	-0.4602
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	MON1B	0.0695	7.4	0.5008
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	MCEMP1	0.0044	0.27	-0.1978
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	CD4-positive, alpha-beta T cell	365	RYR2	0.0296	2.47	-0.0384
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	TWIST1	0.0253	2.29	-0.3167
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	HDAC9	0.0892	7.18	-0.0613
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	TBX15	0.0031	0.26	-0.3161
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	DKK1	0.0013	0.13	-0.2877
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	NEK9	0.0562	5.68	-0.1994
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	WARS2	0.0364	3.4	-0.107
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	TCHH	0.0	0.07	-0.3686
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	PRKAR1B	0.0693	6.27	0.827
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	RNFT2	0.0179	1.7	0.4219
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	EIF2B2	0.0402	3.85	-0.2149
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	GPATCH2L	0.2374	21.29	0.0502
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	PDGFA	0.065	5.62	-0.2679
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	CHRM3	0.0098	0.91	-0.2865
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	TMED10	0.3577	30.05	-0.4825
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	TTK	0.0028	0.46	-0.051
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	PADI3	0.0005	0.07	2.6038
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	SPRING1	0.1462	13.52	1.2499
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	HRK	0.0002	0.07	-0.311
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	FBXW8	0.0416	4.25	0.0908
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	WNT9A	0.0069	0.78	-0.3778
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	MON1B	0.055	5.81	0.1042
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	MCEMP1	0.0006	0.07	-0.2152
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	CD8-positive, alpha-beta T cell	1531	RYR2	0.0165	1.7	-0.2036
+tabula_sapiens_skin	cell_type	Langerhans cell	76	TWIST1	0.0165	2.63	-0.3456
+tabula_sapiens_skin	cell_type	Langerhans cell	76	HDAC9	0.1546	21.05	0.5138
+tabula_sapiens_skin	cell_type	Langerhans cell	76	TBX15	0.0276	2.63	0.0303
+tabula_sapiens_skin	cell_type	Langerhans cell	76	DKK1	0.0168	2.63	0.2005
+tabula_sapiens_skin	cell_type	Langerhans cell	76	NEK9	0.0836	15.79	0.1774
+tabula_sapiens_skin	cell_type	Langerhans cell	76	WARS2	0.0153	3.95	-0.5228
+tabula_sapiens_skin	cell_type	Langerhans cell	76	TCHH	0.4799	43.42	4.1926
+tabula_sapiens_skin	cell_type	Langerhans cell	76	PRKAR1B	0.036	6.58	0.0015
+tabula_sapiens_skin	cell_type	Langerhans cell	76	RNFT2	0.0173	3.95	0.3808
+tabula_sapiens_skin	cell_type	Langerhans cell	76	EIF2B2	0.0285	7.89	-0.3668
+tabula_sapiens_skin	cell_type	Langerhans cell	76	GPATCH2L	0.4603	61.84	1.5926
+tabula_sapiens_skin	cell_type	Langerhans cell	76	PDGFA	0.1249	21.05	0.0171
+tabula_sapiens_skin	cell_type	Langerhans cell	76	CHRM3	0.0031	1.32	-0.3418
+tabula_sapiens_skin	cell_type	Langerhans cell	76	TMED10	0.506	63.16	-0.0296
+tabula_sapiens_skin	cell_type	Langerhans cell	76	MBL2	0.0029	1.32	4.3781
+tabula_sapiens_skin	cell_type	Langerhans cell	76	TTK	0.0111	2.63	1.2993
+tabula_sapiens_skin	cell_type	Langerhans cell	76	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	Langerhans cell	76	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	Langerhans cell	76	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	Langerhans cell	76	SPRING1	0.0772	17.11	0.0538
+tabula_sapiens_skin	cell_type	Langerhans cell	76	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	Langerhans cell	76	FBXW8	0.0129	3.95	-0.5693
+tabula_sapiens_skin	cell_type	Langerhans cell	76	WNT9A	0.0805	13.16	1.1405
+tabula_sapiens_skin	cell_type	Langerhans cell	76	MON1B	0.0534	15.79	0.0619
+tabula_sapiens_skin	cell_type	Langerhans cell	76	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	Langerhans cell	76	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	Langerhans cell	76	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	Langerhans cell	76	RYR2	0.0163	5.26	-0.207
+tabula_sapiens_skin	cell_type	T cell	2636	TWIST1	0.0238	2.05	-0.3214
+tabula_sapiens_skin	cell_type	T cell	2636	HDAC9	0.1269	9.29	0.2703
+tabula_sapiens_skin	cell_type	T cell	2636	TBX15	0.0012	0.15	-0.3428
+tabula_sapiens_skin	cell_type	T cell	2636	DKK1	0.0019	0.19	-0.2697
+tabula_sapiens_skin	cell_type	T cell	2636	NEK9	0.0648	6.07	-0.0812
+tabula_sapiens_skin	cell_type	T cell	2636	WARS2	0.0474	4.29	0.1077
+tabula_sapiens_skin	cell_type	T cell	2636	TCHH	0.0018	0.23	-0.3519
+tabula_sapiens_skin	cell_type	T cell	2636	PRKAR1B	0.051	4.7	0.3731
+tabula_sapiens_skin	cell_type	T cell	2636	RNFT2	0.0163	1.63	0.3078
+tabula_sapiens_skin	cell_type	T cell	2636	EIF2B2	0.0406	3.95	-0.2089
+tabula_sapiens_skin	cell_type	T cell	2636	GPATCH2L	0.2572	22.61	0.1873
+tabula_sapiens_skin	cell_type	T cell	2636	PDGFA	0.0519	4.44	-0.3303
+tabula_sapiens_skin	cell_type	T cell	2636	CHRM3	0.0204	1.67	-0.199
+tabula_sapiens_skin	cell_type	T cell	2636	TMED10	0.3018	26.9	-0.6531
+tabula_sapiens_skin	cell_type	T cell	2636	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	T cell	2636	TTK	0.005	0.53	0.3035
+tabula_sapiens_skin	cell_type	T cell	2636	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	T cell	2636	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	T cell	2636	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	T cell	2636	SPRING1	0.1234	11.65	0.8551
+tabula_sapiens_skin	cell_type	T cell	2636	HRK	0.0	0.04	-0.3303
+tabula_sapiens_skin	cell_type	T cell	2636	FBXW8	0.0342	3.34	-0.0814
+tabula_sapiens_skin	cell_type	T cell	2636	WNT9A	0.0204	1.86	-0.1003
+tabula_sapiens_skin	cell_type	T cell	2636	MON1B	0.0584	5.88	0.1985
+tabula_sapiens_skin	cell_type	T cell	2636	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	T cell	2636	MCEMP1	0.0024	0.23	-0.207
+tabula_sapiens_skin	cell_type	T cell	2636	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	T cell	2636	RYR2	0.0206	1.86	-0.1517
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	TWIST1	0.0	0.0	-0.4003
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	HDAC9	0.0	0.0	-0.8457
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	DKK1	0.0	0.0	-0.3283
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	NEK9	0.0	0.0	-0.9717
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	WARS2	0.0	0.0	-0.8233
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	TCHH	0.0	0.0	-0.3687
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	PRKAR1B	0.0	0.0	-0.8894
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	RNFT2	0.0	0.0	-0.7977
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	EIF2B2	0.0	0.0	-0.7366
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	GPATCH2L	0.0	0.0	-1.5925
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	PDGFA	0.0	0.0	-0.5772
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	CHRM3	0.0	0.0	-0.3673
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	TMED10	0.0	0.0	-1.575
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	TTK	0.0	0.0	-0.5021
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	SPRING1	0.0	0.0	-1.2839
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	FBXW8	0.0	0.0	-0.8672
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	WNT9A	0.0	0.0	-0.5212
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	MON1B	0.0	0.0	-1.3984
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	activated CD4-positive, alpha-beta T cell	1	RYR2	0.0	0.0	-0.4118
+tabula_sapiens_skin	cell_type	basophil	8	TWIST1	0.0	0.0	-0.4003
+tabula_sapiens_skin	cell_type	basophil	8	HDAC9	0.0	0.0	-0.8457
+tabula_sapiens_skin	cell_type	basophil	8	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	basophil	8	DKK1	0.0	0.0	-0.3283
+tabula_sapiens_skin	cell_type	basophil	8	NEK9	0.0	0.0	-0.9717
+tabula_sapiens_skin	cell_type	basophil	8	WARS2	0.0	0.0	-0.8233
+tabula_sapiens_skin	cell_type	basophil	8	TCHH	0.0	0.0	-0.3687
+tabula_sapiens_skin	cell_type	basophil	8	PRKAR1B	0.0869	12.5	1.2621
+tabula_sapiens_skin	cell_type	basophil	8	RNFT2	0.0	0.0	-0.7977
+tabula_sapiens_skin	cell_type	basophil	8	EIF2B2	0.0	0.0	-0.7366
+tabula_sapiens_skin	cell_type	basophil	8	GPATCH2L	0.0101	12.5	-1.5229
+tabula_sapiens_skin	cell_type	basophil	8	PDGFA	0.065	12.5	-0.2679
+tabula_sapiens_skin	cell_type	basophil	8	CHRM3	0.0	0.0	-0.3673
+tabula_sapiens_skin	cell_type	basophil	8	TMED10	1.2411	75.0	2.2155
+tabula_sapiens_skin	cell_type	basophil	8	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	basophil	8	TTK	0.0	0.0	-0.5021
+tabula_sapiens_skin	cell_type	basophil	8	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	basophil	8	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	basophil	8	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	basophil	8	SPRING1	0.0	0.0	-1.2839
+tabula_sapiens_skin	cell_type	basophil	8	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	basophil	8	FBXW8	0.0	0.0	-0.8672
+tabula_sapiens_skin	cell_type	basophil	8	WNT9A	0.0	0.0	-0.5212
+tabula_sapiens_skin	cell_type	basophil	8	MON1B	0.0161	12.5	-0.9593
+tabula_sapiens_skin	cell_type	basophil	8	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	basophil	8	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	basophil	8	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	basophil	8	RYR2	0.0	0.0	-0.4118
+tabula_sapiens_skin	cell_type	endothelial cell	2076	TWIST1	0.025	3.32	-0.3175
+tabula_sapiens_skin	cell_type	endothelial cell	2076	HDAC9	0.1905	21.58	0.8298
+tabula_sapiens_skin	cell_type	endothelial cell	2076	TBX15	0.0037	0.82	-0.3067
+tabula_sapiens_skin	cell_type	endothelial cell	2076	DKK1	0.0027	0.53	-0.2438
+tabula_sapiens_skin	cell_type	endothelial cell	2076	NEK9	0.0687	12.91	-0.0279
+tabula_sapiens_skin	cell_type	endothelial cell	2076	WARS2	0.0729	13.29	0.6102
+tabula_sapiens_skin	cell_type	endothelial cell	2076	TCHH	0.0072	1.06	-0.3002
+tabula_sapiens_skin	cell_type	endothelial cell	2076	PRKAR1B	0.1784	28.28	3.5294
+tabula_sapiens_skin	cell_type	endothelial cell	2076	RNFT2	0.0081	1.64	-0.2476
+tabula_sapiens_skin	cell_type	endothelial cell	2076	EIF2B2	0.3003	40.94	3.1624
+tabula_sapiens_skin	cell_type	endothelial cell	2076	GPATCH2L	0.3608	46.77	0.9039
+tabula_sapiens_skin	cell_type	endothelial cell	2076	PDGFA	0.6551	63.54	2.5405
+tabula_sapiens_skin	cell_type	endothelial cell	2076	CHRM3	0.0893	8.09	0.3704
+tabula_sapiens_skin	cell_type	endothelial cell	2076	TMED10	0.5999	66.81	0.2571
+tabula_sapiens_skin	cell_type	endothelial cell	2076	MBL2	0.0	0.05	-0.3042
+tabula_sapiens_skin	cell_type	endothelial cell	2076	TTK	0.0002	0.1	-0.4714
+tabula_sapiens_skin	cell_type	endothelial cell	2076	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	endothelial cell	2076	PADI3	0.0004	0.1	2.0434
+tabula_sapiens_skin	cell_type	endothelial cell	2076	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	endothelial cell	2076	SPRING1	0.0965	18.3	0.3886
+tabula_sapiens_skin	cell_type	endothelial cell	2076	HRK	0.003	0.39	0.0292
+tabula_sapiens_skin	cell_type	endothelial cell	2076	FBXW8	0.0629	11.08	0.5806
+tabula_sapiens_skin	cell_type	endothelial cell	2076	WNT9A	0.0169	3.03	-0.1714
+tabula_sapiens_skin	cell_type	endothelial cell	2076	MON1B	0.1239	21.68	1.9891
+tabula_sapiens_skin	cell_type	endothelial cell	2076	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	endothelial cell	2076	MCEMP1	0.001	0.29	-0.2131
+tabula_sapiens_skin	cell_type	endothelial cell	2076	CHST5	0.0	0.05	-0.2681
+tabula_sapiens_skin	cell_type	endothelial cell	2076	RYR2	0.0233	3.9	-0.1185
+tabula_sapiens_skin	cell_type	epithelial cell	8	TWIST1	0.0	0.0	-0.4003
+tabula_sapiens_skin	cell_type	epithelial cell	8	HDAC9	0.0	0.0	-0.8457
+tabula_sapiens_skin	cell_type	epithelial cell	8	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	epithelial cell	8	DKK1	0.0	0.0	-0.3283
+tabula_sapiens_skin	cell_type	epithelial cell	8	NEK9	0.1047	25.0	0.4671
+tabula_sapiens_skin	cell_type	epithelial cell	8	WARS2	0.1668	25.0	2.4553
+tabula_sapiens_skin	cell_type	epithelial cell	8	TCHH	0.0	0.0	-0.3687
+tabula_sapiens_skin	cell_type	epithelial cell	8	PRKAR1B	0.0334	12.5	-0.0634
+tabula_sapiens_skin	cell_type	epithelial cell	8	RNFT2	0.0	0.0	-0.7977
+tabula_sapiens_skin	cell_type	epithelial cell	8	EIF2B2	0.0	0.0	-0.7366
+tabula_sapiens_skin	cell_type	epithelial cell	8	GPATCH2L	0.389	62.5	1.0991
+tabula_sapiens_skin	cell_type	epithelial cell	8	PDGFA	0.0334	12.5	-0.4185
+tabula_sapiens_skin	cell_type	epithelial cell	8	CHRM3	0.5817	37.5	4.4406
+tabula_sapiens_skin	cell_type	epithelial cell	8	TMED10	0.4854	75.0	-0.0926
+tabula_sapiens_skin	cell_type	epithelial cell	8	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	epithelial cell	8	TTK	0.0	0.0	-0.5021
+tabula_sapiens_skin	cell_type	epithelial cell	8	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	epithelial cell	8	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	epithelial cell	8	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	epithelial cell	8	SPRING1	0.1272	12.5	0.9207
+tabula_sapiens_skin	cell_type	epithelial cell	8	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	epithelial cell	8	FBXW8	0.0	0.0	-0.8672
+tabula_sapiens_skin	cell_type	epithelial cell	8	WNT9A	0.119	25.0	1.9356
+tabula_sapiens_skin	cell_type	epithelial cell	8	MON1B	0.1074	37.5	1.5361
+tabula_sapiens_skin	cell_type	epithelial cell	8	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	epithelial cell	8	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	epithelial cell	8	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	epithelial cell	8	RYR2	0.3725	37.5	4.2818
+tabula_sapiens_skin	cell_type	erythrocyte	5	TWIST1	0.0	0.0	-0.4003
+tabula_sapiens_skin	cell_type	erythrocyte	5	HDAC9	0.0	0.0	-0.8457
+tabula_sapiens_skin	cell_type	erythrocyte	5	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	erythrocyte	5	DKK1	0.0	0.0	-0.3283
+tabula_sapiens_skin	cell_type	erythrocyte	5	NEK9	0.0	0.0	-0.9717
+tabula_sapiens_skin	cell_type	erythrocyte	5	WARS2	0.0	0.0	-0.8233
+tabula_sapiens_skin	cell_type	erythrocyte	5	TCHH	0.0	0.0	-0.3687
+tabula_sapiens_skin	cell_type	erythrocyte	5	PRKAR1B	0.0	0.0	-0.8894
+tabula_sapiens_skin	cell_type	erythrocyte	5	RNFT2	0.0	0.0	-0.7977
+tabula_sapiens_skin	cell_type	erythrocyte	5	EIF2B2	0.0	0.0	-0.7366
+tabula_sapiens_skin	cell_type	erythrocyte	5	GPATCH2L	0.0	0.0	-1.5925
+tabula_sapiens_skin	cell_type	erythrocyte	5	PDGFA	0.0	0.0	-0.5772
+tabula_sapiens_skin	cell_type	erythrocyte	5	CHRM3	0.0	0.0	-0.3673
+tabula_sapiens_skin	cell_type	erythrocyte	5	TMED10	0.1166	20.0	-1.2189
+tabula_sapiens_skin	cell_type	erythrocyte	5	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	erythrocyte	5	TTK	0.0	0.0	-0.5021
+tabula_sapiens_skin	cell_type	erythrocyte	5	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	erythrocyte	5	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	erythrocyte	5	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	erythrocyte	5	SPRING1	0.0	0.0	-1.2839
+tabula_sapiens_skin	cell_type	erythrocyte	5	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	erythrocyte	5	FBXW8	0.0	0.0	-0.8672
+tabula_sapiens_skin	cell_type	erythrocyte	5	WNT9A	0.0	0.0	-0.5212
+tabula_sapiens_skin	cell_type	erythrocyte	5	MON1B	0.0	0.0	-1.3984
+tabula_sapiens_skin	cell_type	erythrocyte	5	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	erythrocyte	5	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	erythrocyte	5	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	erythrocyte	5	RYR2	0.0	0.0	-0.4118
+tabula_sapiens_skin	cell_type	fibroblast	4133	TWIST1	1.1898	79.85	3.5371
+tabula_sapiens_skin	cell_type	fibroblast	4133	HDAC9	0.1733	20.3	0.6786
+tabula_sapiens_skin	cell_type	fibroblast	4133	TBX15	0.3046	34.48	3.9493
+tabula_sapiens_skin	cell_type	fibroblast	4133	DKK1	0.1558	10.02	4.5793
+tabula_sapiens_skin	cell_type	fibroblast	4133	NEK9	0.081	12.92	0.1412
+tabula_sapiens_skin	cell_type	fibroblast	4133	WARS2	0.1334	19.02	1.7987
+tabula_sapiens_skin	cell_type	fibroblast	4133	TCHH	0.0021	0.19	-0.3491
+tabula_sapiens_skin	cell_type	fibroblast	4133	PRKAR1B	0.0139	2.27	-0.5459
+tabula_sapiens_skin	cell_type	fibroblast	4133	RNFT2	0.0089	1.28	-0.1892
+tabula_sapiens_skin	cell_type	fibroblast	4133	EIF2B2	0.1	17.18	0.5625
+tabula_sapiens_skin	cell_type	fibroblast	4133	GPATCH2L	0.4732	51.75	1.682
+tabula_sapiens_skin	cell_type	fibroblast	4133	PDGFA	0.0655	8.3	-0.2657
+tabula_sapiens_skin	cell_type	fibroblast	4133	CHRM3	0.0083	1.33	-0.2985
+tabula_sapiens_skin	cell_type	fibroblast	4133	TMED10	0.6271	65.26	0.3404
+tabula_sapiens_skin	cell_type	fibroblast	4133	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	fibroblast	4133	TTK	0.0	0.0	-0.5021
+tabula_sapiens_skin	cell_type	fibroblast	4133	FERD3L	0.0001	0.02	4.7968
+tabula_sapiens_skin	cell_type	fibroblast	4133	PADI3	0.0004	0.1	2.0072
+tabula_sapiens_skin	cell_type	fibroblast	4133	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	fibroblast	4133	SPRING1	0.0955	15.8	0.3723
+tabula_sapiens_skin	cell_type	fibroblast	4133	HRK	0.0032	0.53	0.0609
+tabula_sapiens_skin	cell_type	fibroblast	4133	FBXW8	0.1216	18.17	1.9301
+tabula_sapiens_skin	cell_type	fibroblast	4133	WNT9A	0.1467	18.24	2.5089
+tabula_sapiens_skin	cell_type	fibroblast	4133	MON1B	0.0553	9.63	0.1117
+tabula_sapiens_skin	cell_type	fibroblast	4133	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	fibroblast	4133	MCEMP1	0.0011	0.19	-0.2127
+tabula_sapiens_skin	cell_type	fibroblast	4133	CHST5	0.0003	0.05	1.9204
+tabula_sapiens_skin	cell_type	fibroblast	4133	RYR2	0.018	2.42	-0.1855
+tabula_sapiens_skin	cell_type	keratocyte	14	TWIST1	0.1366	14.29	0.0518
+tabula_sapiens_skin	cell_type	keratocyte	14	HDAC9	0.1671	14.29	0.6233
+tabula_sapiens_skin	cell_type	keratocyte	14	TBX15	0.0794	7.14	0.7634
+tabula_sapiens_skin	cell_type	keratocyte	14	DKK1	0.0	0.0	-0.3283
+tabula_sapiens_skin	cell_type	keratocyte	14	NEK9	0.0247	7.14	-0.6321
+tabula_sapiens_skin	cell_type	keratocyte	14	WARS2	0.0904	21.43	0.9548
+tabula_sapiens_skin	cell_type	keratocyte	14	TCHH	0.0889	7.14	0.4763
+tabula_sapiens_skin	cell_type	keratocyte	14	PRKAR1B	0.0268	7.14	-0.2265
+tabula_sapiens_skin	cell_type	keratocyte	14	RNFT2	0.0247	7.14	0.8834
+tabula_sapiens_skin	cell_type	keratocyte	14	EIF2B2	0.1038	14.29	0.6111
+tabula_sapiens_skin	cell_type	keratocyte	14	GPATCH2L	0.1495	28.57	-0.5577
+tabula_sapiens_skin	cell_type	keratocyte	14	PDGFA	0.0	0.0	-0.5772
+tabula_sapiens_skin	cell_type	keratocyte	14	CHRM3	0.0	0.0	-0.3673
+tabula_sapiens_skin	cell_type	keratocyte	14	TMED10	0.781	78.57	0.8104
+tabula_sapiens_skin	cell_type	keratocyte	14	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	keratocyte	14	TTK	0.0	0.0	-0.5021
+tabula_sapiens_skin	cell_type	keratocyte	14	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	keratocyte	14	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	keratocyte	14	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	keratocyte	14	SPRING1	0.0576	7.14	-0.2854
+tabula_sapiens_skin	cell_type	keratocyte	14	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	keratocyte	14	FBXW8	0.0859	14.29	1.1093
+tabula_sapiens_skin	cell_type	keratocyte	14	WNT9A	0.1686	21.43	2.9604
+tabula_sapiens_skin	cell_type	keratocyte	14	MON1B	0.0678	7.14	0.4535
+tabula_sapiens_skin	cell_type	keratocyte	14	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	keratocyte	14	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	keratocyte	14	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	keratocyte	14	RYR2	0.0	0.0	-0.4118
+tabula_sapiens_skin	cell_type	macrophage	3321	TWIST1	0.0248	2.74	-0.3183
+tabula_sapiens_skin	cell_type	macrophage	3321	HDAC9	0.1592	15.84	0.5543
+tabula_sapiens_skin	cell_type	macrophage	3321	TBX15	0.0074	1.08	-0.2546
+tabula_sapiens_skin	cell_type	macrophage	3321	DKK1	0.0079	0.84	-0.0784
+tabula_sapiens_skin	cell_type	macrophage	3321	NEK9	0.0933	14.42	0.3099
+tabula_sapiens_skin	cell_type	macrophage	3321	WARS2	0.0174	2.77	-0.4804
+tabula_sapiens_skin	cell_type	macrophage	3321	TCHH	0.1217	11.62	0.788
+tabula_sapiens_skin	cell_type	macrophage	3321	PRKAR1B	0.0324	5.0	-0.0868
+tabula_sapiens_skin	cell_type	macrophage	3321	RNFT2	0.0155	2.71	0.2569
+tabula_sapiens_skin	cell_type	macrophage	3321	EIF2B2	0.0456	7.26	-0.145
+tabula_sapiens_skin	cell_type	macrophage	3321	GPATCH2L	0.4394	48.63	1.4476
+tabula_sapiens_skin	cell_type	macrophage	3321	PDGFA	0.0797	8.58	-0.1979
+tabula_sapiens_skin	cell_type	macrophage	3321	CHRM3	0.011	2.02	-0.2766
+tabula_sapiens_skin	cell_type	macrophage	3321	TMED10	0.5495	59.11	0.1034
+tabula_sapiens_skin	cell_type	macrophage	3321	MBL2	0.0008	0.06	1.0095
+tabula_sapiens_skin	cell_type	macrophage	3321	TTK	0.0054	0.81	0.3647
+tabula_sapiens_skin	cell_type	macrophage	3321	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	macrophage	3321	PADI3	0.0004	0.15	1.8945
+tabula_sapiens_skin	cell_type	macrophage	3321	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	macrophage	3321	SPRING1	0.0773	11.92	0.0559
+tabula_sapiens_skin	cell_type	macrophage	3321	HRK	0.0018	0.27	-0.1185
+tabula_sapiens_skin	cell_type	macrophage	3321	FBXW8	0.01	1.99	-0.6361
+tabula_sapiens_skin	cell_type	macrophage	3321	WNT9A	0.0178	1.69	-0.1527
+tabula_sapiens_skin	cell_type	macrophage	3321	MON1B	0.066	10.9	0.4062
+tabula_sapiens_skin	cell_type	macrophage	3321	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	macrophage	3321	MCEMP1	0.0548	7.44	0.0277
+tabula_sapiens_skin	cell_type	macrophage	3321	CHST5	0.0006	0.12	4.3146
+tabula_sapiens_skin	cell_type	macrophage	3321	RYR2	0.0144	2.65	-0.2305
+tabula_sapiens_skin	cell_type	mast cell	2001	TWIST1	0.0102	1.0	-0.3665
+tabula_sapiens_skin	cell_type	mast cell	2001	HDAC9	0.008	1.1	-0.7758
+tabula_sapiens_skin	cell_type	mast cell	2001	TBX15	0.0013	0.2	-0.3407
+tabula_sapiens_skin	cell_type	mast cell	2001	DKK1	0.0004	0.15	-0.3144
+tabula_sapiens_skin	cell_type	mast cell	2001	NEK9	0.0847	8.1	0.1922
+tabula_sapiens_skin	cell_type	mast cell	2001	WARS2	0.0295	2.55	-0.2433
+tabula_sapiens_skin	cell_type	mast cell	2001	TCHH	0.0018	0.2	-0.3517
+tabula_sapiens_skin	cell_type	mast cell	2001	PRKAR1B	0.1011	8.85	1.6139
+tabula_sapiens_skin	cell_type	mast cell	2001	RNFT2	0.0174	2.0	0.3856
+tabula_sapiens_skin	cell_type	mast cell	2001	EIF2B2	0.0989	8.5	0.547
+tabula_sapiens_skin	cell_type	mast cell	2001	GPATCH2L	0.2572	21.34	0.1871
+tabula_sapiens_skin	cell_type	mast cell	2001	PDGFA	0.2265	19.64	0.5007
+tabula_sapiens_skin	cell_type	mast cell	2001	CHRM3	0.0097	1.25	-0.2868
+tabula_sapiens_skin	cell_type	mast cell	2001	TMED10	0.6515	45.78	0.4149
+tabula_sapiens_skin	cell_type	mast cell	2001	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	mast cell	2001	TTK	0.0015	0.2	-0.2618
+tabula_sapiens_skin	cell_type	mast cell	2001	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	mast cell	2001	PADI3	0.0002	0.05	0.9518
+tabula_sapiens_skin	cell_type	mast cell	2001	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	mast cell	2001	SPRING1	0.0642	5.65	-0.1703
+tabula_sapiens_skin	cell_type	mast cell	2001	HRK	0.0013	0.25	-0.1692
+tabula_sapiens_skin	cell_type	mast cell	2001	FBXW8	0.0483	4.3	0.245
+tabula_sapiens_skin	cell_type	mast cell	2001	WNT9A	0.0057	0.55	-0.4028
+tabula_sapiens_skin	cell_type	mast cell	2001	MON1B	0.0445	4.45	-0.1828
+tabula_sapiens_skin	cell_type	mast cell	2001	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	mast cell	2001	MCEMP1	0.0015	0.1	-0.2111
+tabula_sapiens_skin	cell_type	mast cell	2001	CHST5	0.0	0.05	-0.2277
+tabula_sapiens_skin	cell_type	mast cell	2001	RYR2	0.0122	1.7	-0.2577
+tabula_sapiens_skin	cell_type	mature NK T cell	33	TWIST1	0.0	0.0	-0.4003
+tabula_sapiens_skin	cell_type	mature NK T cell	33	HDAC9	0.0	0.0	-0.8457
+tabula_sapiens_skin	cell_type	mature NK T cell	33	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	mature NK T cell	33	DKK1	0.0	0.0	-0.3283
+tabula_sapiens_skin	cell_type	mature NK T cell	33	NEK9	0.0835	9.09	0.1749
+tabula_sapiens_skin	cell_type	mature NK T cell	33	WARS2	0.0525	6.06	0.2082
+tabula_sapiens_skin	cell_type	mature NK T cell	33	TCHH	0.0	0.0	-0.3687
+tabula_sapiens_skin	cell_type	mature NK T cell	33	PRKAR1B	0.0	0.0	-0.8894
+tabula_sapiens_skin	cell_type	mature NK T cell	33	RNFT2	0.0293	3.03	1.1959
+tabula_sapiens_skin	cell_type	mature NK T cell	33	EIF2B2	0.0	0.0	-0.7366
+tabula_sapiens_skin	cell_type	mature NK T cell	33	GPATCH2L	0.1705	18.18	-0.4128
+tabula_sapiens_skin	cell_type	mature NK T cell	33	PDGFA	0.0053	3.03	-0.5519
+tabula_sapiens_skin	cell_type	mature NK T cell	33	CHRM3	0.2201	12.12	1.4517
+tabula_sapiens_skin	cell_type	mature NK T cell	33	TMED10	0.6643	48.48	0.4537
+tabula_sapiens_skin	cell_type	mature NK T cell	33	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	mature NK T cell	33	TTK	0.0	0.0	-0.5021
+tabula_sapiens_skin	cell_type	mature NK T cell	33	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	mature NK T cell	33	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	mature NK T cell	33	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	mature NK T cell	33	SPRING1	0.1369	15.15	1.0887
+tabula_sapiens_skin	cell_type	mature NK T cell	33	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	mature NK T cell	33	FBXW8	0.1425	15.15	2.4114
+tabula_sapiens_skin	cell_type	mature NK T cell	33	WNT9A	0.0	0.0	-0.5212
+tabula_sapiens_skin	cell_type	mature NK T cell	33	MON1B	0.0584	6.06	0.199
+tabula_sapiens_skin	cell_type	mature NK T cell	33	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	mature NK T cell	33	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	mature NK T cell	33	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	mature NK T cell	33	RYR2	0.0	0.0	-0.4118
+tabula_sapiens_skin	cell_type	melanocyte	106	TWIST1	0.0241	3.77	-0.3204
+tabula_sapiens_skin	cell_type	melanocyte	106	HDAC9	0.0668	3.77	-0.2582
+tabula_sapiens_skin	cell_type	melanocyte	106	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	melanocyte	106	DKK1	0.0427	3.77	1.0178
+tabula_sapiens_skin	cell_type	melanocyte	106	NEK9	0.0983	14.15	0.3785
+tabula_sapiens_skin	cell_type	melanocyte	106	WARS2	0.0184	4.72	-0.4613
+tabula_sapiens_skin	cell_type	melanocyte	106	TCHH	0.0	0.0	-0.3687
+tabula_sapiens_skin	cell_type	melanocyte	106	PRKAR1B	0.0192	1.89	-0.4141
+tabula_sapiens_skin	cell_type	melanocyte	106	RNFT2	0.0	0.0	-0.7977
+tabula_sapiens_skin	cell_type	melanocyte	106	EIF2B2	0.1499	15.09	1.2099
+tabula_sapiens_skin	cell_type	melanocyte	106	GPATCH2L	0.2115	25.47	-0.1293
+tabula_sapiens_skin	cell_type	melanocyte	106	PDGFA	0.1016	10.38	-0.0937
+tabula_sapiens_skin	cell_type	melanocyte	106	CHRM3	0.0124	1.89	-0.2648
+tabula_sapiens_skin	cell_type	melanocyte	106	TMED10	1.1708	75.47	2.0007
+tabula_sapiens_skin	cell_type	melanocyte	106	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	melanocyte	106	TTK	0.0	0.0	-0.5021
+tabula_sapiens_skin	cell_type	melanocyte	106	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	melanocyte	106	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	melanocyte	106	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	melanocyte	106	SPRING1	0.1807	19.81	1.8486
+tabula_sapiens_skin	cell_type	melanocyte	106	HRK	0.0232	1.89	2.4793
+tabula_sapiens_skin	cell_type	melanocyte	106	FBXW8	0.0551	6.6	0.3998
+tabula_sapiens_skin	cell_type	melanocyte	106	WNT9A	0.0	0.0	-0.5212
+tabula_sapiens_skin	cell_type	melanocyte	106	MON1B	0.0558	8.49	0.127
+tabula_sapiens_skin	cell_type	melanocyte	106	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	melanocyte	106	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	melanocyte	106	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	melanocyte	106	RYR2	0.0681	7.55	0.4458
+tabula_sapiens_skin	cell_type	muscle cell	1	TWIST1	0.0	0.0	-0.4003
+tabula_sapiens_skin	cell_type	muscle cell	1	HDAC9	0.0	0.0	-0.8457
+tabula_sapiens_skin	cell_type	muscle cell	1	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	muscle cell	1	DKK1	0.0	0.0	-0.3283
+tabula_sapiens_skin	cell_type	muscle cell	1	NEK9	0.0	0.0	-0.9717
+tabula_sapiens_skin	cell_type	muscle cell	1	WARS2	0.0	0.0	-0.8233
+tabula_sapiens_skin	cell_type	muscle cell	1	TCHH	0.0	0.0	-0.3687
+tabula_sapiens_skin	cell_type	muscle cell	1	PRKAR1B	0.0	0.0	-0.8894
+tabula_sapiens_skin	cell_type	muscle cell	1	RNFT2	0.0	0.0	-0.7977
+tabula_sapiens_skin	cell_type	muscle cell	1	EIF2B2	0.0	0.0	-0.7366
+tabula_sapiens_skin	cell_type	muscle cell	1	GPATCH2L	0.0	0.0	-1.5925
+tabula_sapiens_skin	cell_type	muscle cell	1	PDGFA	0.0	0.0	-0.5772
+tabula_sapiens_skin	cell_type	muscle cell	1	CHRM3	0.0	0.0	-0.3673
+tabula_sapiens_skin	cell_type	muscle cell	1	TMED10	0.0	0.0	-1.575
+tabula_sapiens_skin	cell_type	muscle cell	1	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	muscle cell	1	TTK	0.0	0.0	-0.5021
+tabula_sapiens_skin	cell_type	muscle cell	1	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	muscle cell	1	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	muscle cell	1	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	muscle cell	1	SPRING1	0.0	0.0	-1.2839
+tabula_sapiens_skin	cell_type	muscle cell	1	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	muscle cell	1	FBXW8	0.0	0.0	-0.8672
+tabula_sapiens_skin	cell_type	muscle cell	1	WNT9A	0.0	0.0	-0.5212
+tabula_sapiens_skin	cell_type	muscle cell	1	MON1B	0.0	0.0	-1.3984
+tabula_sapiens_skin	cell_type	muscle cell	1	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	muscle cell	1	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	muscle cell	1	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	muscle cell	1	RYR2	0.0	0.0	-0.4118
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	TWIST1	0.0	0.0	-0.4003
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	HDAC9	0.0021	2.78	-0.8277
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	DKK1	0.0	0.0	-0.3283
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	NEK9	0.0427	12.96	-0.3853
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	WARS2	0.0	0.0	-0.8233
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	TCHH	0.2229	18.52	1.7497
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	PRKAR1B	0.0093	0.93	-0.658
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	RNFT2	0.0	0.93	-0.7946
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	EIF2B2	0.0003	0.93	-0.7322
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	GPATCH2L	0.2845	36.11	0.3758
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	PDGFA	0.0291	13.89	-0.4389
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	CHRM3	0.0	0.0	-0.3673
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	TMED10	0.5783	46.3	0.1912
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	TTK	0.0121	0.93	1.4511
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	SPRING1	0.0328	5.56	-0.715
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	HRK	0.0001	0.93	-0.3225
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	FBXW8	0.0	0.0	-0.8672
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	WNT9A	0.0	0.0	-0.5212
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	MON1B	0.0546	8.33	0.0942
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	MCEMP1	0.0246	0.93	-0.1078
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	myeloid dendritic cell	108	RYR2	0.0004	0.93	-0.4069
+tabula_sapiens_skin	cell_type	natural killer cell	64	TWIST1	0.0042	1.56	-0.3864
+tabula_sapiens_skin	cell_type	natural killer cell	64	HDAC9	0.008	1.56	-0.7756
+tabula_sapiens_skin	cell_type	natural killer cell	64	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	natural killer cell	64	DKK1	0.0	0.0	-0.3283
+tabula_sapiens_skin	cell_type	natural killer cell	64	NEK9	0.0525	4.69	-0.2511
+tabula_sapiens_skin	cell_type	natural killer cell	64	WARS2	0.0	0.0	-0.8233
+tabula_sapiens_skin	cell_type	natural killer cell	64	TCHH	0.0	0.0	-0.3687
+tabula_sapiens_skin	cell_type	natural killer cell	64	PRKAR1B	0.0527	3.12	0.4158
+tabula_sapiens_skin	cell_type	natural killer cell	64	RNFT2	0.0	0.0	-0.7977
+tabula_sapiens_skin	cell_type	natural killer cell	64	EIF2B2	0.0	0.0	-0.7366
+tabula_sapiens_skin	cell_type	natural killer cell	64	GPATCH2L	0.1782	14.06	-0.3592
+tabula_sapiens_skin	cell_type	natural killer cell	64	PDGFA	0.002	3.12	-0.5677
+tabula_sapiens_skin	cell_type	natural killer cell	64	CHRM3	0.0507	3.12	0.0521
+tabula_sapiens_skin	cell_type	natural killer cell	64	TMED10	0.5451	29.69	0.0897
+tabula_sapiens_skin	cell_type	natural killer cell	64	MBL2	0.001	3.12	1.3275
+tabula_sapiens_skin	cell_type	natural killer cell	64	TTK	0.0281	3.12	4.0392
+tabula_sapiens_skin	cell_type	natural killer cell	64	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	natural killer cell	64	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	natural killer cell	64	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	natural killer cell	64	SPRING1	0.0744	6.25	0.0063
+tabula_sapiens_skin	cell_type	natural killer cell	64	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	natural killer cell	64	FBXW8	0.0	0.0	-0.8672
+tabula_sapiens_skin	cell_type	natural killer cell	64	WNT9A	0.0	0.0	-0.5212
+tabula_sapiens_skin	cell_type	natural killer cell	64	MON1B	0.029	4.69	-0.6066
+tabula_sapiens_skin	cell_type	natural killer cell	64	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	natural killer cell	64	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	natural killer cell	64	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	natural killer cell	64	RYR2	0.017	4.69	-0.1982
+tabula_sapiens_skin	cell_type	neutrophil	290	TWIST1	0.0	0.0	-0.4003
+tabula_sapiens_skin	cell_type	neutrophil	290	HDAC9	0.0254	1.72	-0.6226
+tabula_sapiens_skin	cell_type	neutrophil	290	TBX15	0.0035	0.34	-0.3104
+tabula_sapiens_skin	cell_type	neutrophil	290	DKK1	0.0033	0.34	-0.2257
+tabula_sapiens_skin	cell_type	neutrophil	290	NEK9	0.3395	22.07	3.6918
+tabula_sapiens_skin	cell_type	neutrophil	290	WARS2	0.0	0.0	-0.8233
+tabula_sapiens_skin	cell_type	neutrophil	290	TCHH	0.0155	1.38	-0.2212
+tabula_sapiens_skin	cell_type	neutrophil	290	PRKAR1B	0.0	0.0	-0.8894
+tabula_sapiens_skin	cell_type	neutrophil	290	RNFT2	0.0648	5.17	3.6058
+tabula_sapiens_skin	cell_type	neutrophil	290	EIF2B2	0.0043	0.34	-0.6807
+tabula_sapiens_skin	cell_type	neutrophil	290	GPATCH2L	0.2895	19.31	0.4105
+tabula_sapiens_skin	cell_type	neutrophil	290	PDGFA	0.0052	0.34	-0.5524
+tabula_sapiens_skin	cell_type	neutrophil	290	CHRM3	0.0254	2.07	-0.1575
+tabula_sapiens_skin	cell_type	neutrophil	290	TMED10	0.4675	31.38	-0.1472
+tabula_sapiens_skin	cell_type	neutrophil	290	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	neutrophil	290	TTK	0.0	0.0	-0.5021
+tabula_sapiens_skin	cell_type	neutrophil	290	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	neutrophil	290	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	neutrophil	290	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	neutrophil	290	SPRING1	0.0071	0.69	-1.1611
+tabula_sapiens_skin	cell_type	neutrophil	290	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	neutrophil	290	FBXW8	0.0032	0.34	-0.7943
+tabula_sapiens_skin	cell_type	neutrophil	290	WNT9A	0.0067	0.69	-0.3828
+tabula_sapiens_skin	cell_type	neutrophil	290	MON1B	0.0228	2.07	-0.7762
+tabula_sapiens_skin	cell_type	neutrophil	290	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	neutrophil	290	MCEMP1	1.1199	63.1	4.7934
+tabula_sapiens_skin	cell_type	neutrophil	290	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	neutrophil	290	RYR2	0.0108	1.03	-0.2762
+tabula_sapiens_skin	cell_type	plasma cell	86	TWIST1	0.0121	5.81	-0.3603
+tabula_sapiens_skin	cell_type	plasma cell	86	HDAC9	0.3468	41.86	2.2041
+tabula_sapiens_skin	cell_type	plasma cell	86	TBX15	0.0106	3.49	-0.2094
+tabula_sapiens_skin	cell_type	plasma cell	86	DKK1	0.0204	3.49	0.3157
+tabula_sapiens_skin	cell_type	plasma cell	86	NEK9	0.0262	9.3	-0.6117
+tabula_sapiens_skin	cell_type	plasma cell	86	WARS2	0.0341	13.95	-0.1525
+tabula_sapiens_skin	cell_type	plasma cell	86	TCHH	0.0	0.0	-0.3687
+tabula_sapiens_skin	cell_type	plasma cell	86	PRKAR1B	0.0521	13.95	0.4002
+tabula_sapiens_skin	cell_type	plasma cell	86	RNFT2	0.0217	5.81	0.681
+tabula_sapiens_skin	cell_type	plasma cell	86	EIF2B2	0.0509	16.28	-0.0753
+tabula_sapiens_skin	cell_type	plasma cell	86	GPATCH2L	0.2006	39.53	-0.2043
+tabula_sapiens_skin	cell_type	plasma cell	86	PDGFA	0.0168	4.65	-0.4973
+tabula_sapiens_skin	cell_type	plasma cell	86	CHRM3	0.0106	4.65	-0.2797
+tabula_sapiens_skin	cell_type	plasma cell	86	TMED10	0.8891	91.86	1.1405
+tabula_sapiens_skin	cell_type	plasma cell	86	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	plasma cell	86	TTK	0.0044	1.16	0.205
+tabula_sapiens_skin	cell_type	plasma cell	86	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	plasma cell	86	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	plasma cell	86	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	plasma cell	86	SPRING1	0.1115	26.74	0.6488
+tabula_sapiens_skin	cell_type	plasma cell	86	HRK	0.0355	4.65	3.9685
+tabula_sapiens_skin	cell_type	plasma cell	86	FBXW8	0.0891	22.09	1.1816
+tabula_sapiens_skin	cell_type	plasma cell	86	WNT9A	0.0017	1.16	-0.4853
+tabula_sapiens_skin	cell_type	plasma cell	86	MON1B	0.0693	17.44	0.4945
+tabula_sapiens_skin	cell_type	plasma cell	86	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	plasma cell	86	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	plasma cell	86	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	plasma cell	86	RYR2	0.0036	1.16	-0.3662
+tabula_sapiens_skin	cell_type	regulatory T cell	273	TWIST1	0.0129	1.47	-0.3574
+tabula_sapiens_skin	cell_type	regulatory T cell	273	HDAC9	0.3895	18.68	2.5789
+tabula_sapiens_skin	cell_type	regulatory T cell	273	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	regulatory T cell	273	DKK1	0.0	0.0	-0.3283
+tabula_sapiens_skin	cell_type	regulatory T cell	273	NEK9	0.0479	4.76	-0.3136
+tabula_sapiens_skin	cell_type	regulatory T cell	273	WARS2	0.0398	4.4	-0.041
+tabula_sapiens_skin	cell_type	regulatory T cell	273	TCHH	0.0071	0.73	-0.3016
+tabula_sapiens_skin	cell_type	regulatory T cell	273	PRKAR1B	0.039	4.03	0.0752
+tabula_sapiens_skin	cell_type	regulatory T cell	273	RNFT2	0.0257	2.56	0.9475
+tabula_sapiens_skin	cell_type	regulatory T cell	273	EIF2B2	0.0465	5.13	-0.133
+tabula_sapiens_skin	cell_type	regulatory T cell	273	GPATCH2L	0.3449	28.94	0.7937
+tabula_sapiens_skin	cell_type	regulatory T cell	273	PDGFA	0.0341	3.66	-0.4151
+tabula_sapiens_skin	cell_type	regulatory T cell	273	CHRM3	0.0043	0.73	-0.3318
+tabula_sapiens_skin	cell_type	regulatory T cell	273	TMED10	0.2061	20.88	-0.9455
+tabula_sapiens_skin	cell_type	regulatory T cell	273	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	regulatory T cell	273	TTK	0.0021	0.37	-0.1597
+tabula_sapiens_skin	cell_type	regulatory T cell	273	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	regulatory T cell	273	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	regulatory T cell	273	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	regulatory T cell	273	SPRING1	0.1169	13.19	0.7434
+tabula_sapiens_skin	cell_type	regulatory T cell	273	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	regulatory T cell	273	FBXW8	0.0752	7.33	0.8622
+tabula_sapiens_skin	cell_type	regulatory T cell	273	WNT9A	0.0111	0.73	-0.2909
+tabula_sapiens_skin	cell_type	regulatory T cell	273	MON1B	0.0893	9.52	1.0421
+tabula_sapiens_skin	cell_type	regulatory T cell	273	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	regulatory T cell	273	MCEMP1	0.0042	0.37	-0.1989
+tabula_sapiens_skin	cell_type	regulatory T cell	273	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	regulatory T cell	273	RYR2	0.01	1.1	-0.2853
+tabula_sapiens_skin	cell_type	sebocyte	135	TWIST1	0.0009	1.48	-0.3973
+tabula_sapiens_skin	cell_type	sebocyte	135	HDAC9	0.0134	2.96	-0.7277
+tabula_sapiens_skin	cell_type	sebocyte	135	TBX15	0.0032	0.74	-0.3139
+tabula_sapiens_skin	cell_type	sebocyte	135	DKK1	0.0017	0.74	-0.2749
+tabula_sapiens_skin	cell_type	sebocyte	135	NEK9	0.0833	25.19	0.1728
+tabula_sapiens_skin	cell_type	sebocyte	135	WARS2	0.0633	20.0	0.4205
+tabula_sapiens_skin	cell_type	sebocyte	135	TCHH	0.0079	3.7	-0.294
+tabula_sapiens_skin	cell_type	sebocyte	135	PRKAR1B	0.0316	11.11	-0.1062
+tabula_sapiens_skin	cell_type	sebocyte	135	RNFT2	0.0045	2.22	-0.4935
+tabula_sapiens_skin	cell_type	sebocyte	135	EIF2B2	0.1979	31.11	1.8332
+tabula_sapiens_skin	cell_type	sebocyte	135	GPATCH2L	0.207	38.52	-0.1605
+tabula_sapiens_skin	cell_type	sebocyte	135	PDGFA	0.1303	32.59	0.0428
+tabula_sapiens_skin	cell_type	sebocyte	135	CHRM3	0.0385	8.89	-0.0495
+tabula_sapiens_skin	cell_type	sebocyte	135	TMED10	0.9274	87.41	1.2574
+tabula_sapiens_skin	cell_type	sebocyte	135	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	sebocyte	135	TTK	0.0021	0.74	-0.1668
+tabula_sapiens_skin	cell_type	sebocyte	135	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	sebocyte	135	PADI3	0.0	0.74	-0.4068
+tabula_sapiens_skin	cell_type	sebocyte	135	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	sebocyte	135	SPRING1	0.1641	34.07	1.5603
+tabula_sapiens_skin	cell_type	sebocyte	135	HRK	0.0	0.74	-0.3296
+tabula_sapiens_skin	cell_type	sebocyte	135	FBXW8	0.1022	20.0	1.4839
+tabula_sapiens_skin	cell_type	sebocyte	135	WNT9A	0.0143	2.96	-0.2249
+tabula_sapiens_skin	cell_type	sebocyte	135	MON1B	0.1229	20.74	1.96
+tabula_sapiens_skin	cell_type	sebocyte	135	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	sebocyte	135	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	sebocyte	135	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	sebocyte	135	RYR2	0.0082	2.22	-0.3082
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	TWIST1	0.7992	54.96	2.2446
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	HDAC9	0.0828	9.13	-0.1176
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	TBX15	0.1898	20.63	2.3254
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	DKK1	0.0028	0.4	-0.2386
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	NEK9	0.0492	8.13	-0.2957
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	WARS2	0.1681	17.86	2.4824
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	TCHH	0.0131	0.99	-0.2438
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	PRKAR1B	0.0257	4.17	-0.2532
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	RNFT2	0.0076	0.79	-0.2825
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	EIF2B2	0.1659	20.44	1.4175
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	GPATCH2L	0.2556	30.56	0.176
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	PDGFA	0.673	57.54	2.626
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	CHRM3	0.0077	0.99	-0.3039
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	TMED10	0.4023	41.47	-0.3464
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	TTK	0.0	0.2	-0.5012
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	SPRING1	0.0479	6.94	-0.454
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	HRK	0.0	0.2	-0.3268
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	FBXW8	0.0189	3.17	-0.4332
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	WNT9A	0.0115	1.39	-0.2842
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	MON1B	0.0599	7.54	0.2383
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	IFNA6	0.0	0.2	4.7826
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	MCEMP1	0.0018	0.2	-0.2098
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	smooth muscle cell	504	RYR2	0.1756	18.85	1.8007
+tabula_sapiens_skin	cell_type	stromal cell	4	TWIST1	0.6927	75.0	1.8921
+tabula_sapiens_skin	cell_type	stromal cell	4	HDAC9	0.2692	25.0	1.5217
+tabula_sapiens_skin	cell_type	stromal cell	4	TBX15	0.0	0.0	-0.3595
+tabula_sapiens_skin	cell_type	stromal cell	4	DKK1	0.0	0.0	-0.3283
+tabula_sapiens_skin	cell_type	stromal cell	4	NEK9	0.0	0.0	-0.9717
+tabula_sapiens_skin	cell_type	stromal cell	4	WARS2	0.0	0.0	-0.8233
+tabula_sapiens_skin	cell_type	stromal cell	4	TCHH	0.0	0.0	-0.3687
+tabula_sapiens_skin	cell_type	stromal cell	4	PRKAR1B	0.012	25.0	-0.5914
+tabula_sapiens_skin	cell_type	stromal cell	4	RNFT2	0.0	0.0	-0.7977
+tabula_sapiens_skin	cell_type	stromal cell	4	EIF2B2	0.0	0.0	-0.7366
+tabula_sapiens_skin	cell_type	stromal cell	4	GPATCH2L	0.3033	25.0	0.5062
+tabula_sapiens_skin	cell_type	stromal cell	4	PDGFA	0.6523	75.0	2.5274
+tabula_sapiens_skin	cell_type	stromal cell	4	CHRM3	0.0	0.0	-0.3673
+tabula_sapiens_skin	cell_type	stromal cell	4	TMED10	0.4859	25.0	-0.0911
+tabula_sapiens_skin	cell_type	stromal cell	4	MBL2	0.0	0.0	-0.3053
+tabula_sapiens_skin	cell_type	stromal cell	4	TTK	0.0	0.0	-0.5021
+tabula_sapiens_skin	cell_type	stromal cell	4	FERD3L	0.0	0.0	-0.1999
+tabula_sapiens_skin	cell_type	stromal cell	4	PADI3	0.0	0.0	-0.4786
+tabula_sapiens_skin	cell_type	stromal cell	4	TGM3	0.0	0.0	0.0
+tabula_sapiens_skin	cell_type	stromal cell	4	SPRING1	0.0	0.0	-1.2839
+tabula_sapiens_skin	cell_type	stromal cell	4	HRK	0.0	0.0	-0.3307
+tabula_sapiens_skin	cell_type	stromal cell	4	FBXW8	0.0	0.0	-0.8672
+tabula_sapiens_skin	cell_type	stromal cell	4	WNT9A	0.0	0.0	-0.5212
+tabula_sapiens_skin	cell_type	stromal cell	4	MON1B	0.0	0.0	-1.3984
+tabula_sapiens_skin	cell_type	stromal cell	4	IFNA6	0.0	0.0	-0.1993
+tabula_sapiens_skin	cell_type	stromal cell	4	MCEMP1	0.0	0.0	-0.2177
+tabula_sapiens_skin	cell_type	stromal cell	4	CHST5	0.0	0.0	-0.2733
+tabula_sapiens_skin	cell_type	stromal cell	4	RYR2	0.0	0.0	-0.4118

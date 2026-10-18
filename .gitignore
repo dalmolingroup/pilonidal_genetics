@@ -1,0 +1,25 @@
+# Data and large summary statistics
+data/*.tsv
+data/*.tsv.gz
+data/*.txt.gz
+data/*.h5ad
+data/*.rds
+data/*.bed
+data/*.bim
+data/*.fam
+data/raw/
+data/processed/
+
+# Python virtual environments and caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# SLURM logs and temporary outputs
+slurm/*.out
+slurm/*.err
+*.log
+*.tmp
+!data/opentargets_pilonidal_targets.tsv
