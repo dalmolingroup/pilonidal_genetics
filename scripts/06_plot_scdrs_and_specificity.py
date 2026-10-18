@@ -24,6 +24,7 @@ def main():
 
     dfs = [pd.read_csv(f, sep="\t") for f in stat_files]
     df_all = pd.concat(dfs, ignore_index=True)
+    df_all = df_all[~df_all["trait"].astype(str).str.startswith("PSD_Module_")].copy()
     df_all["neg_log10_assoc_p"] = -np.log10(df_all["assoc_mcp"].clip(lower=1e-4))
     df_all["neg_log10_hetero_p"] = -np.log10(df_all["hetero_mcp"].clip(lower=1e-4))
     out_combined = RESULTS_DIR / "scdrs_all_atlases_combined_summary.tsv"
@@ -68,7 +69,7 @@ def main():
             ax=ax,
         )
         ax.set_title(f"scDRS Disease Relevance Across {atlas_name} ({primary_gcol})", fontsize=12, fontweight="bold")
-        ax.set_xlabel("PSD Genetic / Module Gene Set")
+        ax.set_xlabel("Unbiased PSD Genetic Gene Set")
         ax.set_ylabel("Cell Type / Subcluster")
         plt.xticks(rotation=35, ha="right")
         plt.tight_layout()
@@ -83,7 +84,8 @@ def main():
         df_s = pd.read_csv(spec_f, sep="\t")
         if df_s.empty:
             continue
-        piv_s = df_s.pivot(index="cell_type", columns="gene", values="specificity_z").fillna(0.0)
+        idx_col = "cell_type" if "cell_type" in df_s.columns else "compartment"
+        piv_s = df_s.pivot(index=idx_col, columns="gene", values="specificity_z").fillna(0.0)
         fig, ax = plt.subplots(figsize=(max(10, piv_s.shape[1] * 0.55), max(5, piv_s.shape[0] * 0.38)))
         sns.heatmap(
             piv_s,

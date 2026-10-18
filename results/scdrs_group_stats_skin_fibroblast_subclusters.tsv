@@ -23,24 +23,6 @@ Fibroblast III	388.0	1000.0	0.38961038	0.2839685	0.52547455	-0.13307072	0.0	0.0	
 Fibroblast IV	227.0	1000.0	0.8031968	-0.889409	0.41958043	0.19055587	0.0	0.0	0.0	-0.22498049	-0.28191456	0.02202643	skin_fibroblast_subclusters	PSD_Integrated_Top100	author_cell_type	114
 dermis	1730.0	1000.0	0.9260739	-1.4321359	0.42957044	0.11205062	0.0	0.0	0.0	-0.0028908113	-0.059711248	0.039884392	skin_fibroblast_subclusters	PSD_Integrated_Top100	tissue	114
 skin of body	573.0	1000.0	0.42457542	0.16208084	0.34465533	0.38381347	0.0	0.0	0.0	-0.16285214	-0.38832754	0.04712042	skin_fibroblast_subclusters	PSD_Integrated_Top100	tissue	114
-Fibroblast I	894.0	1000.0	0.8721279	-1.0713701	0.10789211	0.99901897	0.0	0.0	0.0	-1.0205032	-5.28124	0.040268455	skin_fibroblast_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Fibroblast II	794.0	1000.0	0.024975024	1.9706979	0.004995005	3.651273	0.0	0.0	0.0	-0.39773563	-3.0317097	0.079345085	skin_fibroblast_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Fibroblast III	388.0	1000.0	0.04895105	1.5657375	0.08691309	1.4223542	0.0	0.0	0.0	-0.14098814	-1.6399921	0.077319585	skin_fibroblast_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Fibroblast IV	227.0	1000.0	0.93206793	-1.2663367	0.53946054	-0.12211278	0.0	0.0	0.0	-1.6559399	-7.6798086	0.017621145	skin_fibroblast_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-dermis	1730.0	1000.0	0.037962038	1.7465411	0.000999001	4.0346103	0.0	0.0	0.0	-0.5372275	-3.3706806	0.06473988	skin_fibroblast_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	tissue	9
-skin of body	573.0	1000.0	0.8811189	-1.0912256	0.11188811	1.0708944	0.0	0.0	0.0	-1.2728275	-6.4170375	0.036649216	skin_fibroblast_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	tissue	9
-Fibroblast I	894.0	1000.0	0.7332667	-0.46424136	0.95404595	-1.6574423	0.0	0.0	0.0	-1.3923193	-7.807436	0.040268455	skin_fibroblast_subclusters	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Fibroblast II	794.0	1000.0	0.63836163	-0.29880136	0.26973027	0.60457414	0.0	0.0	0.0	-1.284074	-7.4781566	0.046599496	skin_fibroblast_subclusters	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Fibroblast III	388.0	1000.0	0.34965035	0.19848563	0.21278721	0.6989692	0.0	0.0	0.0	-1.0183289	-6.26076	0.05412371	skin_fibroblast_subclusters	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Fibroblast IV	227.0	1000.0	0.81518483	-0.7548595	0.110889114	1.130989	0.0	0.0	0.0	-1.4326713	-7.8133082	0.026431719	skin_fibroblast_subclusters	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-dermis	1730.0	1000.0	0.7112887	-0.59169763	0.66733265	-0.52470845	0.0	0.0	0.0	-1.2428398	-7.215608	0.04450867	skin_fibroblast_subclusters	PSD_Module_Follicular_Shaft_Eccrine	tissue	8
-skin of body	573.0	1000.0	0.66733265	-0.46949223	0.31768233	0.45113593	0.0	0.0	0.0	-1.4563762	-8.093016	0.040139616	skin_fibroblast_subclusters	PSD_Module_Follicular_Shaft_Eccrine	tissue	8
-Fibroblast I	894.0	1000.0	0.8591409	-0.90069187	0.9480519	-1.238849	0.0	0.0	0.0	-3.2053432	-5.363946	0.035794184	skin_fibroblast_subclusters	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Fibroblast II	794.0	1000.0	0.65634364	-0.40183693	0.23876125	0.21759042	0.0	0.0	0.0	-2.5433486	-4.269339	0.04156171	skin_fibroblast_subclusters	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Fibroblast III	388.0	1000.0	0.8381618	-1.0083987	0.9220779	-1.159002	0.0	0.0	0.0	-1.9528016	-3.1805053	0.033505153	skin_fibroblast_subclusters	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Fibroblast IV	227.0	1000.0	0.1918082	0.49732837	0.4935065	-0.17652988	0.0	0.0	0.0	-3.2932556	-5.6119246	0.06167401	skin_fibroblast_subclusters	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-dermis	1730.0	1000.0	0.55244756	-0.11896435	0.85514486	-0.81723243	0.0	0.0	0.0	-2.5579164	-4.2989225	0.046242774	skin_fibroblast_subclusters	PSD_Module_Innate_Lectin_Trafficking	tissue	6
-skin of body	573.0	1000.0	0.9230769	-1.2745894	0.7842158	-0.6603674	0.0	0.0	0.0	-3.429418	-5.682425	0.020942409	skin_fibroblast_subclusters	PSD_Module_Innate_Lectin_Trafficking	tissue	6
 Fibroblast I	894.0	1000.0	0.04795205	1.7235888	0.47952047	0.0035719806	0.0	0.0	0.0	-0.48449573	-2.4780314	0.06263982	skin_fibroblast_subclusters	PSD_MVP_MultiAncestry_GWAS	author_cell_type	20
 Fibroblast II	794.0	1000.0	0.7582418	-0.70774937	0.9280719	-1.2858508	0.0	0.0	0.0	-0.5084319	-2.1353066	0.04156171	skin_fibroblast_subclusters	PSD_MVP_MultiAncestry_GWAS	author_cell_type	20
 Fibroblast III	388.0	1000.0	0.45654345	0.031481683	0.8631369	-1.0916891	0.0	0.0	0.0	-0.15214019	-0.7899082	0.05412371	skin_fibroblast_subclusters	PSD_MVP_MultiAncestry_GWAS	author_cell_type	20

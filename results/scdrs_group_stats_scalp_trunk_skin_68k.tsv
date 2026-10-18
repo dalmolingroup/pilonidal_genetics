@@ -43,39 +43,6 @@ spinous cell of epidermis	26321.0	1000.0	0.66733265	-0.44916838	0.8701299	-0.909
 skin of prepuce of penis	24982.0	1000.0	0.3226773	0.42294416	0.7972028	-0.8808806	0.0	0.0	0.0	0.03599933	0.034336273	0.054799456	scalp_trunk_skin_68k	PSD_Integrated_Top100	tissue	92
 skin of scalp	19408.0	1000.0	0.5964036	-0.36612722	0.8771229	-1.006585	0.0	0.0	0.0	-0.029659998	-0.02717447	0.042508245	scalp_trunk_skin_68k	PSD_Integrated_Top100	tissue	92
 skin of trunk	23646.0	1000.0	0.52347654	-0.06452877	0.7962038	-0.8131925	0.0	0.0	0.0	-0.013689167	-0.0130917	0.046434917	scalp_trunk_skin_68k	PSD_Integrated_Top100	tissue	92
-Merkel cell	1140.0	1000.0	0.034965035	2.4957697	0.25874126	0.29495057	0.0	1.0	6.0	0.16458948	-4.813454	0.15526316	scalp_trunk_skin_68k	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	7
-basal cell of epidermis	26849.0	1000.0	0.1918082	0.9552453	0.46453547	-0.26004162	0.0	0.0	6.0	-0.32101274	-6.3102465	0.07616671	scalp_trunk_skin_68k	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	7
-granular cell of epidermis	212.0	1000.0	0.986014	-1.0035785	0.37462538	0.29623526	0.0	0.0	0.0	-1.1445799	-9.122236	0.004716981	scalp_trunk_skin_68k	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	7
-hair follicular keratinocyte	3396.0	1000.0	0.15884116	0.7624198	0.3096903	0.06723821	0.0	0.0	2.0	-0.3504851	-6.1904364	0.0712603	scalp_trunk_skin_68k	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	7
-hematopoietic cell	759.0	1000.0	0.19480519	0.74048394	0.8741259	-1.0082934	0.0	0.0	0.0	-0.6250232	-6.588782	0.011857707	scalp_trunk_skin_68k	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	7
-keratinocyte	5079.0	1000.0	0.34565434	0.17972007	0.84915084	-0.7313581	0.0	0.0	0.0	-0.5271371	-6.7762017	0.054538295	scalp_trunk_skin_68k	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	7
-melanocyte	4280.0	1000.0	0.8841159	-1.2439941	0.87112886	-0.81537044	0.0	0.0	0.0	-1.0769395	-8.43106	0.0018691589	scalp_trunk_skin_68k	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	7
-spinous cell of epidermis	26321.0	1000.0	0.4045954	0.27683088	0.5244755	-0.27897528	0.0	1.0	4.0	-0.71905863	-7.893884	0.060598	scalp_trunk_skin_68k	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	7
-skin of prepuce of penis	24982.0	1000.0	0.24075924	0.56585854	0.57542455	-0.5812662	0.0	0.0	9.0	-0.54453796	-6.98275	0.06264511	scalp_trunk_skin_68k	PSD_Module_Mesenchymal_Wnt_Patterning	tissue	7
-skin of scalp	19408.0	1000.0	0.28971028	0.4636951	0.64835167	-0.55404764	0.0	0.0	5.0	-0.56664175	-7.1854253	0.063427456	scalp_trunk_skin_68k	PSD_Module_Mesenchymal_Wnt_Patterning	tissue	7
-skin of trunk	23646.0	1000.0	0.20479521	0.744858	0.55044955	-0.37074888	0.0	2.0	4.0	-0.5053908	-7.072953	0.065888524	scalp_trunk_skin_68k	PSD_Module_Mesenchymal_Wnt_Patterning	tissue	7
-Merkel cell	1140.0	1000.0	0.16383617	0.773802	0.11388611	1.138063	0.0	0.0	0.0	-0.31173453	-5.8106422	0.06140351	scalp_trunk_skin_68k	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-basal cell of epidermis	26849.0	1000.0	0.12487513	1.2680032	0.3976024	-6.734038e-06	0.0	0.0	0.0	-0.37530702	-6.312259	0.064322695	scalp_trunk_skin_68k	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-granular cell of epidermis	212.0	1000.0	0.05894106	1.5153587	0.96503496	-1.6974351	0.0	0.0	0.0	0.35526136	-2.5008056	0.10377359	scalp_trunk_skin_68k	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-hair follicular keratinocyte	3396.0	1000.0	0.83716285	-0.6171495	0.42457542	-0.09117155	0.0	0.0	0.0	-0.564207	-6.59771	0.030035336	scalp_trunk_skin_68k	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-hematopoietic cell	759.0	1000.0	0.34065935	-0.18218331	0.7512488	-0.69921345	0.0	0.0	0.0	-0.6778322	-6.155071	0.0039525693	scalp_trunk_skin_68k	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-keratinocyte	5079.0	1000.0	0.2067932	0.5828218	0.08591408	1.6087965	0.0	0.0	0.0	-0.1751824	-4.992939	0.07954322	scalp_trunk_skin_68k	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-melanocyte	4280.0	1000.0	0.64735264	-0.62715656	0.97402596	-1.2372104	0.0	0.0	0.0	-0.48621723	-5.6411257	0.015420561	scalp_trunk_skin_68k	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-spinous cell of epidermis	26321.0	1000.0	0.22977023	0.69542444	0.35864136	0.08682488	0.0	0.0	0.0	-0.3274687	-5.823363	0.061053913	scalp_trunk_skin_68k	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-skin of prepuce of penis	24982.0	1000.0	0.044955045	1.63023	0.5764236	-0.34457785	0.0	0.0	0.0	-0.23448573	-5.4212685	0.07293251	scalp_trunk_skin_68k	PSD_Module_Follicular_Shaft_Eccrine	tissue	8
-skin of scalp	19408.0	1000.0	0.66533464	-0.4893059	0.75724274	-0.73661613	0.0	0.0	0.0	-0.44448006	-6.2199593	0.044311624	scalp_trunk_skin_68k	PSD_Module_Follicular_Shaft_Eccrine	tissue	8
-skin of trunk	23646.0	1000.0	0.23776224	0.5528059	0.43756244	-0.0543262	0.0	0.0	0.0	-0.41837415	-6.357881	0.055781104	scalp_trunk_skin_68k	PSD_Module_Follicular_Shaft_Eccrine	tissue	8
-Merkel cell	1140.0	1000.0	0.68731266	-0.5612817	0.989011	-1.3414073	0.0	0.0	0.0	-1.2307144	-3.7401655	0.035964914	scalp_trunk_skin_68k	PSD_Module_Innate_Lectin_Trafficking	cell_type	3
-basal cell of epidermis	26849.0	1000.0	0.5604396	-0.17557074	0.8431568	-0.6638606	0.0	0.0	0.0	-1.1072109	-3.5525742	0.044657156	scalp_trunk_skin_68k	PSD_Module_Innate_Lectin_Trafficking	cell_type	3
-granular cell of epidermis	212.0	1000.0	0.45054945	0.053930644	0.6113886	-0.27379292	0.0	0.0	0.0	-0.64420396	-2.1322877	0.047169812	scalp_trunk_skin_68k	PSD_Module_Innate_Lectin_Trafficking	cell_type	3
-hair follicular keratinocyte	3396.0	1000.0	0.7032967	-0.52266115	0.2857143	0.21783608	0.0	0.0	0.0	-1.1109877	-3.4307172	0.038869258	scalp_trunk_skin_68k	PSD_Module_Innate_Lectin_Trafficking	cell_type	3
-hematopoietic cell	759.0	1000.0	0.65334666	-0.47343588	0.2857143	0.2074296	0.0	0.0	0.0	-1.5057042	-4.4389057	0.028985508	scalp_trunk_skin_68k	PSD_Module_Innate_Lectin_Trafficking	cell_type	3
-keratinocyte	5079.0	1000.0	0.46953046	0.011295072	0.8721279	-0.95478624	0.0	0.0	0.0	-1.0960062	-3.313295	0.04331561	scalp_trunk_skin_68k	PSD_Module_Innate_Lectin_Trafficking	cell_type	3
-melanocyte	4280.0	1000.0	0.13086914	1.2084589	0.7122877	-0.58239406	0.0	0.0	0.0	0.05585287	-0.9898201	0.089018695	scalp_trunk_skin_68k	PSD_Module_Innate_Lectin_Trafficking	cell_type	3
-spinous cell of epidermis	26321.0	1000.0	0.6033966	-0.308816	0.6053946	-0.31653407	0.0	0.0	0.0	-1.0062548	-3.1742904	0.04106987	scalp_trunk_skin_68k	PSD_Module_Innate_Lectin_Trafficking	cell_type	3
-skin of prepuce of penis	24982.0	1000.0	0.57742256	-0.22131999	0.46653345	-0.10156324	0.0	0.0	0.0	-0.84391975	-2.8062358	0.04415179	scalp_trunk_skin_68k	PSD_Module_Innate_Lectin_Trafficking	tissue	3
-skin of scalp	19408.0	1000.0	0.54645354	-0.1847556	0.63836163	-0.43281695	0.0	0.0	0.0	-1.031634	-3.261049	0.044053998	scalp_trunk_skin_68k	PSD_Module_Innate_Lectin_Trafficking	tissue	3
-skin of trunk	23646.0	1000.0	0.34765235	0.33178303	0.5934066	-0.43444952	0.0	0.0	0.0	-1.1372441	-3.6512764	0.047703627	scalp_trunk_skin_68k	PSD_Module_Innate_Lectin_Trafficking	tissue	3
 Merkel cell	1140.0	1000.0	0.2027972	0.69889504	0.73926073	-0.6156507	0.0	0.0	0.0	0.06852727	-1.001849	0.0754386	scalp_trunk_skin_68k	PSD_MVP_MultiAncestry_GWAS	cell_type	19
 basal cell of epidermis	26849.0	1000.0	0.16183816	0.91456324	0.44255745	-0.2121519	0.0	1.0	1.0	-0.109807834	-1.3365856	0.068456925	scalp_trunk_skin_68k	PSD_MVP_MultiAncestry_GWAS	cell_type	19
 granular cell of epidermis	212.0	1000.0	0.3136863	0.069292784	0.73926073	-0.61673546	0.0	0.0	0.0	-0.14517994	-0.69705755	0.014150944	scalp_trunk_skin_68k	PSD_MVP_MultiAncestry_GWAS	cell_type	19

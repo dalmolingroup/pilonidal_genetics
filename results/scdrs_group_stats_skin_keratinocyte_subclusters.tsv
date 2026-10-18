@@ -35,33 +35,6 @@ Spinous II	2731.0	1000.0	0.2837163	0.5495621	0.51448554	-0.19876185	0.0	0.0	0.0	
 Stressed	168.0	1000.0	0.22877122	0.64094085	0.8181818	-0.7699685	0.0	0.0	1.0	0.025149286	-0.02055632	0.077380955	skin_keratinocyte_subclusters	PSD_Integrated_Top100	author_cell_type	114
 skin epidermis	4322.0	1000.0	0.43356642	0.25208503	0.6083916	-0.45774803	0.0	0.0	0.0	0.083356485	0.07824844	0.052753355	skin_keratinocyte_subclusters	PSD_Integrated_Top100	tissue	114
 skin of body	5149.0	1000.0	0.6793207	-0.5072723	0.83016986	-0.8350773	0.0	0.0	1.0	-0.078979366	-0.091765754	0.03923092	skin_keratinocyte_subclusters	PSD_Integrated_Top100	tissue	114
-Basal I	1302.0	1000.0	0.08691309	1.2649194	0.7892108	-0.75349396	0.0	0.0	0.0	-0.67897516	-7.6186156	0.086789556	skin_keratinocyte_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Basal II	1221.0	1000.0	0.07992008	1.2944393	0.14285715	0.9789877	0.0	0.0	0.0	-0.5768589	-7.1833315	0.0950041	skin_keratinocyte_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Basal III (proliferating)	501.0	1000.0	0.45854145	-0.12454646	0.13286713	1.0173755	0.0	0.0	0.0	-0.78467286	-7.0177245	0.025948104	skin_keratinocyte_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Granular	712.0	1000.0	0.988012	-1.5728779	0.8901099	-1.1463951	0.0	0.0	0.0	-1.3080268	-9.258134	0.009831461	skin_keratinocyte_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Spinous I	2836.0	1000.0	0.45154846	0.24688262	0.7802198	-0.7112772	0.0	0.0	1.0	-0.99557215	-8.521022	0.043723553	skin_keratinocyte_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Spinous II	2731.0	1000.0	0.6973027	-0.4110343	0.83016986	-0.9347714	0.0	0.0	0.0	-0.9424091	-8.111247	0.03881362	skin_keratinocyte_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Stressed	168.0	1000.0	0.1928072	0.63274527	0.64235765	-0.19293728	0.0	0.0	0.0	-0.7632133	-7.6000533	0.05952381	skin_keratinocyte_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-skin epidermis	4322.0	1000.0	0.5424575	0.058293093	0.43656343	-0.029082427	0.0	0.0	1.0	-0.8649873	-7.796464	0.045349374	skin_keratinocyte_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	tissue	9
-skin of body	5149.0	1000.0	0.14685315	0.9226907	0.97402596	-1.5343015	0.0	0.0	0.0	-0.91274285	-8.292072	0.056904253	skin_keratinocyte_subclusters	PSD_Module_Mesenchymal_Wnt_Patterning	tissue	9
-Basal I	1302.0	1000.0	0.94905096	-1.4996989	0.37062937	0.36257777	0.0	0.0	0.0	-0.9016861	-7.543474	0.023041476	skin_keratinocyte_subclusters	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Basal II	1221.0	1000.0	0.9050949	-1.3031582	0.9220779	-1.445516	0.0	0.0	0.0	-0.8050285	-7.058368	0.03112203	skin_keratinocyte_subclusters	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Basal III (proliferating)	501.0	1000.0	0.103896104	1.5261132	0.42557442	0.13676947	0.0	0.0	0.0	-0.13737261	-4.4487996	0.10778443	skin_keratinocyte_subclusters	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Granular	712.0	1000.0	0.09190809	1.3682792	0.22577423	0.6647931	0.0	0.0	0.0	0.30419302	-2.4357445	0.119382024	skin_keratinocyte_subclusters	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Spinous I	2836.0	1000.0	0.7762238	-0.712161	0.018981019	2.0823724	0.0	0.0	0.0	-0.7119244	-6.7140565	0.037023976	skin_keratinocyte_subclusters	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Spinous II	2731.0	1000.0	0.8271728	-0.873569	0.04195804	1.7570388	0.0	0.0	0.0	-0.4903975	-5.287188	0.036616623	skin_keratinocyte_subclusters	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Stressed	168.0	1000.0	0.71828175	-0.6074175	0.68731266	-0.44324476	0.0	0.0	0.0	-0.5429692	-5.5845256	0.041666668	skin_keratinocyte_subclusters	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-skin epidermis	4322.0	1000.0	0.33766234	0.43920586	0.024975024	2.5023503	0.0	0.0	0.0	-0.3548397	-4.7565203	0.052290607	skin_keratinocyte_subclusters	PSD_Module_Follicular_Shaft_Eccrine	tissue	8
-skin of body	5149.0	1000.0	0.87112886	-1.0798695	0.006993007	2.872141	0.0	0.0	0.0	-0.76229715	-7.0428944	0.037483007	skin_keratinocyte_subclusters	PSD_Module_Follicular_Shaft_Eccrine	tissue	8
-Basal I	1302.0	1000.0	0.66333663	-0.39824867	0.92507493	-1.2786297	1.0	1.0	1.0	-2.1838279	-4.7115617	0.043778803	skin_keratinocyte_subclusters	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Basal II	1221.0	1000.0	0.6093906	-0.12425977	0.67432564	-0.40515974	0.0	0.0	0.0	-2.4119647	-5.150984	0.044226043	skin_keratinocyte_subclusters	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Basal III (proliferating)	501.0	1000.0	0.6793207	-0.4288126	0.22677323	0.7146112	0.0	0.0	0.0	-1.9452285	-4.0663705	0.033932135	skin_keratinocyte_subclusters	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Granular	712.0	1000.0	0.37962037	0.21234442	0.14685315	1.0371028	0.0	0.0	0.0	-1.2702653	-2.8675678	0.043539327	skin_keratinocyte_subclusters	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Spinous I	2836.0	1000.0	0.46153846	0.011141863	0.33866134	0.07015205	0.0	0.0	0.0	-2.0121515	-4.3361163	0.048307475	skin_keratinocyte_subclusters	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Spinous II	2731.0	1000.0	0.21878122	0.61521614	0.15484515	0.95680076	0.0	0.0	0.0	-1.10979	-2.4916854	0.053826436	skin_keratinocyte_subclusters	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Stressed	168.0	1000.0	0.4975025	-0.089163415	0.15984017	0.9717907	0.0	0.0	0.0	-1.8329455	-3.9251933	0.05357143	skin_keratinocyte_subclusters	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-skin epidermis	4322.0	1000.0	0.16683316	0.8854565	0.3126873	0.250895	1.0	1.0	1.0	-1.2727704	-2.8724253	0.06154558	skin_keratinocyte_subclusters	PSD_Module_Innate_Lectin_Trafficking	tissue	6
-skin of body	5149.0	1000.0	0.93606395	-1.3574044	0.64635366	-0.4594332	0.0	0.0	0.0	-2.1774442	-4.631888	0.036123518	skin_keratinocyte_subclusters	PSD_Module_Innate_Lectin_Trafficking	tissue	6
 Basal I	1302.0	1000.0	0.5714286	-0.21516487	0.002997003	2.500292	0.0	0.0	0.0	-0.67389476	-3.243301	0.043010753	skin_keratinocyte_subclusters	PSD_MVP_MultiAncestry_GWAS	author_cell_type	20
 Basal II	1221.0	1000.0	0.08991009	1.3528992	0.08391608	1.3081245	0.0	0.0	0.0	-0.34920686	-2.5354803	0.07371008	skin_keratinocyte_subclusters	PSD_MVP_MultiAncestry_GWAS	author_cell_type	20
 Basal III (proliferating)	501.0	1000.0	0.65134865	-0.49519822	0.39060938	0.19885844	0.0	0.0	0.0	-0.5694615	-2.2408147	0.037924152	skin_keratinocyte_subclusters	PSD_MVP_MultiAncestry_GWAS	author_cell_type	20

@@ -79,66 +79,6 @@ Undifferentiated keratinocytes II	588.0	1000.0	0.07192807	1.601225	0.5194805	-0.
 dermis	4016.0	1000.0	0.68731266	-0.46684632	0.24975026	0.5566943	0.0	0.0	0.0	-0.16182794	-0.33710307	0.03934263	skin_12datasets_integrated	PSD_Integrated_Top100	tissue	114
 skin epidermis	4729.0	1000.0	0.3226773	0.30958438	0.35164836	0.055297386	0.0	0.0	0.0	0.10645583	0.094035625	0.053922605	skin_12datasets_integrated	PSD_Integrated_Top100	tissue	114
 skin of body	6498.0	1000.0	0.4985015	-0.1519047	0.8021978	-0.7996503	0.0	0.0	0.0	-0.055908546	-0.11254251	0.046321943	skin_12datasets_integrated	PSD_Integrated_Top100	tissue	114
-endothelial cell	370.0	1000.0	0.67132866	-0.5587378	0.6573427	-0.38646883	0.0	0.0	0.0	-1.9996709	-7.768765	0.016216217	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	9
-keratinocyte	10126.0	1000.0	0.84215784	-0.8068222	0.5834166	-0.36353168	0.0	0.0	0.0	-2.0111759	-8.090993	0.038119692	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	9
-leukocyte	612.0	1000.0	0.8201798	-0.7246859	0.14385614	0.6905032	0.0	0.0	0.0	-2.2507563	-8.727475	0.024509804	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	9
-melanocyte	467.0	1000.0	0.84015983	-0.96289444	0.6413586	-0.36023885	0.0	0.0	0.0	-2.0141387	-7.9721704	0.021413276	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	9
-pericyte	623.0	1000.0	0.2027972	0.7874389	0.1008991	1.3181171	0.0	0.0	0.0	-0.9791984	-5.025018	0.07704655	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	9
-skin fibroblast	3045.0	1000.0	0.030969031	1.6803576	0.04895105	2.0559895	0.0	0.0	0.0	-0.796458	-4.5108905	0.08669951	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	cell_type	9
-Differentiated keratinocytes I	3100.0	1000.0	0.95004994	-1.4139963	0.6933067	-0.52240235	0.0	0.0	0.0	-2.051792	-8.125875	0.03	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Differentiated keratinocytes II	3010.0	1000.0	0.88011986	-0.93523216	0.74725276	-0.6201204	0.0	0.0	0.0	-2.151081	-8.539035	0.03820598	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Endothelial cells	370.0	1000.0	0.67132866	-0.5587378	0.6573427	-0.38646883	0.0	0.0	0.0	-1.9996709	-7.768765	0.016216217	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Fibroblasts I	2069.0	1000.0	0.01998002	1.7873263	0.02997003	2.019532	0.0	0.0	0.0	-0.84862435	-4.67895	0.08554857	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Fibroblasts II	976.0	1000.0	0.07092907	1.360633	0.06793207	1.8955288	0.0	0.0	0.0	-0.68587166	-4.1546254	0.08913934	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Immune	612.0	1000.0	0.8201798	-0.7246859	0.14385614	0.6905032	0.0	0.0	0.0	-2.2507563	-8.727475	0.024509804	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Melanocytes/melanocyte-like	467.0	1000.0	0.84015983	-0.96289444	0.6413586	-0.36023885	0.0	0.0	0.0	-2.0141387	-7.9721704	0.021413276	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Pericytes	623.0	1000.0	0.2027972	0.7874389	0.1008991	1.3181171	0.0	0.0	0.0	-0.9791984	-5.025018	0.07704655	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Terminally differentiated keratinocytes	848.0	1000.0	0.999001	-1.6723751	0.32467532	0.49079645	0.0	0.0	0.0	-2.3787832	-8.992814	0.014150944	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Undifferentiated keratinocytes I	2580.0	1000.0	0.34465533	0.1166056	0.4105894	0.08782721	0.0	0.0	0.0	-1.752932	-7.498511	0.055813953	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-Undifferentiated keratinocytes II	588.0	1000.0	0.7012987	-0.5994007	0.41858143	-0.01389975	0.0	0.0	0.0	-1.6838205	-6.9126315	0.037414964	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	author_cell_type	9
-dermis	4016.0	1000.0	0.03696304	1.3313427	0.06393606	1.7688617	0.0	0.0	0.0	-1.0206224	-5.1168036	0.0751992	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	tissue	9
-skin epidermis	4729.0	1000.0	0.95404595	-1.2309852	0.41958043	-0.06911356	0.0	0.0	0.0	-1.9876165	-7.8934813	0.024529498	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	tissue	9
-skin of body	6498.0	1000.0	0.64435565	-0.3598003	0.9300699	-1.2652587	0.0	0.0	0.0	-1.9944766	-8.134342	0.04786088	skin_12datasets_integrated	PSD_Module_Mesenchymal_Wnt_Patterning	tissue	9
-endothelial cell	370.0	1000.0	0.73426574	-0.69741964	0.5984016	-0.26083246	0.0	0.0	0.0	-2.044101	-7.6100245	0.02972973	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-keratinocyte	10126.0	1000.0	0.17382617	0.98295796	0.022977022	2.7916207	0.0	1.0	1.0	-1.4464693	-6.092674	0.061722297	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-leukocyte	612.0	1000.0	0.24975026	0.57043254	0.011988012	2.7041762	0.0	0.0	0.0	-2.0073383	-7.9262767	0.06535948	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-melanocyte	467.0	1000.0	0.65334666	-0.45940736	0.31568432	0.460194	0.0	0.0	0.0	-2.1825647	-8.164639	0.029978586	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-pericyte	623.0	1000.0	0.6253746	-0.40767515	0.43956044	0.15265504	0.0	0.0	0.0	-1.9634669	-7.621275	0.030497592	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-skin fibroblast	3045.0	1000.0	0.9060939	-1.1895112	0.4235764	0.1674761	0.0	0.0	0.0	-1.9730047	-7.551668	0.028243022	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	cell_type	8
-Differentiated keratinocytes I	3100.0	1000.0	0.3916084	0.27357194	0.021978023	2.2397933	0.0	0.0	0.0	-1.2843552	-5.418249	0.05419355	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Differentiated keratinocytes II	3010.0	1000.0	0.25674325	0.7228742	0.04795205	1.6913879	0.0	1.0	1.0	-1.7021029	-6.90577	0.055813953	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Endothelial cells	370.0	1000.0	0.73426574	-0.69741964	0.5984016	-0.26083246	0.0	0.0	0.0	-2.044101	-7.6100245	0.02972973	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Fibroblasts I	2069.0	1000.0	0.93606395	-1.5894039	0.055944055	1.4900739	0.0	0.0	0.0	-1.962791	-7.51322	0.026582891	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Fibroblasts II	976.0	1000.0	0.7152847	-0.57985365	0.996004	-2.33861	0.0	0.0	0.0	-1.9946564	-7.633175	0.031762294	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Immune	612.0	1000.0	0.24975026	0.57043254	0.011988012	2.7041762	0.0	0.0	0.0	-2.0073383	-7.9262767	0.06535948	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Melanocytes/melanocyte-like	467.0	1000.0	0.65334666	-0.45940736	0.31568432	0.460194	0.0	0.0	0.0	-2.1825647	-8.164639	0.029978586	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Pericytes	623.0	1000.0	0.6253746	-0.40767515	0.43956044	0.15265504	0.0	0.0	0.0	-1.9634669	-7.621275	0.030497592	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Terminally differentiated keratinocytes	848.0	1000.0	0.08091908	1.4666181	0.08191808	1.5462769	0.0	0.0	0.0	-0.29998007	-2.8595111	0.1120283	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Undifferentiated keratinocytes I	2580.0	1000.0	0.7212787	-0.61450267	0.7102897	-0.558664	0.0	0.0	0.0	-1.8659946	-7.308224	0.040310077	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-Undifferentiated keratinocytes II	588.0	1000.0	0.024975024	3.0909257	0.05894106	1.6213652	0.0	0.0	0.0	-0.80521816	-4.8152895	0.15306123	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	author_cell_type	8
-dermis	4016.0	1000.0	0.93206793	-1.48369	0.23176824	0.62917733	0.0	0.0	0.0	-1.9824103	-7.599771	0.03237052	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	tissue	8
-skin epidermis	4729.0	1000.0	0.15284716	1.0649747	0.016983017	2.8684483	0.0	0.0	0.0	-1.0900744	-4.9308443	0.068090506	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	tissue	8
-skin of body	6498.0	1000.0	0.30669332	0.44535258	0.06393606	1.6743559	0.0	1.0	1.0	-1.8106698	-7.245019	0.05278547	skin_12datasets_integrated	PSD_Module_Follicular_Shaft_Eccrine	tissue	8
-endothelial cell	370.0	1000.0	0.56343657	-0.105131045	0.41758242	0.2610918	0.0	0.0	0.0	-1.1797353	-5.9857783	0.05135135	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	cell_type	6
-keratinocyte	10126.0	1000.0	0.6363636	-0.30372173	0.43056944	-0.008058138	0.0	0.0	0.0	-0.7896655	-4.0637493	0.04187241	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	cell_type	6
-leukocyte	612.0	1000.0	0.64235765	-0.10407489	0.85114884	-0.9280064	0.0	0.0	0.0	-1.4797019	-7.127372	0.034313727	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	cell_type	6
-melanocyte	467.0	1000.0	0.23476523	0.5454714	0.7582418	-0.69635266	0.0	0.0	0.0	-0.6828044	-4.860015	0.085653104	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	cell_type	6
-pericyte	623.0	1000.0	0.7012987	-0.20406233	0.75224775	-0.70744944	0.0	0.0	0.0	-1.4574397	-6.891784	0.030497592	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	cell_type	6
-skin fibroblast	3045.0	1000.0	0.3106893	0.4106603	0.07292707	1.4656519	0.0	0.0	0.0	-0.8108315	-4.8924465	0.0499179	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	cell_type	6
-Differentiated keratinocytes I	3100.0	1000.0	0.3856144	0.32870924	0.2927073	0.5277986	0.0	0.0	0.0	-0.4609138	-2.748552	0.052903228	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Differentiated keratinocytes II	3010.0	1000.0	0.58641356	-0.20755598	0.3946054	0.20159198	0.0	0.0	0.0	-0.9861739	-4.860994	0.039202657	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Endothelial cells	370.0	1000.0	0.56343657	-0.105131045	0.41758242	0.2610918	0.0	0.0	0.0	-1.1797353	-5.9857783	0.05135135	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Fibroblasts I	2069.0	1000.0	0.38261738	0.28816608	0.13886113	1.0742571	0.0	0.0	0.0	-0.90092367	-5.179569	0.04688255	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Fibroblasts II	976.0	1000.0	0.24675325	0.543846	0.027972028	1.9840487	0.0	0.0	0.0	-0.6198471	-4.2837834	0.05635246	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Immune	612.0	1000.0	0.64235765	-0.10407489	0.85114884	-0.9280064	0.0	0.0	0.0	-1.4797019	-7.127372	0.034313727	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Melanocytes/melanocyte-like	467.0	1000.0	0.23476523	0.5454714	0.7582418	-0.69635266	0.0	0.0	0.0	-0.6828044	-4.860015	0.085653104	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Pericytes	623.0	1000.0	0.7012987	-0.20406233	0.75224775	-0.70744944	0.0	0.0	0.0	-1.4574397	-6.891784	0.030497592	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Terminally differentiated keratinocytes	848.0	1000.0	0.30869132	0.42558023	0.3996004	0.19736034	0.0	0.0	0.0	-0.4125706	-2.868446	0.0495283	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Undifferentiated keratinocytes I	2580.0	1000.0	0.64735264	-0.49928686	0.8111888	-0.9079272	0.0	0.0	0.0	-1.0353235	-5.039299	0.033333335	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-Undifferentiated keratinocytes II	588.0	1000.0	0.87112886	-0.97091573	0.40859142	0.10488802	0.0	0.0	0.0	-0.9828952	-4.359849	0.023809524	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	author_cell_type	6
-dermis	4016.0	1000.0	0.31868133	0.44056466	0.15684316	0.89274263	0.0	0.0	0.0	-0.933934	-5.354875	0.052788846	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	tissue	6
-skin epidermis	4729.0	1000.0	0.3036963	0.5027149	0.4985015	-0.12920421	0.0	0.0	0.0	-0.5595004	-3.2097945	0.056883063	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	tissue	6
-skin of body	6498.0	1000.0	0.8181818	-0.9310974	0.7002997	-0.6106226	0.0	0.0	0.0	-1.0214702	-5.0019436	0.02985534	skin_12datasets_integrated	PSD_Module_Innate_Lectin_Trafficking	tissue	6
 endothelial cell	370.0	1000.0	0.34065935	0.22140038	0.31868133	0.46569705	0.0	0.0	0.0	-0.7029113	-4.0325456	0.06486487	skin_12datasets_integrated	PSD_MVP_MultiAncestry_GWAS	cell_type	20
 keratinocyte	10126.0	1000.0	0.9170829	-1.373377	0.114885114	1.2512925	0.0	0.0	0.0	-0.5464611	-2.6979141	0.036440846	skin_12datasets_integrated	PSD_MVP_MultiAncestry_GWAS	cell_type	20
 leukocyte	612.0	1000.0	0.7092907	-0.70737875	0.4775225	-0.15823476	0.0	0.0	0.0	-1.1231174	-5.4969587	0.017973857	skin_12datasets_integrated	PSD_MVP_MultiAncestry_GWAS	cell_type	20

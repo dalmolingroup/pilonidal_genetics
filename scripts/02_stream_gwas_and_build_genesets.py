@@ -164,20 +164,6 @@ def build_scdrs_genesets():
         combined[sym] = max(combined.get(sym, 0.0), z)
     traits["PSD_Integrated_Top100"] = combined
 
-    # Set D: Mechanistic Pathway Modules for Sub-Compartment Dissection
-    traits["PSD_Module_Mesenchymal_Wnt_Patterning"] = {
-        "TWIST1": 6.2, "HDAC9": 6.0, "DKK1": 5.8, "TBX15": 5.9, "WARS2": 5.7,
-        "PDGFA": 5.2, "WNT9A": 4.12, "FERD3L": 4.6, "PRKAR1B": 5.5
-    }
-    traits["PSD_Module_Follicular_Shaft_Eccrine"] = {
-        "TCHH": 5.6, "NEK9": 5.8, "PADI3": 3.8, "TGM3": 3.8, "CHRM3": 5.1,
-        "TTK": 4.8, "EIF2B2": 5.3, "GPATCH2L": 5.3
-    }
-    traits["PSD_Module_Innate_Lectin_Trafficking"] = {
-        "MBL2": 4.9, "RNFT2": 5.4, "TMED10": 5.0, "MON1B": 4.41,
-        "IFNA6": 4.32, "MCEMP1": 3.90
-    }
-
     gs_path = DATA_DIR / "psd_scdrs_genesets.gs"
     with open(gs_path, "w") as f:
         f.write("TRAIT\tGENESET\n")
