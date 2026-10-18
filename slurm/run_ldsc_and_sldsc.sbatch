@@ -20,7 +20,7 @@ export MKL_NUM_THREADS=${SLURM_CPUS_PER_TASK:-16}
 echo "=== Starting PSD Univariate LDSC, Bivariate rg, and Stratified LDSC (LDSC-SEG) on $(hostname) ==="
 date
 
-/scratch/global/$USER/pilonidal_genetics/.conda_env/bin/python scripts/10_ldsc_heritability_and_celltype_partitioning.py
+/opt/npad/shared/conda/forge2023/bin/python3 scripts/10_ldsc_heritability_and_celltype_partitioning.py
 
 echo "=== Completed PSD LDSC & S-LDSC ==="
 date

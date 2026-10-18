@@ -33,8 +33,6 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from scipy.stats import norm
-import anndata as ad
-import scipy.sparse as sp
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -419,6 +417,8 @@ def step4_build_ldsc_seg_celltype_genesets() -> dict[str, dict[str, set[str]]]:
 
         if not h5_path.exists():
             continue
+        import anndata as ad
+        import scipy.sparse as sp
         print(f"  Computing genome-wide cell-type t-statistics for {atlas_name}...", flush=True)
         adata = ad.read_h5ad(h5_path)
         if "feature_name" in adata.var.columns:
