@@ -50,29 +50,17 @@ for d in [LDSC_REF_DIR, SUMSTATS_CACHE_DIR, SEG_CACHE_DIR, RESULTS_DIR, FIG_DIR]
 MIRROR_BASE = "https://ibg.colorado.edu/cdrom2021/Day06-nivard/GenomicSEM_practical/eur_w_ld_chr"
 
 GWAS_COHORTS = {
-    "MVP_MultiAncestry_GCST90480439": {
-        "url": "https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST90480001-GCST90481000/GCST90480439/GCST90480439.tsv.gz",
-        "n_total": 631150,
-        "n_cases": 2073,
-        "ancestry": "Multi-Ancestry (EUR+AFR+AMR)",
-    },
     "MVP_EUR_GCST90478766": {
         "url": "https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST90478001-GCST90479000/GCST90478766/GCST90478766.tsv.gz",
         "n_total": 449042,
         "n_cases": 1685,
         "ancestry": "European (MVP)",
     },
-    "UKB_EUR_GCST90473908": {
-        "url": "https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST90473001-GCST90474000/GCST90473908/GCST90473908.tsv.gz",
-        "n_total": 420531,
-        "n_cases": 1455,
-        "ancestry": "European (UK Biobank)",
-    },
-    "GenesAndHealth_SAS_GCST90727025": {
-        "url": "https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST90727001-GCST90728000/GCST90727025/GCST90727025.h.tsv.gz",
-        "n_total": 51118,
-        "n_cases": 491,
-        "ancestry": "South Asian (Genes & Health)",
+    "MVP_MultiAncestry_GCST90480439": {
+        "url": "https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST90480001-GCST90481000/GCST90480439/GCST90480439.tsv.gz",
+        "n_total": 631150,
+        "n_cases": 2073,
+        "ancestry": "Multi-Ancestry (EUR+AFR+AMR)",
     },
 }
 
@@ -609,24 +597,8 @@ def step5_run_stratified_ldsc_seg(
 
     cohort_targets = [
         ("MVP_MultiAncestry_GCST90480439", munged_dict["MVP_MultiAncestry_GCST90480439"]),
-        ("UKB_EUR_GCST90473908", munged_dict["UKB_EUR_GCST90473908"]),
         ("MVP_EUR_GCST90478766", munged_dict["MVP_EUR_GCST90478766"]),
     ]
-
-    # Also build Combined EUR+Multi-Ancestry Meta-GWAS HapMap3 table (MVP Multi-Ancestry + UKB EUR + SAS)
-    m_mvp = munged_dict["MVP_MultiAncestry_GCST90480439"].rename(columns={"Z": "Z_mvp", "N": "N_mvp"})
-    m_ukb = munged_dict["UKB_EUR_GCST90473908"].rename(columns={"Z": "Z_ukb", "N": "N_ukb"})
-    m_sas = munged_dict["GenesAndHealth_SAS_GCST90727025"].rename(columns={"Z": "Z_sas", "N": "N_sas"})
-    comb = pd.merge(m_mvp, m_ukb, on="SNP", how="inner")
-    comb = pd.merge(comb, m_sas, on="SNP", how="left")
-    comb["Z_sas"] = comb["Z_sas"].fillna(0.0)
-    comb["N_sas"] = comb["N_sas"].fillna(0.0)
-    w_mvp = np.sqrt(comb["N_mvp"].values)
-    w_ukb = np.sqrt(comb["N_ukb"].values)
-    w_sas = np.sqrt(comb["N_sas"].values)
-    comb["Z"] = (w_mvp * comb["Z_mvp"] + w_ukb * comb["Z_ukb"] + w_sas * comb["Z_sas"]) / np.sqrt(w_mvp**2 + w_ukb**2 + w_sas**2)
-    comb["N"] = (comb["N_mvp"] + comb["N_ukb"] + comb["N_sas"]).astype(int)
-    cohort_targets.insert(0, ("Combined_MetaGWAS_MVP_UKB_SAS", comb[["SNP", "Z", "N"]]))
 
     all_sldsc_rows = []
     for cohort_name, df_sum in cohort_targets:
@@ -738,7 +710,7 @@ def plot_ldsc_and_sldsc(df_h2: pd.DataFrame, df_sldsc: pd.DataFrame):
     # Panel B: Top S-LDSC enriched cell types in Combined Meta-GWAS across Tabula Sapiens Skin & Fibroblast Subclusters
     ax2 = axes[1]
     sub_s = df_sldsc[
-        (df_sldsc["gwas_cohort"] == "Combined_MetaGWAS_MVP_UKB_SAS")
+        (df_sldsc["gwas_cohort"] == "MVP_MultiAncestry_GCST90480439")
         & (df_sldsc["atlas"].isin(["tabula_sapiens_skin", "skin_fibroblast_subclusters", "skin_12datasets_integrated"]))
     ].sort_values("tau_zscore", ascending=False).head(15)
 
@@ -767,26 +739,9 @@ def main():
     munged_dict = step2_stream_and_mung_sumstats(df_ref)
 
     print("\n[3/5] Running Univariate LDSC (h2_obs, h2_liab, intercept) & Bivariate Cross-Cohort rg...", flush=True)
-    # Also create the Meta-GWAS HapMap3 table (MVP Multi-Ancestry + UKB EUR + SAS)
-    m_mvp = munged_dict["MVP_MultiAncestry_GCST90480439"].rename(columns={"Z": "Z_mvp", "N": "N_mvp"})
-    m_ukb = munged_dict["UKB_EUR_GCST90473908"].rename(columns={"Z": "Z_ukb", "N": "N_ukb"})
-    m_sas = munged_dict["GenesAndHealth_SAS_GCST90727025"].rename(columns={"Z": "Z_sas", "N": "N_sas"})
-    comb = pd.merge(m_mvp, m_ukb, on="SNP", how="inner")
-    comb = pd.merge(comb, m_sas, on="SNP", how="left")
-    comb["Z_sas"] = comb["Z_sas"].fillna(0.0)
-    comb["N_sas"] = comb["N_sas"].fillna(0.0)
-    w_mvp = np.sqrt(comb["N_mvp"].values)
-    w_ukb = np.sqrt(comb["N_ukb"].values)
-    w_sas = np.sqrt(comb["N_sas"].values)
-    comb["Z"] = (w_mvp * comb["Z_mvp"] + w_ukb * comb["Z_ukb"] + w_sas * comb["Z_sas"]) / np.sqrt(w_mvp**2 + w_ukb**2 + w_sas**2)
-    comb["N"] = (comb["N_mvp"] + comb["N_ukb"] + comb["N_sas"]).astype(int)
-
     all_cohorts_for_h2 = [
-        ("Combined_MetaGWAS_MVP_UKB_SAS", "Combined Meta-GWAS (MVP+UKB+G&H)", comb[["SNP", "Z", "N"]], 2073 + 1455 + 491, 631150 + 420531 + 51118),
         ("MVP_MultiAncestry_GCST90480439", "MVP Multi-Ancestry (EUR+AFR+AMR)", munged_dict["MVP_MultiAncestry_GCST90480439"], 2073, 631150),
         ("MVP_EUR_GCST90478766", "MVP European", munged_dict["MVP_EUR_GCST90478766"], 1685, 449042),
-        ("UKB_EUR_GCST90473908", "UK Biobank European", munged_dict["UKB_EUR_GCST90473908"], 1455, 420531),
-        ("GenesAndHealth_SAS_GCST90727025", "Genes & Health South Asian", munged_dict["GenesAndHealth_SAS_GCST90727025"], 491, 51118),
     ]
 
     h2_rows = []
@@ -809,10 +764,7 @@ def main():
 
     # Bivariate rg between cohorts
     rg_pairs = [
-        ("MVP_EUR_GCST90478766", "UKB_EUR_GCST90473908"),
-        ("MVP_MultiAncestry_GCST90480439", "UKB_EUR_GCST90473908"),
-        ("MVP_MultiAncestry_GCST90480439", "GenesAndHealth_SAS_GCST90727025"),
-        ("UKB_EUR_GCST90473908", "GenesAndHealth_SAS_GCST90727025"),
+        ("MVP_EUR_GCST90478766", "MVP_MultiAncestry_GCST90480439"),
     ]
     rg_rows = []
     for c1, c2 in rg_pairs:
