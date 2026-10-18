@@ -116,114 +116,126 @@ def step1_fetch_ldsc_reference() -> tuple[pd.DataFrame, float]:
 
 
 def step2_stream_and_mung_sumstats(df_ref: pd.DataFrame) -> dict[str, pd.DataFrame]:
-    """Stream each GWAS summary statistics file and extract/mung HapMap3 SNPs."""
-    print("\n[2/5] Extracting & munging HapMap3 SNPs across PSD GWAS cohorts...", flush=True)
+    """Stream each GWAS summary statistics file in parallel using C-level curl | gzip -dc | awk pre-filtering."""
+    import subprocess
+    from concurrent.futures import ThreadPoolExecutor
+
+    print("\n[2/5] Extracting & munging HapMap3 SNPs across PSD GWAS cohorts (4-way parallel C-stream)...", flush=True)
     hm3_snps = set(df_ref["SNP"].values)
-    # Also build GRCh38/GRCh37 coordinate fallback lookup if rsid is missing in any file
     ref_alleles = df_ref.set_index("SNP")[["A1", "A2"]].to_dict("index")
     COMP = {"A": "T", "T": "A", "C": "G", "G": "C"}
+    hm3_file = LDSC_REF_DIR / "w_hm3.snplist"
 
-    munged_dict = {}
-    for cohort, meta in GWAS_COHORTS.items():
+    def process_one_cohort(cohort_and_meta):
+        cohort, meta = cohort_and_meta
         cache_f = SUMSTATS_CACHE_DIR / f"{cohort}_hm3.tsv.gz"
         if cache_f.exists() and cache_f.stat().st_size > 10000:
             df_m = pd.read_csv(cache_f, sep="\t")
             print(f"  Loaded cached {cohort}: {len(df_m):,} HapMap3 SNPs", flush=True)
-            munged_dict[cohort] = df_m
-            continue
+            return cohort, df_m
 
-        print(f"  Streaming {cohort} from EBI GWAS Catalog...", flush=True)
-        req = urllib.request.Request(meta["url"], headers={"User-Agent": "Mozilla/5.0"})
+        print(f"  Streaming {cohort} from EBI GWAS Catalog (C-level curl|gzip|awk)...", flush=True)
+        # Pre-filter in C (awk) against w_hm3.snplist so Python only sees ~1.18M lines instead of 40M lines
+        awk_cmd = (
+            f"curl -sL '{meta['url']}' | gzip -dc | "
+            f"awk -F'\\t' 'NR==FNR {{if(FNR>1) hm[$1]=1; next}} "
+            f"FNR==1 {{for(i=1;i<=NF;i++) if($i==\"rsid\" || $i==\"hm_rsid\" || $i==\"variant_id\") c=i; print $0; next}} "
+            f"c>0 && ($c in hm) {{print $0}}' '{hm3_file}' -"
+        )
+        proc = subprocess.Popen(["bash", "-c", awk_cmd], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True, bufsize=1024 * 1024)
+        assert proc.stdout is not None
+        header_line = proc.stdout.readline()
+        if not header_line:
+            raise RuntimeError(f"Empty stream for {cohort}")
+        header = header_line.rstrip("\n").split("\t")
+        col = {c: i for i, c in enumerate(header)}
+        idx_rsid = col.get("rsid", col.get("hm_rsid", col.get("variant_id", -1)))
+        idx_a1 = col.get("effect_allele", col.get("hm_effect_allele", -1))
+        idx_a2 = col.get("other_allele", col.get("hm_other_allele", -1))
+        idx_p = col.get("p_value", -1)
+        idx_beta = col.get("beta", col.get("hm_beta", -1))
+        idx_or = col.get("odds_ratio", col.get("hm_odds_ratio", -1))
+        idx_eaf = col.get("effect_allele_frequency", col.get("hm_effect_allele_frequency", -1))
+        idx_n = col.get("n", -1)
+
         rows = []
-        with urllib.request.urlopen(req, timeout=120) as resp:
-            with gzip.GzipFile(fileobj=resp) as gz:
-                header = gz.readline().decode("utf-8").strip().split("\t")
-                col = {c: i for i, c in enumerate(header)}
-                idx_rsid = col.get("rsid", col.get("hm_rsid", col.get("variant_id", -1)))
-                idx_a1 = col.get("effect_allele", col.get("hm_effect_allele", -1))
-                idx_a2 = col.get("other_allele", col.get("hm_other_allele", -1))
-                idx_p = col.get("p_value", -1)
-                idx_beta = col.get("beta", col.get("hm_beta", -1))
-                idx_or = col.get("odds_ratio", col.get("hm_odds_ratio", -1))
-                idx_se = col.get("standard_error", -1)
-                idx_eaf = col.get("effect_allele_frequency", col.get("hm_effect_allele_frequency", -1))
-                idx_n = col.get("n", -1)
+        for raw_line in proc.stdout:
+            parts = raw_line.rstrip("\n").split("\t")
+            if len(parts) <= max(idx_rsid, idx_p):
+                continue
+            rsid = parts[idx_rsid]
+            if rsid not in hm3_snps:
+                continue
+            try:
+                pval = float(parts[idx_p])
+                if pval <= 0.0 or pval >= 1.0 or math.isnan(pval):
+                    continue
+            except ValueError:
+                continue
 
-                for line_num, raw_line in enumerate(gz, 1):
-                    parts = raw_line.decode("utf-8", errors="ignore").rstrip("\n").split("\t")
-                    if len(parts) <= max(idx_rsid, idx_p):
+            if idx_eaf >= 0 and idx_eaf < len(parts):
+                try:
+                    eaf = float(parts[idx_eaf])
+                    if eaf < 0.01 or eaf > 0.99:
                         continue
-                    rsid = parts[idx_rsid]
-                    if rsid not in hm3_snps:
-                        continue
-                    try:
-                        pval = float(parts[idx_p])
-                        if pval <= 0.0 or pval >= 1.0 or math.isnan(pval):
-                            continue
-                    except ValueError:
-                        continue
+                except ValueError:
+                    pass
 
-                    # Filter MAF >= 0.01 if EAF is available
-                    if idx_eaf >= 0 and idx_eaf < len(parts):
-                        try:
-                            eaf = float(parts[idx_eaf])
-                            if eaf < 0.01 or eaf > 0.99:
-                                continue
-                        except ValueError:
-                            pass
+            a1 = parts[idx_a1].upper() if idx_a1 >= 0 else ""
+            a2 = parts[idx_a2].upper() if idx_a2 >= 0 else ""
+            ref_a = ref_alleles.get(rsid)
+            if not ref_a:
+                continue
+            ra1, ra2 = ref_a["A1"], ref_a["A2"]
 
-                    a1 = parts[idx_a1].upper() if idx_a1 >= 0 else ""
-                    a2 = parts[idx_a2].upper() if idx_a2 >= 0 else ""
-                    ref_a = ref_alleles.get(rsid)
-                    if not ref_a:
-                        continue
-                    ra1, ra2 = ref_a["A1"], ref_a["A2"]
+            sign = 0.0
+            if (a1 == ra1 and a2 == ra2) or (COMP.get(a1) == ra1 and COMP.get(a2) == ra2):
+                sign = 1.0
+            elif (a1 == ra2 and a2 == ra1) or (COMP.get(a1) == ra2 and COMP.get(a2) == ra1):
+                sign = -1.0
+            else:
+                continue
 
-                    # Determine sign relative to reference A1
-                    sign = 0.0
-                    if (a1 == ra1 and a2 == ra2) or (COMP.get(a1) == ra1 and COMP.get(a2) == ra2):
-                        sign = 1.0
-                    elif (a1 == ra2 and a2 == ra1) or (COMP.get(a1) == ra2 and COMP.get(a2) == ra1):
-                        sign = -1.0
-                    else:
-                        continue
+            eff_sign = 1.0
+            if idx_beta >= 0 and idx_beta < len(parts) and parts[idx_beta] not in ("", "NA", "nan"):
+                try:
+                    b = float(parts[idx_beta])
+                    eff_sign = 1.0 if b >= 0 else -1.0
+                except ValueError:
+                    pass
+            elif idx_or >= 0 and idx_or < len(parts) and parts[idx_or] not in ("", "NA", "nan"):
+                try:
+                    or_val = float(parts[idx_or])
+                    eff_sign = 1.0 if or_val >= 1.0 else -1.0
+                except ValueError:
+                    pass
 
-                    # Determine effect direction from beta or odds_ratio
-                    eff_sign = 1.0
-                    if idx_beta >= 0 and idx_beta < len(parts) and parts[idx_beta] not in ("", "NA", "nan"):
-                        try:
-                            b = float(parts[idx_beta])
-                            eff_sign = 1.0 if b >= 0 else -1.0
-                        except ValueError:
-                            pass
-                    elif idx_or >= 0 and idx_or < len(parts) and parts[idx_or] not in ("", "NA", "nan"):
-                        try:
-                            or_val = float(parts[idx_or])
-                            eff_sign = 1.0 if or_val >= 1.0 else -1.0
-                        except ValueError:
-                            pass
+            z_abs = -norm.ppf(max(pval, 1e-300) / 2.0)
+            z_signed = z_abs * eff_sign * sign
+            if abs(z_signed) > 37.0 or z_signed * z_signed > 80.0:
+                continue
 
-                    z_abs = -norm.ppf(max(pval, 1e-300) / 2.0)
-                    z_signed = z_abs * eff_sign * sign
-                    if abs(z_signed) > 37.0 or z_signed * z_signed > 80.0:
-                        # Standard LDSC outlier filter: chi2 > 80 excluded
-                        continue
+            n_val = meta["n_total"]
+            if idx_n >= 0 and idx_n < len(parts):
+                try:
+                    n_parsed = float(parts[idx_n])
+                    if n_parsed > 1000:
+                        n_val = int(n_parsed)
+                except ValueError:
+                    pass
 
-                    n_val = meta["n_total"]
-                    if idx_n >= 0 and idx_n < len(parts):
-                        try:
-                            n_parsed = float(parts[idx_n])
-                            if n_parsed > 1000:
-                                n_val = int(n_parsed)
-                        except ValueError:
-                            pass
+            rows.append((rsid, round(z_signed, 5), n_val))
 
-                    rows.append((rsid, round(z_signed, 5), n_val))
-
+        proc.wait()
         df_m = pd.DataFrame(rows, columns=["SNP", "Z", "N"]).drop_duplicates(subset=["SNP"])
         df_m.to_csv(cache_f, sep="\t", index=False, compression="gzip")
         print(f"  Saved {cohort}: {len(df_m):,} QC-passed HapMap3 SNPs -> {cache_f}", flush=True)
-        munged_dict[cohort] = df_m
+        return cohort, df_m
+
+    munged_dict = {}
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        for cohort, df_m in pool.map(process_one_cohort, list(GWAS_COHORTS.items())):
+            munged_dict[cohort] = df_m
 
     return munged_dict
 
