@@ -1,0 +1,14 @@
+/*-- scss:defaults --*/
+$presentation-heading-color: #1f4e79;
+$link-color: #1f4e79;
+$presentation-font-size-root: 34px;
+
+/*-- scss:rules --*/
+.reveal table { font-size: 0.72em; }
+.reveal .smaller table { font-size: 0.85em; }
+.reveal h2 { font-size: 1.45em; }
+.reveal h3 { font-size: 1.0em; color: #d9822b; }
+.reveal .callout { font-size: 0.8em; }
+#refs { font-size: 0.43em; column-count: 3; column-gap: 1.5em; }
+#refs .csl-entry { break-inside: avoid; margin-bottom: 0.35em; }
+.reveal .cell-output-display svg, .reveal pre.mermaid svg { width: 100% !important; max-width: 100% !important; height: auto !important; }
