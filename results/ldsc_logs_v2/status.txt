@@ -1,0 +1,31 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+2214846 psd_magma_scdrs RUNNING 21:44
+--- ldsc out
+  BMI_Pulit2019: 1,192,822 HM3 SNPs -> /mnt/beegfs/scratch/jvfcavalcante/pilonidal_genetics/data/processed/ldsc_in/BMI_Pulit2019.tsv
+LDSC_INPUTS_DONE
+munged: 15
+LDSC_RG_DONE
+=== ldsc finished dom out 18 13:12:10 -03 2026 ===
+--- ldsc err
+--- munge failures
+--- magma out
+scdrs env ok
+-rw-r--r-- 1 jvfcavalcante rjsdalmolin 51162118 out 18 13:01 data/processed/ldsc_in/BMI_Pulit2019.tsv
+-rw-r--r-- 1 jvfcavalcante rjsdalmolin 50880560 out 18 13:01 data/processed/ldsc_in/WHRadjBMI_Pulit2019.tsv
+total 4027781
+drwxr-xr-x 2 jvfcavalcante rjsdalmolin         11 out 18 13:07 .
+drwxr-xr-x 5 jvfcavalcante rjsdalmolin          3 out 18 13:04 ..
+-rw------- 1 jvfcavalcante rjsdalmolin       6842 jan 10  2022 CHANGELOG
+-rw------- 1 jvfcavalcante rjsdalmolin 2855798067 mar 29  2018 g1000_eur.bed
+-rw------- 1 jvfcavalcante rjsdalmolin  658724714 mar 29  2018 g1000_eur.bim
+-rw------- 1 jvfcavalcante rjsdalmolin      12575 mar 29  2018 g1000_eur.fam
+-rw------- 1 jvfcavalcante rjsdalmolin   86161259 set 17  2018 g1000_eur.synonyms
+-rw-r--r-- 1 jvfcavalcante rjsdalmolin  511626945 out 18 13:07 g1000_eur.zip
+-rw-r--r-- 1 jvfcavalcante rjsdalmolin     355626 out 18 13:07 geneloc37.zip
+MAGMA version: v1.10 (linux/s)
+MAGMA inputs written
+--- magma err
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: /mnt/beegfs/scratch/jvfcavalcante/envs/scdrs/bin/python3 -m pip install --upgrade pip
