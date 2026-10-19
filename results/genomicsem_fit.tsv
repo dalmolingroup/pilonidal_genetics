@@ -1,0 +1,5 @@
+chisq	df	p_chisq	AIC	CFI	SRMR	model
+111.57126044512	2	5.9239123603145e-25	127.57126044512	0.607670663035542	0.243004968657134	M1_common_factor_4
+	0					M1b_common_factor_3
+	0					M2a_PSD_on_HS_BMI
+	0					M2b_PSD_on_all
