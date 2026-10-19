@@ -1,0 +1,43 @@
+group_level	n_cell	n_ctrl	assoc_mcp	assoc_mcz	hetero_mcp	hetero_mcz	n_fdr_0.05	n_fdr_0.1	n_fdr_0.2	atlas	trait	group_col	n_genes_matched
+Fibroblast I	894.0	1000.0	0.48051947	0.0046862196	0.9080919	-1.2666929	0.0	0.0	0.0	skin_fibroblast_subclusters	ACNE_GCST90245818	author_cell_type	894
+Fibroblast II	794.0	1000.0	0.4135864	0.17685638	0.9220779	-1.3710276	0.0	0.0	0.0	skin_fibroblast_subclusters	ACNE_GCST90245818	author_cell_type	894
+Fibroblast III	388.0	1000.0	0.4115884	0.20844357	0.96503496	-1.6841594	0.0	0.0	0.0	skin_fibroblast_subclusters	ACNE_GCST90245818	author_cell_type	894
+Fibroblast IV	227.0	1000.0	0.06593407	1.5182025	0.11388611	1.2445599	1.0	1.0	1.0	skin_fibroblast_subclusters	ACNE_GCST90245818	author_cell_type	894
+dermis	1730.0	1000.0	0.36663336	0.27923813	0.92007995	-1.3205013	1.0	1.0	1.0	skin_fibroblast_subclusters	ACNE_GCST90245818	tissue	894
+skin of body	573.0	1000.0	0.45254746	0.09904947	0.5584416	-0.17531084	0.0	0.0	0.0	skin_fibroblast_subclusters	ACNE_GCST90245818	tissue	894
+Fibroblast I	894.0	1000.0	0.2977023	0.4653137	0.8701299	-1.0714092	0.0	0.0	0.0	skin_fibroblast_subclusters	BMI_Pulit2019	author_cell_type	924
+Fibroblast II	794.0	1000.0	0.01998002	2.1077032	0.023976024	2.0338976	0.0	0.0	1.0	skin_fibroblast_subclusters	BMI_Pulit2019	author_cell_type	924
+Fibroblast III	388.0	1000.0	0.07192807	1.5112157	0.00999001	2.6414416	0.0	0.0	0.0	skin_fibroblast_subclusters	BMI_Pulit2019	author_cell_type	924
+Fibroblast IV	227.0	1000.0	0.5744256	-0.2532913	0.1928072	0.7758926	0.0	0.0	0.0	skin_fibroblast_subclusters	BMI_Pulit2019	author_cell_type	924
+dermis	1730.0	1000.0	0.002997003	3.2246048	0.003996004	3.0453548	0.0	0.0	1.0	skin_fibroblast_subclusters	BMI_Pulit2019	tissue	924
+skin of body	573.0	1000.0	0.73226774	-0.6653453	0.986014	-2.205763	0.0	0.0	0.0	skin_fibroblast_subclusters	BMI_Pulit2019	tissue	924
+Fibroblast I	894.0	1000.0	0.8341658	-0.9678026	0.032967035	1.8922262	0.0	0.0	0.0	skin_fibroblast_subclusters	HS_GCST90726609	author_cell_type	916
+Fibroblast II	794.0	1000.0	0.86013985	-1.0938599	0.001998002	4.2874155	0.0	0.0	0.0	skin_fibroblast_subclusters	HS_GCST90726609	author_cell_type	916
+Fibroblast III	388.0	1000.0	0.010989011	2.373881	0.062937066	1.6272588	0.0	0.0	0.0	skin_fibroblast_subclusters	HS_GCST90726609	author_cell_type	916
+Fibroblast IV	227.0	1000.0	0.07092907	1.5236434	0.34465533	0.37456632	0.0	0.0	0.0	skin_fibroblast_subclusters	HS_GCST90726609	author_cell_type	916
+dermis	1730.0	1000.0	0.5034965	-0.019574884	0.005994006	3.7009087	0.0	0.0	0.0	skin_fibroblast_subclusters	HS_GCST90726609	tissue	916
+skin of body	573.0	1000.0	0.5244755	-0.036072012	0.054945055	1.7061931	0.0	0.0	0.0	skin_fibroblast_subclusters	HS_GCST90726609	tissue	916
+Fibroblast I	894.0	1000.0	0.10689311	1.3107562	0.000999001	5.715756	0.0	0.0	2.0	skin_fibroblast_subclusters	MPB_GCST90043616	author_cell_type	924
+Fibroblast II	794.0	1000.0	0.023976024	1.9839876	0.000999001	4.3341165	0.0	0.0	3.0	skin_fibroblast_subclusters	MPB_GCST90043616	author_cell_type	924
+Fibroblast III	388.0	1000.0	0.015984016	2.2965574	0.006993007	2.9660327	0.0	0.0	3.0	skin_fibroblast_subclusters	MPB_GCST90043616	author_cell_type	924
+Fibroblast IV	227.0	1000.0	0.44255745	0.09494619	0.060939062	1.5002514	0.0	0.0	0.0	skin_fibroblast_subclusters	MPB_GCST90043616	author_cell_type	924
+dermis	1730.0	1000.0	0.000999001	4.75979	0.000999001	5.649049	0.0	0.0	7.0	skin_fibroblast_subclusters	MPB_GCST90043616	tissue	924
+skin of body	573.0	1000.0	0.95604396	-1.6619728	0.35464534	0.34741163	0.0	0.0	1.0	skin_fibroblast_subclusters	MPB_GCST90043616	tissue	924
+Fibroblast I	894.0	1000.0	0.027972028	1.8584908	0.12787212	1.0564272	0.0	0.0	1.0	skin_fibroblast_subclusters	PSD_META_ALL	author_cell_type	920
+Fibroblast II	794.0	1000.0	0.8251748	-0.9191441	0.045954045	1.7627814	0.0	0.0	0.0	skin_fibroblast_subclusters	PSD_META_ALL	author_cell_type	920
+Fibroblast III	388.0	1000.0	0.47352648	0.066112116	0.86613387	-1.0972284	0.0	0.0	0.0	skin_fibroblast_subclusters	PSD_META_ALL	author_cell_type	920
+Fibroblast IV	227.0	1000.0	0.002997003	3.4127073	0.5964036	-0.2623718	0.0	0.0	0.0	skin_fibroblast_subclusters	PSD_META_ALL	author_cell_type	920
+dermis	1730.0	1000.0	0.064935066	1.4968214	0.006993007	2.9428515	0.0	0.0	1.0	skin_fibroblast_subclusters	PSD_META_ALL	tissue	920
+skin of body	573.0	1000.0	0.043956045	1.7546508	0.116883114	1.1713918	0.0	0.0	0.0	skin_fibroblast_subclusters	PSD_META_ALL	tissue	920
+Fibroblast I	894.0	1000.0	0.018981019	2.1377573	0.35364637	0.3234373	0.0	0.0	0.0	skin_fibroblast_subclusters	PSD_META_EUR	author_cell_type	916
+Fibroblast II	794.0	1000.0	0.78821176	-0.8481284	0.15784216	0.9847912	0.0	0.0	0.0	skin_fibroblast_subclusters	PSD_META_EUR	author_cell_type	916
+Fibroblast III	388.0	1000.0	0.6453546	-0.37706745	0.63836163	-0.38763103	0.0	0.0	0.0	skin_fibroblast_subclusters	PSD_META_EUR	author_cell_type	916
+Fibroblast IV	227.0	1000.0	0.011988012	2.5351799	0.23876125	0.6848998	0.0	0.0	0.0	skin_fibroblast_subclusters	PSD_META_EUR	author_cell_type	916
+dermis	1730.0	1000.0	0.24275725	0.7356347	0.07192807	1.5840158	0.0	0.0	0.0	skin_fibroblast_subclusters	PSD_META_EUR	tissue	916
+skin of body	573.0	1000.0	0.018981019	2.135078	0.4225774	0.15094277	0.0	0.0	0.0	skin_fibroblast_subclusters	PSD_META_EUR	tissue	916
+Fibroblast I	894.0	1000.0	0.11988012	1.2300948	0.011988012	2.8372712	0.0	0.0	0.0	skin_fibroblast_subclusters	WHRadjBMI_Pulit2019	author_cell_type	902
+Fibroblast II	794.0	1000.0	0.64735264	-0.42827696	0.000999001	3.6087108	0.0	0.0	0.0	skin_fibroblast_subclusters	WHRadjBMI_Pulit2019	author_cell_type	902
+Fibroblast III	388.0	1000.0	0.28871128	0.6078623	0.000999001	4.9692783	0.0	0.0	0.0	skin_fibroblast_subclusters	WHRadjBMI_Pulit2019	author_cell_type	902
+Fibroblast IV	227.0	1000.0	0.17482518	0.90083563	0.37662336	0.29777876	0.0	0.0	0.0	skin_fibroblast_subclusters	WHRadjBMI_Pulit2019	author_cell_type	902
+dermis	1730.0	1000.0	0.010989011	2.4586976	0.001998002	4.3603196	0.0	0.0	0.0	skin_fibroblast_subclusters	WHRadjBMI_Pulit2019	tissue	902
+skin of body	573.0	1000.0	0.9140859	-1.3486867	0.1058941	1.2208997	0.0	0.0	0.0	skin_fibroblast_subclusters	WHRadjBMI_Pulit2019	tissue	902

@@ -1,0 +1,11 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+--- out tail
+SCDRS FAILED
+=== magma+scdrs finished dom out 18 14:05:54 -03 2026 ===
+--- err
+/mnt/beegfs/scratch/jvfcavalcante/envs/scdrs/bin/python: error while loading shared libraries: libpython3.13.so.1.0: cannot open shared object file: No such file or directory
+/mnt/beegfs/scratch/jvfcavalcante/envs/scdrs/bin/python: error while loading shared libraries: libpython3.13.so.1.0: cannot open shared object file: No such file or directory
+tar: results/scdrs_magma_*.tsv: Função stat falhou: Arquivo ou diretório inexistente
+tar: Saindo com status de falha em razão de erros anteriores

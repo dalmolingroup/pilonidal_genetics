@@ -1,0 +1,141 @@
+group_level	n_cell	n_ctrl	assoc_mcp	assoc_mcz	hetero_mcp	hetero_mcz	n_fdr_0.05	n_fdr_0.1	n_fdr_0.2	atlas	trait	group_col	n_genes_matched
+endothelial cell	370.0	1000.0	0.85314685	-1.0377691	0.6413586	-0.35152432	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	cell_type	894
+keratinocyte	10126.0	1000.0	0.037962038	1.9053502	0.11788212	1.1812055	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	cell_type	894
+leukocyte	612.0	1000.0	0.86613387	-1.118777	0.40759242	0.054210234	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	cell_type	894
+melanocyte	467.0	1000.0	0.52747256	-0.16392063	0.6793207	-0.53299093	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	cell_type	894
+pericyte	623.0	1000.0	0.14685315	1.0577991	0.988012	-1.938597	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	cell_type	894
+skin fibroblast	3045.0	1000.0	0.81518483	-0.8988458	0.81518483	-0.81505287	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	cell_type	894
+Differentiated keratinocytes I	3100.0	1000.0	0.6033966	-0.3016735	0.06393606	1.6365812	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	author_cell_type	894
+Differentiated keratinocytes II	3010.0	1000.0	0.08091908	1.4392153	0.051948052	1.8400712	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	author_cell_type	894
+Endothelial cells	370.0	1000.0	0.85314685	-1.0377691	0.6413586	-0.35152432	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	author_cell_type	894
+Fibroblasts I	2069.0	1000.0	0.8591409	-1.043091	0.6303696	-0.41707748	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	author_cell_type	894
+Fibroblasts II	976.0	1000.0	0.6923077	-0.54796755	0.83116883	-0.843744	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	author_cell_type	894
+Immune	612.0	1000.0	0.86613387	-1.118777	0.40759242	0.054210234	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	author_cell_type	894
+Melanocytes/melanocyte-like	467.0	1000.0	0.52747256	-0.16392063	0.6793207	-0.53299093	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	author_cell_type	894
+Pericytes	623.0	1000.0	0.14685315	1.0577991	0.988012	-1.938597	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	author_cell_type	894
+Terminally differentiated keratinocytes	848.0	1000.0	0.20879121	0.6605281	0.24575424	0.4645457	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	author_cell_type	894
+Undifferentiated keratinocytes I	2580.0	1000.0	0.014985015	2.3677742	0.12087912	1.1684564	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	author_cell_type	894
+Undifferentiated keratinocytes II	588.0	1000.0	0.045954045	1.8714645	0.17982018	0.8670298	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	author_cell_type	894
+dermis	4016.0	1000.0	0.81918085	-0.9005397	0.8591409	-1.0243304	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	tissue	894
+skin epidermis	4729.0	1000.0	0.7622378	-0.70305765	0.46853146	-0.14910983	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	tissue	894
+skin of body	6498.0	1000.0	0.004995005	3.2258654	0.116883114	1.2556093	0.0	0.0	0.0	skin_12datasets_integrated	ACNE_GCST90245818	tissue	894
+endothelial cell	370.0	1000.0	0.9300699	-1.4468367	0.88211787	-1.2090713	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	cell_type	924
+keratinocyte	10126.0	1000.0	0.22377622	0.69989616	0.7062937	-0.6010046	1.0	2.0	2.0	skin_12datasets_integrated	BMI_Pulit2019	cell_type	924
+leukocyte	612.0	1000.0	0.8611389	-1.0652504	0.14085914	0.9478881	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	cell_type	924
+melanocyte	467.0	1000.0	0.001998002	3.5853744	0.44455543	-0.036174282	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	cell_type	924
+pericyte	623.0	1000.0	0.5994006	-0.3150909	0.14185815	1.0550197	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	cell_type	924
+skin fibroblast	3045.0	1000.0	0.21678321	0.736019	0.0979021	1.3102559	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	cell_type	924
+Differentiated keratinocytes I	3100.0	1000.0	0.28871128	0.52254206	0.36863136	0.24647148	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	author_cell_type	924
+Differentiated keratinocytes II	3010.0	1000.0	0.24775225	0.6769532	0.038961038	1.9629302	1.0	2.0	2.0	skin_12datasets_integrated	BMI_Pulit2019	author_cell_type	924
+Endothelial cells	370.0	1000.0	0.9300699	-1.4468367	0.88211787	-1.2090713	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	author_cell_type	924
+Fibroblasts I	2069.0	1000.0	0.13486513	1.0399745	0.024975024	2.2937443	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	author_cell_type	924
+Fibroblasts II	976.0	1000.0	0.33266732	0.3932398	0.82817185	-0.89600056	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	author_cell_type	924
+Immune	612.0	1000.0	0.8611389	-1.0652504	0.14085914	0.9478881	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	author_cell_type	924
+Melanocytes/melanocyte-like	467.0	1000.0	0.001998002	3.5853744	0.44455543	-0.036174282	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	author_cell_type	924
+Pericytes	623.0	1000.0	0.5994006	-0.3150909	0.14185815	1.0550197	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	author_cell_type	924
+Terminally differentiated keratinocytes	848.0	1000.0	0.3046953	0.39237356	0.38161838	0.10130346	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	author_cell_type	924
+Undifferentiated keratinocytes I	2580.0	1000.0	0.20879121	0.8166005	0.997003	-2.5938106	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	author_cell_type	924
+Undifferentiated keratinocytes II	588.0	1000.0	0.7902098	-0.832961	0.2117882	0.7414319	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	author_cell_type	924
+dermis	4016.0	1000.0	0.062937066	1.5822908	0.005994006	3.3462327	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	tissue	924
+skin epidermis	4729.0	1000.0	0.04795205	1.8088008	0.28171828	0.39565757	1.0	2.0	2.0	skin_12datasets_integrated	BMI_Pulit2019	tissue	924
+skin of body	6498.0	1000.0	0.8431568	-0.9892696	0.4215784	0.07449385	0.0	0.0	0.0	skin_12datasets_integrated	BMI_Pulit2019	tissue	924
+endothelial cell	370.0	1000.0	0.5014985	-0.013981245	0.032967035	1.75037	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	cell_type	916
+keratinocyte	10126.0	1000.0	0.08591408	1.375514	0.22577423	0.5272377	0.0	0.0	1.0	skin_12datasets_integrated	HS_GCST90726609	cell_type	916
+leukocyte	612.0	1000.0	0.21678321	0.7921211	0.10689311	1.2656382	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	cell_type	916
+melanocyte	467.0	1000.0	0.994006	-2.238484	0.3096903	0.26315704	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	cell_type	916
+pericyte	623.0	1000.0	0.83016986	-0.9391739	0.1918082	0.79266113	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	cell_type	916
+skin fibroblast	3045.0	1000.0	0.5024975	-0.055988427	0.5314685	-0.19115509	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	cell_type	916
+Differentiated keratinocytes I	3100.0	1000.0	0.28971028	0.45887926	0.07192807	1.5921309	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	author_cell_type	916
+Differentiated keratinocytes II	3010.0	1000.0	0.0969031	1.3656123	0.33866134	0.29091966	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	author_cell_type	916
+Endothelial cells	370.0	1000.0	0.5014985	-0.013981245	0.032967035	1.75037	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	author_cell_type	916
+Fibroblasts I	2069.0	1000.0	0.4935065	-0.017996153	0.5024975	-0.0896513	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	author_cell_type	916
+Fibroblasts II	976.0	1000.0	0.46453547	0.021321079	0.3946054	0.10668402	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	author_cell_type	916
+Immune	612.0	1000.0	0.21678321	0.7921211	0.10689311	1.2656382	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	author_cell_type	916
+Melanocytes/melanocyte-like	467.0	1000.0	0.994006	-2.238484	0.3096903	0.26315704	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	author_cell_type	916
+Pericytes	623.0	1000.0	0.83016986	-0.9391739	0.1918082	0.79266113	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	author_cell_type	916
+Terminally differentiated keratinocytes	848.0	1000.0	0.5224775	-0.20246384	0.66033965	-0.46790597	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	author_cell_type	916
+Undifferentiated keratinocytes I	2580.0	1000.0	0.030969031	1.9771427	0.056943055	1.5946962	0.0	0.0	1.0	skin_12datasets_integrated	HS_GCST90726609	author_cell_type	916
+Undifferentiated keratinocytes II	588.0	1000.0	0.36563435	0.2673067	0.7102897	-0.5703926	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	author_cell_type	916
+dermis	4016.0	1000.0	0.8251748	-0.9481406	0.62437564	-0.42344412	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	tissue	916
+skin epidermis	4729.0	1000.0	0.04095904	1.878162	0.1928072	0.65185755	0.0	0.0	1.0	skin_12datasets_integrated	HS_GCST90726609	tissue	916
+skin of body	6498.0	1000.0	0.33566433	0.26669917	0.57542455	-0.28694174	0.0	0.0	0.0	skin_12datasets_integrated	HS_GCST90726609	tissue	916
+endothelial cell	370.0	1000.0	0.91808194	-1.3092407	0.4865135	0.03029856	0.0	0.0	0.0	skin_12datasets_integrated	MPB_GCST90043616	cell_type	924
+keratinocyte	10126.0	1000.0	0.051948052	1.6843625	0.002997003	3.8200364	0.0	0.0	4.0	skin_12datasets_integrated	MPB_GCST90043616	cell_type	924
+leukocyte	612.0	1000.0	0.8471528	-0.9762333	0.64035964	-0.43139148	0.0	0.0	0.0	skin_12datasets_integrated	MPB_GCST90043616	cell_type	924
+melanocyte	467.0	1000.0	0.48251748	-0.040146828	0.84815186	-0.9302665	0.0	0.0	0.0	skin_12datasets_integrated	MPB_GCST90043616	cell_type	924
+pericyte	623.0	1000.0	0.85314685	-1.0035518	0.34465533	0.35757935	0.0	0.0	0.0	skin_12datasets_integrated	MPB_GCST90043616	cell_type	924
+skin fibroblast	3045.0	1000.0	0.037962038	1.9927721	0.0999001	1.2441233	0.0	0.0	3.0	skin_12datasets_integrated	MPB_GCST90043616	cell_type	924
+Differentiated keratinocytes I	3100.0	1000.0	0.43456542	0.12726037	0.001998002	4.4697623	0.0	0.0	2.0	skin_12datasets_integrated	MPB_GCST90043616	author_cell_type	924
+Differentiated keratinocytes II	3010.0	1000.0	0.002997003	2.7958064	0.000999001	5.1534467	0.0	0.0	2.0	skin_12datasets_integrated	MPB_GCST90043616	author_cell_type	924
+Endothelial cells	370.0	1000.0	0.91808194	-1.3092407	0.4865135	0.03029856	0.0	0.0	0.0	skin_12datasets_integrated	MPB_GCST90043616	author_cell_type	924
+Fibroblasts I	2069.0	1000.0	0.025974026	2.2292857	0.054945055	1.6911225	0.0	0.0	2.0	skin_12datasets_integrated	MPB_GCST90043616	author_cell_type	924
+Fibroblasts II	976.0	1000.0	0.0969031	1.3004991	0.18681319	0.80435133	0.0	0.0	1.0	skin_12datasets_integrated	MPB_GCST90043616	author_cell_type	924
+Immune	612.0	1000.0	0.8471528	-0.9762333	0.64035964	-0.43139148	0.0	0.0	0.0	skin_12datasets_integrated	MPB_GCST90043616	author_cell_type	924
+Melanocytes/melanocyte-like	467.0	1000.0	0.48251748	-0.040146828	0.84815186	-0.9302665	0.0	0.0	0.0	skin_12datasets_integrated	MPB_GCST90043616	author_cell_type	924
+Pericytes	623.0	1000.0	0.85314685	-1.0035518	0.34465533	0.35757935	0.0	0.0	0.0	skin_12datasets_integrated	MPB_GCST90043616	author_cell_type	924
+Terminally differentiated keratinocytes	848.0	1000.0	0.3846154	0.14716364	0.003996004	4.712182	0.0	0.0	0.0	skin_12datasets_integrated	MPB_GCST90043616	author_cell_type	924
+Undifferentiated keratinocytes I	2580.0	1000.0	0.12287712	1.179745	0.3126873	0.43400118	0.0	0.0	0.0	skin_12datasets_integrated	MPB_GCST90043616	author_cell_type	924
+Undifferentiated keratinocytes II	588.0	1000.0	0.6943057	-0.57766515	0.46853146	0.010523694	0.0	0.0	0.0	skin_12datasets_integrated	MPB_GCST90043616	author_cell_type	924
+dermis	4016.0	1000.0	0.08291708	1.4792842	0.050949052	1.7285911	0.0	0.0	2.0	skin_12datasets_integrated	MPB_GCST90043616	tissue	924
+skin epidermis	4729.0	1000.0	0.44055945	0.087587774	0.010989011	3.4521635	0.0	0.0	0.0	skin_12datasets_integrated	MPB_GCST90043616	tissue	924
+skin of body	6498.0	1000.0	0.01998002	2.318146	0.006993007	3.3609796	0.0	0.0	5.0	skin_12datasets_integrated	MPB_GCST90043616	tissue	924
+endothelial cell	370.0	1000.0	0.998002	-2.430563	0.006993007	2.3697753	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	cell_type	920
+keratinocyte	10126.0	1000.0	0.20879121	0.7853218	0.7512488	-0.7357893	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	cell_type	920
+leukocyte	612.0	1000.0	0.73426574	-0.62306654	0.42557442	-0.033107396	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	cell_type	920
+melanocyte	467.0	1000.0	0.85014987	-1.0021055	0.34265736	0.26423916	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	cell_type	920
+pericyte	623.0	1000.0	0.33966035	0.32371083	0.044955045	1.7699113	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	cell_type	920
+skin fibroblast	3045.0	1000.0	0.42657343	0.14913535	0.2937063	0.39366612	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	cell_type	920
+Differentiated keratinocytes I	3100.0	1000.0	0.44055945	0.050272897	0.43356642	0.053031165	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	author_cell_type	920
+Differentiated keratinocytes II	3010.0	1000.0	0.0939061	1.3490777	0.3976024	0.16583772	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	author_cell_type	920
+Endothelial cells	370.0	1000.0	0.998002	-2.430563	0.006993007	2.3697753	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	author_cell_type	920
+Fibroblasts I	2069.0	1000.0	0.44455543	0.07359286	0.4775225	-0.07948332	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	author_cell_type	920
+Fibroblasts II	976.0	1000.0	0.36763236	0.2934128	0.044955045	1.8755729	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	author_cell_type	920
+Immune	612.0	1000.0	0.73426574	-0.62306654	0.42557442	-0.033107396	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	author_cell_type	920
+Melanocytes/melanocyte-like	467.0	1000.0	0.85014987	-1.0021055	0.34265736	0.26423916	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	author_cell_type	920
+Pericytes	623.0	1000.0	0.33966035	0.32371083	0.044955045	1.7699113	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	author_cell_type	920
+Terminally differentiated keratinocytes	848.0	1000.0	0.28171828	0.47179136	0.84015983	-0.87256414	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	author_cell_type	920
+Undifferentiated keratinocytes I	2580.0	1000.0	0.1988012	0.813689	0.7992008	-0.85412973	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	author_cell_type	920
+Undifferentiated keratinocytes II	588.0	1000.0	0.24475524	0.58653575	0.13586414	1.0621903	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	author_cell_type	920
+dermis	4016.0	1000.0	0.6923077	-0.5330853	0.23076923	0.55292684	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	tissue	920
+skin epidermis	4729.0	1000.0	0.2057942	0.8104676	0.86213785	-0.9589103	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	tissue	920
+skin of body	6498.0	1000.0	0.27572426	0.52712995	0.7172827	-0.6265142	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_ALL	tissue	920
+endothelial cell	370.0	1000.0	0.994006	-2.20146	0.04995005	1.6200649	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	cell_type	916
+keratinocyte	10126.0	1000.0	0.101898104	1.2188332	0.5444555	-0.2797212	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	cell_type	916
+leukocyte	612.0	1000.0	0.7602398	-0.72937953	0.46653345	-0.13315049	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	cell_type	916
+melanocyte	467.0	1000.0	0.8751249	-1.1284649	0.6093906	-0.3415689	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	cell_type	916
+pericyte	623.0	1000.0	0.22377622	0.7288182	0.045954045	1.6732577	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	cell_type	916
+skin fibroblast	3045.0	1000.0	0.3996004	0.18062432	0.74525476	-0.68185085	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	cell_type	916
+Differentiated keratinocytes I	3100.0	1000.0	0.12787212	1.1368244	0.30769232	0.3635926	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	author_cell_type	916
+Differentiated keratinocytes II	3010.0	1000.0	0.116883114	1.2050337	0.33866134	0.30147386	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	author_cell_type	916
+Endothelial cells	370.0	1000.0	0.994006	-2.20146	0.04995005	1.6200649	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	author_cell_type	916
+Fibroblasts I	2069.0	1000.0	0.4975025	-0.055939563	0.7762238	-0.7242898	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	author_cell_type	916
+Fibroblasts II	976.0	1000.0	0.26973027	0.55004746	0.3846154	0.2304007	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	author_cell_type	916
+Immune	612.0	1000.0	0.7602398	-0.72937953	0.46653345	-0.13315049	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	author_cell_type	916
+Melanocytes/melanocyte-like	467.0	1000.0	0.8751249	-1.1284649	0.6093906	-0.3415689	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	author_cell_type	916
+Pericytes	623.0	1000.0	0.22377622	0.7288182	0.045954045	1.6732577	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	author_cell_type	916
+Terminally differentiated keratinocytes	848.0	1000.0	0.33466533	0.35033125	0.2017982	0.6966048	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	author_cell_type	916
+Undifferentiated keratinocytes I	2580.0	1000.0	0.27272728	0.6264405	0.5064935	-0.063440464	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	author_cell_type	916
+Undifferentiated keratinocytes II	588.0	1000.0	0.4115884	0.15990272	0.3106893	0.45794195	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	author_cell_type	916
+dermis	4016.0	1000.0	0.72927076	-0.63902456	0.4225774	0.057743307	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	tissue	916
+skin epidermis	4729.0	1000.0	0.114885114	1.2364337	0.40859142	-0.014472384	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	tissue	916
+skin of body	6498.0	1000.0	0.15084915	0.99723625	0.66333663	-0.5080089	0.0	0.0	0.0	skin_12datasets_integrated	PSD_META_EUR	tissue	916
+endothelial cell	370.0	1000.0	0.3976024	0.21310547	0.22377622	0.78893906	0.0	0.0	0.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	cell_type	902
+keratinocyte	10126.0	1000.0	0.5444555	-0.1989575	0.0939061	1.3185463	0.0	0.0	2.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	cell_type	902
+leukocyte	612.0	1000.0	0.998002	-2.3036938	0.42757243	-0.007599705	0.0	0.0	0.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	cell_type	902
+melanocyte	467.0	1000.0	0.34665334	0.36703035	0.71828175	-0.5764139	0.0	0.0	0.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	cell_type	902
+pericyte	623.0	1000.0	0.23576424	0.68801504	0.20879121	0.7786338	0.0	0.0	0.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	cell_type	902
+skin fibroblast	3045.0	1000.0	0.004995005	2.743409	0.10689311	1.2909889	0.0	0.0	2.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	cell_type	902
+Differentiated keratinocytes I	3100.0	1000.0	0.9220779	-1.3249197	0.25974026	0.5390838	0.0	0.0	0.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	author_cell_type	902
+Differentiated keratinocytes II	3010.0	1000.0	0.7212787	-0.6230308	0.31768233	0.34297323	0.0	0.0	1.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	author_cell_type	902
+Endothelial cells	370.0	1000.0	0.3976024	0.21310547	0.22377622	0.78893906	0.0	0.0	0.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	author_cell_type	902
+Fibroblasts I	2069.0	1000.0	0.005994006	2.9622848	0.044955045	1.8124484	0.0	0.0	0.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	author_cell_type	902
+Fibroblasts II	976.0	1000.0	0.02097902	2.0962045	0.27372628	0.4635465	0.0	0.0	2.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	author_cell_type	902
+Immune	612.0	1000.0	0.998002	-2.3036938	0.42757243	-0.007599705	0.0	0.0	0.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	author_cell_type	902
+Melanocytes/melanocyte-like	467.0	1000.0	0.34665334	0.36703035	0.71828175	-0.5764139	0.0	0.0	0.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	author_cell_type	902
+Pericytes	623.0	1000.0	0.23576424	0.68801504	0.20879121	0.7786338	0.0	0.0	0.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	author_cell_type	902
+Terminally differentiated keratinocytes	848.0	1000.0	0.66033965	-0.48285782	0.024975024	2.2322173	0.0	0.0	0.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	author_cell_type	902
+Undifferentiated keratinocytes I	2580.0	1000.0	0.11188811	1.2269021	0.03196803	1.9249719	0.0	0.0	1.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	author_cell_type	902
+Undifferentiated keratinocytes II	588.0	1000.0	0.66533464	-0.465827	0.26473525	0.5367146	0.0	0.0	0.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	author_cell_type	902
+dermis	4016.0	1000.0	0.012987013	2.3677824	0.016983017	2.7024508	0.0	0.0	1.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	tissue	902
+skin epidermis	4729.0	1000.0	0.33266732	0.37106562	0.061938062	1.7746874	0.0	0.0	1.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	tissue	902
+skin of body	6498.0	1000.0	0.5824176	-0.26944244	0.04795205	1.9380646	0.0	0.0	2.0	skin_12datasets_integrated	WHRadjBMI_Pulit2019	tissue	902

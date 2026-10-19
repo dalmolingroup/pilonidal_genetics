@@ -1,0 +1,43 @@
+scdrs env ok
+-rw-r--r-- 1 jvfcavalcante rjsdalmolin 51162118 out 18 13:01 data/processed/ldsc_in/BMI_Pulit2019.tsv
+-rw-r--r-- 1 jvfcavalcante rjsdalmolin 50880560 out 18 13:01 data/processed/ldsc_in/WHRadjBMI_Pulit2019.tsv
+gene sets: {'ACNE_GCST90245818': 1000, 'BMI_Pulit2019': 1000, 'HS_GCST90726609': 1000, 'MPB_GCST90043616': 1000, 'PSD_META_ALL': 1000, 'PSD_META_EUR': 1000, 'WHRadjBMI_Pulit2019': 1000}
+[atlas] Tabula Sapiens - Skin (17,786 cells)
+  tabula_sapiens_skin ACNE_GCST90245818: 909 genes scored
+  tabula_sapiens_skin BMI_Pulit2019: 936 genes scored
+  tabula_sapiens_skin HS_GCST90726609: 927 genes scored
+  tabula_sapiens_skin MPB_GCST90043616: 934 genes scored
+  tabula_sapiens_skin PSD_META_ALL: 930 genes scored
+  tabula_sapiens_skin PSD_META_EUR: 927 genes scored
+  tabula_sapiens_skin WHRadjBMI_Pulit2019: 911 genes scored
+[download] Human Skin 12-Dataset Atlas (15,243 cells: Dermis + Epidermis)
+[atlas] Human Skin 12-Dataset Atlas (15,243 cells: Dermis + Epidermis)
+  skin_12datasets_integrated ACNE_GCST90245818: 895 genes scored
+  skin_12datasets_integrated BMI_Pulit2019: 923 genes scored
+  skin_12datasets_integrated HS_GCST90726609: 917 genes scored
+  skin_12datasets_integrated MPB_GCST90043616: 924 genes scored
+  skin_12datasets_integrated PSD_META_ALL: 920 genes scored
+  skin_12datasets_integrated PSD_META_EUR: 918 genes scored
+  skin_12datasets_integrated WHRadjBMI_Pulit2019: 905 genes scored
+[download] Human Skin Keratinocyte Subclusters (9,471 cells)
+[atlas] Human Skin Keratinocyte Subclusters (9,471 cells)
+  skin_keratinocyte_subclusters ACNE_GCST90245818: 895 genes scored
+  skin_keratinocyte_subclusters BMI_Pulit2019: 923 genes scored
+  skin_keratinocyte_subclusters HS_GCST90726609: 917 genes scored
+  skin_keratinocyte_subclusters MPB_GCST90043616: 924 genes scored
+  skin_keratinocyte_subclusters PSD_META_ALL: 920 genes scored
+  skin_keratinocyte_subclusters PSD_META_EUR: 918 genes scored
+  skin_keratinocyte_subclusters WHRadjBMI_Pulit2019: 905 genes scored
+[download] Human Skin Fibroblast Subclusters (2,303 cells)
+[atlas] Human Skin Fibroblast Subclusters (2,303 cells)
+  skin_fibroblast_subclusters ACNE_GCST90245818: 895 genes scored
+  skin_fibroblast_subclusters BMI_Pulit2019: 923 genes scored
+  skin_fibroblast_subclusters HS_GCST90726609: 917 genes scored
+  skin_fibroblast_subclusters MPB_GCST90043616: 924 genes scored
+  skin_fibroblast_subclusters PSD_META_ALL: 920 genes scored
+  skin_fibroblast_subclusters PSD_META_EUR: 918 genes scored
+  skin_fibroblast_subclusters WHRadjBMI_Pulit2019: 905 genes scored
+[download] Human Scalp, Trunk & Foreskin Atlas (68,036 cells)
+[atlas] Human Scalp, Trunk & Foreskin Atlas (68,036 cells)
+  scalp_trunk_skin_68k ACNE_GCST90245818: 808 genes scored
+  scalp_trunk_skin_68k BMI_Pulit2019: 837 genes scored

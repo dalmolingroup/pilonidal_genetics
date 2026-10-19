@@ -1,0 +1,10 @@
+Running LAVA version 0.1.5
+There were 25 warnings (use warnings() to see them)
+Error in fread(file.path(base, "results/psd_meta_locus_classification.tsv")) : 
+  O arquivo '/mnt/beegfs/scratch/jvfcavalcante/pilonidal_genetics/results/psd_meta_locus_classification.tsv' não existe ou não é legível. getwd()=='/mnt/beegfs/scratch/jvfcavalcante/pilonidal_genetics'
+Calls: fread -> stopf -> raise_condition -> signal
+Execução interrompida
+There were 25 warnings (use warnings() to see them)
+Warning message:
+In fwrite(pcor, file.path(base, "results/lava_pcor_psd_hs_given_bmi.tsv"),  :
+  Entrada não tem colunas; criando um arquivo vazio em '/mnt/beegfs/scratch/jvfcavalcante/pilonidal_genetics/results/lava_pcor_psd_hs_given_bmi.tsv' e saindo.

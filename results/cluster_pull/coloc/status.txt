@@ -1,0 +1,18 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+2214936 psd_shared RUNNING 46:45
+2214908 psd_magma_scdrs RUNNING 1:07:25
+--- coloc tail
+37:     chr7:46848844 WHRadjBMI 0.994 1.72941e-08  2.06300e-09
+                label     trait PP.H3   min_p_psd  min_p_trait
+COLOC_DONE
+=== coloc finished dom out 18 15:13:16 -03 2026 ===
+--- lava
+[1] "Warning: Negative variance estimate for phenotype(s) 'ACNE_FG', 'ACNE_TL' in locus 161; Dropping these as they cannot be analysed"
+[1] "Warning: Negative variance estimate for phenotype(s) 'BALDP1' in locus 155; Dropping these as they cannot be analysed"
+[1] "Warning: Negative variance estimate for phenotype(s) 'ACNE_TL' in locus 178; Dropping these as they cannot be analysed"
+[1] "Warning: Negative variance estimate for phenotype(s) 'PSD', 'ACNE_FG', 'ACNE_TL' in locus 180; Dropping these as they cannot be analysed"
+--- scdrs
+  tabula_sapiens_skin PSD_META_ALL: 930 genes scored
+  tabula_sapiens_skin PSD_META_EUR: 927 genes scored

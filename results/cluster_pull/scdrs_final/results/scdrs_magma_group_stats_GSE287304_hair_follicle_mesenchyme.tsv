@@ -1,0 +1,22 @@
+group_level	n_cell	n_ctrl	assoc_mcp	assoc_mcz	hetero_mcp	hetero_mcz	n_fdr_0.05	n_fdr_0.1	n_fdr_0.2	atlas	trait	group_col	n_genes_matched
+DP (Dermal Papilla)	3332.0	1000.0	0.001998002	3.4592407	0.003996004	4.0350313	0.0	0.0	14.0	GSE287304_hair_follicle_mesenchyme	ACNE_GCST90245818	compartment	949
+DSC (Dermal Sheath Cup)	2166.0	1000.0	0.04295704	1.7556343	0.000999001	5.1081758	0.0	0.0	4.0	GSE287304_hair_follicle_mesenchyme	ACNE_GCST90245818	compartment	949
+UDS (Upper Dermal Sheath)	2308.0	1000.0	0.32367632	0.42625335	0.002997003	4.5095882	0.0	0.0	7.0	GSE287304_hair_follicle_mesenchyme	ACNE_GCST90245818	compartment	949
+DP (Dermal Papilla)	3332.0	1000.0	0.000999001	9.320928	0.000999001	13.821908	140.0	240.0	427.0	GSE287304_hair_follicle_mesenchyme	BMI_Pulit2019	compartment	946
+DSC (Dermal Sheath Cup)	2166.0	1000.0	0.000999001	6.9520574	0.000999001	10.743777	51.0	78.0	174.0	GSE287304_hair_follicle_mesenchyme	BMI_Pulit2019	compartment	946
+UDS (Upper Dermal Sheath)	2308.0	1000.0	0.000999001	4.5309134	0.000999001	10.94908	57.0	82.0	157.0	GSE287304_hair_follicle_mesenchyme	BMI_Pulit2019	compartment	946
+DP (Dermal Papilla)	3332.0	1000.0	0.43456542	0.15646584	0.57042956	-0.32650685	0.0	0.0	3.0	GSE287304_hair_follicle_mesenchyme	HS_GCST90726609	compartment	944
+DSC (Dermal Sheath Cup)	2166.0	1000.0	0.5094905	-0.04424983	0.5024975	-0.13735719	0.0	0.0	1.0	GSE287304_hair_follicle_mesenchyme	HS_GCST90726609	compartment	944
+UDS (Upper Dermal Sheath)	2308.0	1000.0	0.22677323	0.7380969	0.67132866	-0.51322794	0.0	0.0	0.0	GSE287304_hair_follicle_mesenchyme	HS_GCST90726609	compartment	944
+DP (Dermal Papilla)	3332.0	1000.0	0.000999001	7.0049415	0.000999001	11.209917	52.0	103.0	257.0	GSE287304_hair_follicle_mesenchyme	MPB_GCST90043616	compartment	951
+DSC (Dermal Sheath Cup)	2166.0	1000.0	0.000999001	6.8409133	0.000999001	8.810941	31.0	55.0	122.0	GSE287304_hair_follicle_mesenchyme	MPB_GCST90043616	compartment	951
+UDS (Upper Dermal Sheath)	2308.0	1000.0	0.004995005	2.607271	0.000999001	8.781012	12.0	25.0	73.0	GSE287304_hair_follicle_mesenchyme	MPB_GCST90043616	compartment	951
+DP (Dermal Papilla)	3332.0	1000.0	0.37662336	0.30836535	0.54645354	-0.2793715	0.0	0.0	0.0	GSE287304_hair_follicle_mesenchyme	PSD_META_ALL	compartment	943
+DSC (Dermal Sheath Cup)	2166.0	1000.0	0.7172827	-0.60332716	0.28171828	0.42502323	0.0	0.0	0.0	GSE287304_hair_follicle_mesenchyme	PSD_META_ALL	compartment	943
+UDS (Upper Dermal Sheath)	2308.0	1000.0	0.28671327	0.5924813	0.31968033	0.32901403	0.0	0.0	1.0	GSE287304_hair_follicle_mesenchyme	PSD_META_ALL	compartment	943
+DP (Dermal Papilla)	3332.0	1000.0	0.34765235	0.38921976	0.16783217	0.9487961	0.0	0.0	0.0	GSE287304_hair_follicle_mesenchyme	PSD_META_EUR	compartment	940
+DSC (Dermal Sheath Cup)	2166.0	1000.0	0.56343657	-0.17790695	0.33466533	0.23369412	0.0	0.0	0.0	GSE287304_hair_follicle_mesenchyme	PSD_META_EUR	compartment	940
+UDS (Upper Dermal Sheath)	2308.0	1000.0	0.27372628	0.59934103	0.2967033	0.40448937	0.0	0.0	0.0	GSE287304_hair_follicle_mesenchyme	PSD_META_EUR	compartment	940
+DP (Dermal Papilla)	3332.0	1000.0	0.3856144	0.27088824	0.24775225	0.5195976	0.0	0.0	0.0	GSE287304_hair_follicle_mesenchyme	WHRadjBMI_Pulit2019	compartment	950
+DSC (Dermal Sheath Cup)	2166.0	1000.0	0.25074926	0.68923515	0.1918082	0.7784188	0.0	0.0	0.0	GSE287304_hair_follicle_mesenchyme	WHRadjBMI_Pulit2019	compartment	950
+UDS (Upper Dermal Sheath)	2308.0	1000.0	0.4065934	0.222017	0.13086914	1.1024314	0.0	0.0	0.0	GSE287304_hair_follicle_mesenchyme	WHRadjBMI_Pulit2019	compartment	950
