@@ -1,7 +1,7 @@
 ---
 title: "The genetic architecture of pilonidal sinus disease"
 subtitle: "A multi-biobank, multi-ancestry meta-GWAS and its overlap with the follicular occlusion disorders"
-author: "Your Name"
+author: "João Cavalcante"
 institute: "UFRN"
 date: 2026-10-19
 bibliography: references.bib
@@ -50,7 +50,7 @@ Shared feature: follicular occlusion and rupture
 
 - European ancestry only; at most 2,835 cases
 - No comparison with HS or acne, and no locus-level test of the hair and body-shape links
-- No cell-type mapping of the polygenic signal
+- No cell-type or tissue mapping of the polygenic signal
 
 ## Aims
 
@@ -58,7 +58,7 @@ Shared feature: follicular occlusion and rupture
 
 1. **Discover** PSD risk loci with a multi-biobank, multi-ancestry meta-GWAS and fine-map them
 2. **Partition** what PSD shares with HS, acne, balding and body shape, both genome-wide and locus by locus
-3. **Map** the polygenic signal onto skin and hair-follicle cell types
+3. **Map** the polygenic signal onto skin and hair-follicle cell types and tissues
 
 ## Data: PSD summary statistics {.smaller}
 
@@ -145,6 +145,14 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 - Not driven by one biobank: every novel locus keeps its direction with p < 0.05 in MVP + UKB alone.
 - SNP heritability (liability scale) 13–15%; rg between biobanks 0.83 (MVP vs FinnGen).
 
+::: {.notes}
+**LDSC (LD score regression)**
+
+- Variants in big LD blocks tag many neighbours, so under polygenicity they show stronger association on average. Bias (e.g. population structure) inflates all variants equally, regardless of LD.
+- Regress association strength on LD score: the **slope** gives heritability, the **intercept** gives bias (1 = none).
+- Here: intercept 1.05, ratio 0.25 → about 3/4 of the inflation is real polygenic signal. h² 13–15% on the liability scale.
+:::
+
 ## Fine-mapping highlights {.smaller}
 
 | Locus | Top variant | PIP | Comment |
@@ -164,63 +172,44 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 
 ^†^ Suggestive after LDSC-intercept correction
 
-## Result 2: PSD is genetically closest to HS {.smaller}
+::: {.notes}
+**Fine-mapping**
 
-![](figs/ldsc_rg.png){width="88%" fig-align="center"}
+- A GWAS hit is a tower of correlated SNPs; fine-mapping uses their LD pattern to find which one best explains the tower.
+- **PIP** (posterior inclusion probability) = the probability that a variant is the causal one. 0.97 → almost certainly this SNP; 0.02 → one of many candidates.
+- **Credible set** = the smallest group of variants that together contain the causal one with 95% probability. Small set = resolved locus.
+- Caveat: it needs the sample's LD; we used 1000 Genomes EUR, which doesn't match perfectly.
+:::
 
-- HS rg = 0.76, and 0.54 when the cohorts don't overlap (MVP PSD vs FinnGen HS)
-- Acne 0.15–0.43 · BMI 0.33 · PSD risk tracks balding (weak; first reported by @roberson2024) · WHR adj. BMI and alopecia areata not significant
+## Result 2: shared genetics with other traits {.smaller}
 
-## Genomic SEM: HS explains the BMI link
+| Trait | Genome-wide rg<br><small>LDSC</small> | Joint model β<br><small>Genomic SEM</small> | Local rg, ~1 Mb blocks<br><small>LAVA, FDR < 0.05</small> | Same causal variant<br><small>coloc, PP.H4 > 0.8</small> |
+|---|---|---|---|---|
+| **HS** | **0.76** (0.54 without cohort overlap) | **0.75** (p = 1×10⁻⁸) | **21 / 61** blocks, 20 positive | **6 loci**, incl. *KLF5* and *SOX9* regions |
+| **Balding** | weak; risk goes with balding | **−0.25** for no-balding (p = 1×10⁻⁵) | 5 / 24, all risk ↔ balding | 5 loci: *HDAC9*, *DKK1/MBL2*, *TCHH*, *SOX2*, chr20:22.1 Mb |
+| **Acne** | 0.15–0.43 | n.s. | 11 / 26, 9 positive | *SEMA4B*, *LYPLAL1* |
+| **BMI** | 0.33 | 0.01 (p = 0.89) | 5 / 68; ≈ 0 in 15 / 16 HS-shared blocks | 0 shared; 9 loci with **different** variants |
+| WHR adj. BMI | n.s. | n.s. | 5 / 46, mixed signs | 1 shared (*WNT10A*); 12 different |
 
 <br>
 
-| Model | Result |
-|---|---|
-| PSD ~ HS + BMI | HS **β = 0.75** (p = 1×10⁻⁸) · BMI β = 0.01 (p = 0.89) |
-| PSD ~ HS + acne + BMI + WHR + balding | HS **0.73** · no-balding **−0.25** (p = 1×10⁻⁵) · others not significant |
-| Common factor (PSD, HS, acne) | PSD loading **0.94**; residual variance 0.13 (SE 0.26) |
+- Each column zooms in: whole genome → joint model of all traits → ~1 Mb blocks → single variants
+- **HS is the main partner at every scale**; the BMI link disappears once HS is in the model, and obesity loci carry different variants
+- A separate **hair-patterning** axis: PSD risk goes with balding genome-wide, locally and at shared variants [@roberson2024]
 
-<br>
+<small>Details in backup slides. PSD META_EUR; MHC excluded. Joint models: PSD ~ HS + BMI, and PSD ~ HS + acne + BMI + WHR + balding.</small>
 
-- PSD's genetic link to BMI runs **through the liability it shares with HS**, not through obesity itself
-- A separate **hair-patterning** component remains: PSD risk goes with balding
-- Most of PSD's common-variant liability is a follicular-occlusion factor
+::: {.notes}
+**Four methods, four scales: same question, does PSD share genetics with this trait?**
 
-## Result 3: shared causal variants (colocalization) {.smaller}
-
-::: {.columns}
-::: {.column width="52%"}
-![](figs/coloc_heatmap.png){height="600"}
-:::
-::: {.column width="48%"}
-- **HS**: 6 PSD loci share a causal variant, including the *KLF5* region, a known HS locus [@peacker2026]. Three of the six replicate with the independent FinnGen HS GWAS.
-- **Acne**: *SEMA4B*, *LYPLAL1*
-- **Balding**: *HDAC9*, *DKK1/MBL2*, *S100A11/TCHH*, *SOX2*, chr20:22.1 Mb. The PSD risk allele goes with more balding.
-- **BMI / WHR**: overlapping loci carry **different** causal variants (×). *LYPLAL1* shares with HS and acne but not with fat distribution.
-
-<small>coloc.abf, ±500 kb, p₁₂ = 5×10⁻⁶; shared = PP.H4 > 0.8</small>
-:::
+- **LDSC rg**: whole genome. Do variants that raise PSD risk also tend to raise the other trait's risk?
+- **Genomic SEM**: a multiple regression on genetic liability. Holding HS constant, is anything left linking PSD to BMI? (No: β 0.01.) It has no location.
+- **LAVA**: splits the genome into ~1 Mb blocks and estimates the correlation in each block, with direction. It uses all variants in the block and needs no significant hit, but doesn't show that it's the same variant.
+- **coloc**: one locus. Is it the same causal variant for both traits (H4), or two different nearby variants (H3)? It needs a strong signal in both traits and assumes one causal variant per trait.
+- They agree: HS is the main partner everywhere; for BMI there's no shared liability beyond HS, no local correlation, and different variants at overlapping loci.
 :::
 
-## LAVA: local genetic correlation {.smaller}
-
-::: {.columns}
-::: {.column width="58%"}
-![](figs/lava_counts.png){width="100%"}
-:::
-::: {.column width="42%"}
-- 101 LD blocks with PSD signal, 225 bivariate tests (MHC excluded)
-- **HS**: 21 of 61 blocks significant, 20 of them positive. This is the same locus set coloc finds.
-- **No balding**: all 5 significant blocks are negative, so PSD risk goes with balding.
-- **BMI** local rg is ≈ 0 in 15 of 16 HS-shared blocks.
-- WHR adj. BMI: mixed signs, including *TBX15*.
-
-<small>FDR < 0.05 (Benjamini–Hochberg)</small>
-:::
-:::
-
-## Result 4: cell types (scDRS) {.smaller}
+## Result 3: cell types (scDRS) {.smaller}
 
 ![](figs/scdrs_mhc.png){width="78%" fig-align="center"}
 
@@ -229,14 +218,49 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 - Positive control works: balding maps to the dermal papilla (z = 7.0)
 - **Conclusion:** weak but consistent fibroblast enrichment; no robust cell-type signal
 
-## Result 5: gene expression (eQTL colocalization) {.smaller}
+## Result 4: gene expression (eQTL colocalization) {.smaller}
 
 ![](figs/eqtl_coloc.png){width="78%" fig-align="center"}
 
-- 25 loci × 5 GTEx v8 tissues from the eQTL Catalogue [@kerimov2021; @gtex2020]; 7 loci share a causal variant with at least one gene
+- 25 loci × 5 GTEx v8 tissues from the eQTL Catalogue [@kerimov2021; @gtex2020]; 6 loci share a causal variant with at least one gene
 - ***SEMA4B***: the PSD risk allele **raises *SEMA4B* expression in skin** (PP.H4 0.97, resolved to one SNP, rs34560261). The same SNP leads the acne colocalization.
 - ***CPED1* → *WNT16***: the risk allele raises *WNT16* in fibroblasts and fat; in skin, a different variant drives *WNT16*
 - No eQTL support for the developmental genes (*SOX2*, *SOX9*, *TBX15*, *DKK1*, *KLF5*): adult bulk tissue misses developmental regulation
+
+::: {.notes}
+**eQTL colocalization**
+
+- An eQTL is a variant that changes how much of a gene is made in a tissue (GTEx: skin, fibroblasts, fat).
+- coloc asks whether the variant behind the PSD signal is the same one that changes the gene's expression (PP.H4 ≥ 0.8).
+- If so, it points to the gene and to a direction: the risk allele raises or lowers its expression.
+- Adult bulk tissue misses genes that act during development, so the absence of an eQTL doesn't rule out a gene.
+:::
+
+## Locus-to-gene: which genes are supported? {.smaller}
+
+| Strongest evidence | Loci | Prioritised gene(s) |
+|---|---:|---|
+| Coding variant (PIP ≥ 0.1) or eQTL coloc, protein-coding gene | 3 | ***SEMA4B*** (skin eQTL) · ***WNT16*** at *CPED1* (fibroblast eQTL) · ***WNT10A*** (p.Phe228Ile) |
+| eQTL coloc with a lncRNA only | 4 | *CROCC2* (TANAR) · *PEX14* (antisense) · *SMG6* (antisense) · *CYP1B1* (RMDN2-AS1) |
+| Two or more weaker lines | 8 | *PRKAR1B* · *TMED10* · *SOX2* · *TCHH* · *TBX15* · *FAM227B* · *KDM1A* · *HDAC9* |
+| One line (mostly proximity) | 10 | *PDE9A* · *LYPLAL1* · *DKK1*/*MBL2* · *NRBF2* · *CCER1* · *MRPS22* · gene deserts: *SOX9*, *KLF12*^†^, *PAX1*, *TNS3* |
+
+<br>
+
+- Gene score: nearest (+1), top MAGMA gene (+1), coding variant in the credible set (+1/+2), eQTL coloc (+1/+2), Open Targets L2G (+1). Functional evidence for a protein-coding gene outranks proximity.
+- **Only 3 of 25 loci have a functional effector gene.** The developmental genes (*SOX2*, *SOX9*, *DKK1*) rest on proximity plus locus-level sharing with balding or HS.
+- 4 loci are gene deserts (nearest gene 250–600 kb away): their targets need developmental or skin-specific regulatory data.
+
+<small>^†^ chr13:73.4 Mb: the nearest protein-coding gene is *KLF12* (254 kb); "*KLF5* region" follows the HS GWAS naming [@sun2023].</small>
+
+::: {.notes}
+**How a candidate effector gene is defined**
+
+- **Functional evidence** = a protein-changing variant with PIP ≥ 0.1, or an eQTL coloc with PP.H4 ≥ 0.8.
+- A protein-coding gene with functional evidence wins the locus. Otherwise genes are scored on nearest, top MAGMA gene, coding variant, eQTL and Open Targets L2G, and the highest score wins.
+- It's a transparent heuristic in the spirit of Open Targets L2G, not a published standard.
+- lncRNA loci: the coloc partner is a non-coding RNA. Only *TANAR* and *RMDN2-AS1* have official names; the *PEX14* and *SMG6* ones are unnamed antisense transcripts. A lncRNA eQTL may also mark an enhancer acting on its neighbour gene.
+:::
 
 ## Functional interpretation: two genetic axes {.smaller}
 
@@ -281,7 +305,7 @@ flowchart LR
 
 ## Summary
 
-1. **Largest and first multi-ancestry PSD GWAS**: 25 loci, 19 novel, enriched for hair-follicle development genes
+1. **Largest and first multi-ancestry PSD GWAS**: 25 loci, 19 novel, including several hair-follicle development genes
 2. PSD shares **most of its common-variant liability with HS** (rg 0.76), plus specific causal variants with HS (*KLF5*, *SOX9* regions) and acne (*SEMA4B*)
 3. The **obesity link is mediated by HS-shared liability**; obesity loci carry different variants
 4. A distinct **hair-patterning** axis: the balding link [@roberson2024] is pinned to specific shared variants (*HDAC9*, *DKK1*, *TCHH*, *SOX2*)
@@ -310,4 +334,62 @@ flowchart LR
 ## References {.smaller .scrollable}
 
 ::: {#refs}
+:::
+
+# Backup {.unnumbered}
+
+## Backup: PSD is genetically closest to HS {.smaller}
+
+![](figs/ldsc_rg.png){width="88%" fig-align="center"}
+
+- HS rg = 0.76, and 0.54 when the cohorts don't overlap (MVP PSD vs FinnGen HS)
+- Acne 0.15–0.43 · BMI 0.33 · PSD risk tracks balding (weak; first reported by @roberson2024) · WHR adj. BMI and alopecia areata not significant
+
+## Backup: Genomic SEM: HS explains the BMI link
+
+<br>
+
+| Model | Result |
+|---|---|
+| PSD ~ HS + BMI | HS **β = 0.75** (p = 1×10⁻⁸) · BMI β = 0.01 (p = 0.89) |
+| PSD ~ HS + acne + BMI + WHR + balding | HS **0.73** · no-balding **−0.25** (p = 1×10⁻⁵) · others not significant |
+| Common factor (PSD, HS, acne) | PSD loading **0.94**; residual variance 0.13 (SE 0.26) |
+
+<br>
+
+- PSD's genetic link to BMI runs **through the liability it shares with HS**, not through obesity itself
+- A separate **hair-patterning** component remains: PSD risk goes with balding
+- Most of PSD's common-variant liability is a follicular-occlusion factor
+
+## Backup: shared causal variants (colocalization) {.smaller}
+
+::: {.columns}
+::: {.column width="52%"}
+![](figs/coloc_heatmap.png){height="600"}
+:::
+::: {.column width="48%"}
+- **HS**: 6 PSD loci share a causal variant, including the *KLF5* region, a known HS locus [@peacker2026]. Three of the six replicate with the independent FinnGen HS GWAS.
+- **Acne**: *SEMA4B*, *LYPLAL1*
+- **Balding**: *HDAC9*, *DKK1/MBL2*, *S100A11/TCHH*, *SOX2*, chr20:22.1 Mb. The PSD risk allele goes with more balding.
+- **BMI / WHR**: overlapping loci carry **different** causal variants (×). *LYPLAL1* shares with HS and acne but not with fat distribution.
+
+<small>coloc.abf, ±500 kb, p₁₂ = 5×10⁻⁶; shared = PP.H4 > 0.8</small>
+:::
+:::
+
+## Backup: LAVA: local genetic correlation {.smaller}
+
+::: {.columns}
+::: {.column width="58%"}
+![](figs/lava_counts.png){width="100%"}
+:::
+::: {.column width="42%"}
+- 101 LD blocks with PSD signal, 225 bivariate tests (MHC excluded)
+- **HS**: 21 of 61 blocks significant, 20 of them positive. This is the same locus set coloc finds.
+- **No balding**: all 5 significant blocks are negative, so PSD risk goes with balding.
+- **BMI** local rg is ≈ 0 in 15 of 16 HS-shared blocks.
+- WHR adj. BMI: mixed signs, including *TBX15*.
+
+<small>FDR < 0.05 (Benjamini–Hochberg)</small>
+:::
 :::
