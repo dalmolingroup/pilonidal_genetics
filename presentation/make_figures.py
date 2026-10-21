@@ -126,8 +126,9 @@ fig.savefig(OUT / "scdrs_mhc.png"); plt.close(fig)
 # ---- GTEx eQTL coloc (META_EUR): locus -> gene pairs with PP.H4 >= 0.6 in any tissue ----
 eq = pd.read_csv(RES / "eqtl_coloc_psd_gtex.tsv", sep="\t")
 eq = eq[eq.psd_set == "PSD_META_EUR"].copy()
-lnc = {"ENSG00000287727": "PEX14-AS (lncRNA)", "ENSG00000223991": "TANAR (lncRNA)", "ENSG00000236838": "SMG6-AS (lncRNA)",
-       "ENSG00000232821": "novel lncRNA", "ENSG00000235848": "RMDN2-AS1 (lncRNA)"}
+# Ensembl GRCh38 (checked 2026-10-21): only TANAR and RMDN2-AS1 have official symbols; the others are unnamed novel transcripts
+lnc = {"ENSG00000287727": "unnamed antisense lncRNA", "ENSG00000223991": "TANAR (lncRNA)", "ENSG00000236838": "unnamed antisense lncRNA",
+       "ENSG00000232821": "lncRNA overlapping TWIST1", "ENSG00000235848": "RMDN2-AS1 (lncRNA)"}
 eq["gene"] = eq.gene_id.map(lnc).fillna(eq.gene_name)
 eq["locus"] = eq.label.str.replace(r"^chr(\d+):(\d+)$", lambda m: f"chr{m.group(1)}:{int(m.group(2)) / 1e6:.1f}Mb", regex=True)
 eq["pair"] = eq.locus + "  →  " + eq.gene

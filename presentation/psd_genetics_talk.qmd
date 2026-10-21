@@ -108,17 +108,14 @@ Shared feature: follicular occlusion and rupture
 ### 1 · Discovery
 - Harmonize to GRCh38; MAF ≥ 1%; variant present in ≥ 2 cohorts
 - Fixed-effect inverse-variance meta-analysis [@willer2010]
-- Distinct loci (±500 kb), labeled known or novel against prior art
+- Distinct loci (±500 kb), labeled known or novel against prior articles
 - LDSC intercept correction [@bulik2015ldsc]
 - Leave-FinnGen-out check
 - Fine-mapping: ABF [@wakefield2009] + SuSiE-RSS [@zou2022]
 :::
 ::: {.column width="33%"}
 ### 2 · Shared genetics
-- Genome-wide rg: LDSC [@bulik2015rg]
-- Multivariable model: Genomic SEM [@grotzinger2019]
-- Shared causal variant at each locus: coloc [@giambartolomei2014; @wallace2020]
-- Local rg in LD blocks: LAVA [@werme2022]
+- LDSC rg & COLOC: How much of the signal is shared with HS, balding, etc?
 :::
 ::: {.column width="33%"}
 ### 3 · Genes and cells
@@ -168,7 +165,6 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 <br>
 
 - Hair-follicle development genes recur: *SOX2*, *SOX9*, *WNT10A*, *DKK1*, *TWIST1*, *TBX15*
-- Caveat: the 1000 Genomes LD reference does not match the sample LD (SuSiE s = 0.04–0.19), so treat credible sets as indicative
 
 ^†^ Suggestive after LDSC-intercept correction
 
@@ -270,7 +266,7 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 - *SOX2* marks the dermal papilla cells that set hair-follicle type [@driskell2009]
 - *WNT10A*: the protective allele (p.Phe228Ile, OR 0.54) is a known ectodermal-dysplasia allele (ClinVar 4462); loss of *WNT10A* gives sparse hair [@adaimy2007]
 - *TCHH* builds the hair shaft; its mutations cause uncombable hair [@basmanav2016]
-- *DKK1* is induced by androgens in balding dermal papilla [@kwack2008]; *HDAC9/TWIST1* is a balding locus [@roberson2024]
+- *DKK1* is induced by androgens in balding dermal papilla [@kwack2008]; *HDAC9/TWIST1* is a balding locus [@roberson2024], where the PSD risk allele raises a skin lncRNA overlapping *TWIST1* (suggestive eQTL coloc)
 
 **→ Inherited hair-shaft and follicle traits, partly androgen-driven, may make hairs likelier to penetrate the natal cleft [@karydakis1992]. This could help explain the male excess.**
 :::
@@ -283,6 +279,14 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 
 **→ The PSD–HS–acne overlap points to the pilosebaceous epithelium, giving a genetic basis for "follicular occlusion".**
 :::
+:::
+
+::: {.notes}
+**TWIST1 thread (suggestive only)**
+
+- At the *HDAC9* locus, the PSD risk allele raises an unnamed lncRNA (ENSG00000232821) that overlaps *TWIST1*, in non-sun-exposed skin. PP.H4 0.62 (EUR) / 0.75 (ALL), below our 0.8 cut-off.
+- At the *CROCC2* locus, the coloc partner is *TANAR*, "TWIST1-associated lncRNA regulated by androgen receptor". The name comes from a single kidney-cancer study (Oncogene 2021): androgen receptor induces *TANAR*, which affects *TWIST1* RNA decay. The coloc is in visceral fat (PP.H4 0.92).
+- *TWIST1* is a dermal papilla transcription factor, so this fits the hair/androgen axis, but the evidence is thin: one cancer cell-line study and one sub-threshold coloc.
 :::
 
 ## A working model {.smaller}
