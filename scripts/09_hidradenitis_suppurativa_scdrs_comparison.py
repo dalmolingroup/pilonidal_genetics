@@ -9,6 +9,9 @@ Step 9: Hidradenitis Suppurativa (HS) vs. Pilonidal Sinus Disease (PSD) Single-C
    and test differential expression of PSD risk genes in Gluteal/Axillary HS vs. Healthy Skin.
 4. Query Open Targets for Hidradenitis Suppurativa (EFO_1000711) to quantify shared vs. divergent
    genetic architecture between PSD and HS.
+
+Current role: only load_and_annotate_gse (GSE274880 atlas loading and annotation) is used, imported by step 13b.
+Its own main run (early gene sets, Open Targets overlap) is superseded and its outputs were removed.
 """
 import os
 for _env_var in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "VECLIB_MAXIMUM_THREADS", "NUMEXPR_NUM_THREADS", "NUMBA_NUM_THREADS"):
