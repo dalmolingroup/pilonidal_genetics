@@ -8,7 +8,7 @@
 #SBATCH --time=06:00:00
 #SBATCH --output=slurm/psd_susie_%j.out
 #SBATCH --error=slurm/psd_susie_%j.err
-# Re-run fine-mapping (11c) with SuSiE available: susieR from conda-forge (module R lacks a matching libstdc++).
+# Re-run fine-mapping (01c) with SuSiE available: susieR from conda-forge (module R lacks a matching libstdc++).
 set -uo pipefail
 cd /mnt/beegfs/scratch/$USER/pilonidal_genetics
 BASE=$PWD; ENVS=/mnt/beegfs/scratch/$USER/envs
@@ -21,5 +21,5 @@ Rscript -e 'cat("susieR", requireNamespace("susieR",quietly=TRUE), as.character(
 if [ ! -s results/psd_meta_ALL_loci.tsv ]; then echo "meta loci missing; main job did not finish"; exit 1; fi
 mkdir -p results/finemap_abf_only && cp -f results/psd_finemap_*.tsv results/finemap_abf_only/ 2>/dev/null || true
 rm -f results/psd_finemap_locus_summary.tsv
-$ENVS/psd/bin/python scripts/11c_finemap_psd_loci.py
+$ENVS/psd/bin/python scripts/01c_finemap_psd_loci.py
 echo "=== susie rerun finished $(date) ==="

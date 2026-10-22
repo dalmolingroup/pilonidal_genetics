@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 11d (lightweight, runs anywhere): merge META_ALL and META_EUR genome-wide significant loci into one locus list,
+Step 01d (lightweight, runs anywhere): merge META_ALL and META_EUR genome-wide significant loci into one locus list,
 classify each as KNOWN (within 500 kb of a prior PSD association; data/psd_known_loci_prior_art.tsv) or NOVEL,
 and record whether any single cohort reaches genome-wide significance on its own.
 Inputs : results/psd_meta_{ALL,EUR}_loci.tsv, data/psd_known_loci_prior_art.tsv

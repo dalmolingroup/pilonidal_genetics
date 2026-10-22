@@ -8,7 +8,7 @@
 #SBATCH --time=24:00:00
 #SBATCH --output=slurm/psd_shared_%j.out
 #SBATCH --error=slurm/psd_shared_%j.err
-# Direction 3 extension: PSD-HS-acne-hair-adiposity shared genetics via coloc (14b), LAVA local rg (14c) and Genomic SEM (14d).
+# Direction 3 extension: PSD-HS-acne-hair-adiposity shared genetics via coloc (04b), LAVA local rg (04c) and Genomic SEM (04d).
 set -uo pipefail
 cd /mnt/beegfs/scratch/$USER/pilonidal_genetics
 BASE=$PWD; ENVS=/mnt/beegfs/scratch/$USER/envs
@@ -34,7 +34,7 @@ Rscript -e 'r <- "https://cloud.r-project.org"; for (p in c("coloc","mgsub","sim
 Rscript -e 'for (p in c("coloc","GenomicSEM","LAVA","data.table")) cat(p, requireNamespace(p, quietly=TRUE), "\n")'
 
 # ---- 1. inputs ----
-$ENVS/psd/bin/python scripts/14a_prepare_shared_genetics_inputs.py || { echo "INPUTS FAILED"; exit 1; }
+$ENVS/psd/bin/python scripts/04a_prepare_shared_genetics_inputs.py || { echo "INPUTS FAILED"; exit 1; }
 
 # ---- 2. LAVA reference (UKB v1.1) + locus file ----
 L=$BASE/data/lava; mkdir -p $L/ref
@@ -89,7 +89,7 @@ print(info)
 PYEOF
 
 # ---- 4-6. analyses ----
-[ -s results/coloc_psd_vs_traits.tsv ] || Rscript scripts/14b_coloc_psd_vs_traits.R || echo "COLOC FAILED"
-[ -s results/genomicsem_models.tsv ] || Rscript scripts/14d_genomic_sem.R || echo "GENOMICSEM FAILED"
-[ -s results/lava_bivariate_psd.tsv ] || Rscript scripts/14c_lava_local_rg.R || echo "LAVA FAILED"
+[ -s results/coloc_psd_vs_traits.tsv ] || Rscript scripts/04b_coloc_psd_vs_traits.R || echo "COLOC FAILED"
+[ -s results/genomicsem_models.tsv ] || Rscript scripts/04d_genomic_sem.R || echo "GENOMICSEM FAILED"
+[ -s results/lava_bivariate_psd.tsv ] || Rscript scripts/04c_lava_local_rg.R || echo "LAVA FAILED"
 echo "=== shared genetics finished $(date) ==="

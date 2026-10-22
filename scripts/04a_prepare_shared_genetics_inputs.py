@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Step 14a: full-density, rsID-keyed summary statistics for colocalization, LAVA and Genomic SEM
+Step 04a: full-density, rsID-keyed summary statistics for colocalization, LAVA and Genomic SEM
 (cluster job; DuckDB). One file per trait in data/processed/shared/<TRAIT>.tsv.gz with columns
 SNP CHR POS A1 A2 BETA SE Z P N EAF  (A1 = effect allele; MAF >= 1%; rsIDs present once only;
 palindromic A/T, C/G SNPs with 0.4 < EAF < 0.6 removed). POS is GRCh38 except BMI/WHRadjBMI (GRCh37);
 all downstream matching is by rsID + alleles, so builds are never mixed.
 
 Traits:
-  PSD_META_EUR / PSD_META_ALL : this study (scripts 11a-11b); N = total N scaled by per-SNP effective-N fraction
+  PSD_META_EUR / PSD_META_ALL : this study (scripts 01a-01b); N = total N scaled by per-SNP effective-N fraction
   HS        : GCST90726609 (MVP+UKB+FinnGen; 3,941 cases / 1,435,603 controls; 73% EUR)
   HS_FG     : FinnGen R13 L12_HIDRADENITISSUP (1,453 / 474,896; EUR-only sensitivity)
   ACNE_FG   : FinnGen R13 L12_ACNE (hospital-diagnosed; 4,812 / 474,896)

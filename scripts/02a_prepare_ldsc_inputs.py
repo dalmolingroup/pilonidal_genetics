@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 12a: Build munge-ready summary statistics (HapMap3 SNPs only) for LDSC genetic correlation analyses.
+Step 02a: Build munge-ready summary statistics (HapMap3 SNPs only) for LDSC genetic correlation analyses.
 Produces data/processed/ldsc_in/<trait>.tsv with columns SNP A1 A2 BETA SE P N  (A1 = effect allele).
 
 PSD sets: META_EUR, META_ALL, MVP_EUR, MVP_MultiAncestry, UKB_EUR, FinnGen_R13

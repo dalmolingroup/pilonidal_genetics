@@ -1,5 +1,5 @@
 #!/bin/bash
-# Step 12b: munge all LDSC inputs, estimate univariate h2 for PSD sets, and genetic correlations (rg)
+# Step 02b: munge all LDSC inputs, estimate univariate h2 for PSD sets, and genetic correlations (rg)
 # between PSD and follicular-occlusion / hair / adiposity traits, plus cross-cohort PSD rg among independent cohorts.
 set -euo pipefail
 BASE=$(cd "$(dirname "$0")/.." && pwd)

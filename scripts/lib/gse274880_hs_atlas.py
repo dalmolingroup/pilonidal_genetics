@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 9: Hidradenitis Suppurativa (HS) vs. Pilonidal Sinus Disease (PSD) Single-Cell & Genetic Dissection
+Helper module (formerly step 9). Hidradenitis Suppurativa (HS) vs. Pilonidal Sinus Disease (PSD) Single-Cell & Genetic Dissection
 1. Download GEO GSE274880 (52 MB tar of 8 10x filtered_feature_bc_matrix.h5 files:
    2 Healthy Whole Skin, 1 Gluteal HS Hurley II, 5 Axillary HS Hurley II/III).
 2. Annotate skin/HS cell types (including tunnel keratinocytes, papillary/Wnt+ fibroblasts,
@@ -10,7 +10,7 @@ Step 9: Hidradenitis Suppurativa (HS) vs. Pilonidal Sinus Disease (PSD) Single-C
 4. Query Open Targets for Hidradenitis Suppurativa (EFO_1000711) to quantify shared vs. divergent
    genetic architecture between PSD and HS.
 
-Current role: only load_and_annotate_gse (GSE274880 atlas loading and annotation) is used, imported by step 13b.
+Current role: only load_and_annotate_gse (GSE274880 atlas loading and annotation) is used, imported by step 03b.
 Its own main run (early gene sets, Open Targets overlap) is superseded and its outputs were removed.
 """
 import os
@@ -39,7 +39,7 @@ import seaborn as sns
 
 warnings.filterwarnings("ignore")
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parents[2]   # scripts/lib/ -> repo root
 DATA_DIR = BASE_DIR / "data"
 RESULTS_DIR = BASE_DIR / "results"
 FIG_DIR = BASE_DIR / "figures"

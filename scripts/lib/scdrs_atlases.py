@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Step 3: Download human skin & hair-follicle single-cell atlases (CELLxGENE Tabula Sapiens Skin,
+Helper module (formerly step 3). Downloads human skin & hair-follicle single-cell atlases (CELLxGENE Tabula Sapiens Skin,
 Scalp/Trunk Skin Atlas, Keratinocyte & Fibroblast subcluster atlases, and GEO Hair Follicle
 Mesenchymal scRNA-seq GSE287304), run scDRS (1,000 Monte Carlo control sets + cell-type association
 and heterogeneity tests), and compute gene-by-cell-type specificity matrices.
 
 Current role: only its atlas helpers (ATLAS_URLS, prepare_adata_with_symbols, choose_group_columns, load_gs_file) are used,
-imported by step 13b. Its own main run (early MVP-only gene sets) is superseded and its outputs were removed.
+imported by step 03b. Its own main run (early MVP-only gene sets) is superseded and its outputs were removed.
 """
 import os
 import urllib.request
@@ -28,7 +28,7 @@ import scdrs
 
 warnings.filterwarnings("ignore")
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parents[2]   # scripts/lib/ -> repo root
 DATA_DIR = BASE_DIR / "data"
 RESULTS_DIR = BASE_DIR / "results"
 FIG_DIR = BASE_DIR / "figures"

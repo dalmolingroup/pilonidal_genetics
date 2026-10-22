@@ -39,15 +39,15 @@ bash slurm/cluster_download_inputs.sh $BASE 2>&1 | tail -30
 # ---- 2. harmonize (5 cohorts in parallel) ----
 H=data/processed/harmonized; mkdir -p $H
 need=""; for c in MVP_MultiAncestry MVP_EUR UKB_EUR FinnGen_R13 GH_SAS; do [ -s $H/PSD_$c.harmonized.tsv.gz ] || need="$need $c"; done
-[ -n "$need" ] && bash scripts/11a_harmonize_psd_cohorts.sh $need
+[ -n "$need" ] && bash scripts/01a_harmonize_psd_cohorts.sh $need
 
 # ---- 3. meta-analysis ----
-[ -s results/psd_meta_ALL_loci.tsv ] || $PY scripts/11b_meta_analyze_psd_gwas.py
+[ -s results/psd_meta_ALL_loci.tsv ] || $PY scripts/01b_meta_analyze_psd_gwas.py
 
 # ---- 4. fine-mapping ----
-[ -s results/psd_finemap_locus_summary.tsv ] || $PY scripts/11c_finemap_psd_loci.py
+[ -s results/psd_finemap_locus_summary.tsv ] || $PY scripts/01c_finemap_psd_loci.py
 
 # ---- 5. LDSC inputs + rg ----
-[ -s data/processed/ldsc_in/BMI_Pulit2019.tsv ] || $PY scripts/12a_prepare_ldsc_inputs.py
-bash scripts/12b_run_ldsc_rg.sh
+[ -s data/processed/ldsc_in/BMI_Pulit2019.tsv ] || $PY scripts/02a_prepare_ldsc_inputs.py
+bash scripts/02b_run_ldsc_rg.sh
 echo "=== finished $(date) ==="

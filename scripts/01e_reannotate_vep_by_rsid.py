@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Step 11e (lightweight): re-annotate fine-mapped credible-set variants with Ensembl VEP by rsID, so VEP uses the true
-GRCh38 reference allele (11c passed alphabetically-sorted alleles, which mislabels REF for ~half the variants).
+Step 01e (lightweight): re-annotate fine-mapped credible-set variants with Ensembl VEP by rsID, so VEP uses the true
+GRCh38 reference allele (01c passed alphabetically-sorted alleles, which mislabels REF for ~half the variants).
 Adds CADD-free consequence, amino-acid change, regulatory feature and JASPAR motif disruption.
 Input : results/psd_finemap_credible_sets.tsv   Output: results/psd_finemap_vep_by_rsid.tsv
 """

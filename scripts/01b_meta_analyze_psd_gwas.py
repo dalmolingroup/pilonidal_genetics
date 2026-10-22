@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Step 11b: Multi-cohort inverse-variance-weighted fixed-effects meta-analysis of Pilonidal Sinus Disease GWAS.
+Step 01b: Multi-cohort inverse-variance-weighted fixed-effects meta-analysis of Pilonidal Sinus Disease GWAS.
 
-Cohorts (all GRCh38, harmonized by scripts/11a_harmonize_psd_cohorts.sh):
+Cohorts (all GRCh38, harmonized by scripts/01a_harmonize_psd_cohorts.sh):
   MVP_MultiAncestry  GCST90480439  2,073 cases / 629,531 controls (EUR+AFR+AMR; MVP-internal meta)
   MVP_EUR            GCST90478766  1,433 cases / 448,820 controls (subset of MVP_MultiAncestry -> never combined with it)
   UKB_EUR            GCST90473908  1,466 cases / 456,974 controls (UKB WGS, non-Finnish European)

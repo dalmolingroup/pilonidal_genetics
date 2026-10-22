@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Step 17a: locus-to-gene evidence table for the 25 non-MHC PSD meta-analysis loci.
+"""Step 07a: locus-to-gene evidence table for the 25 non-MHC PSD meta-analysis loci.
 
-Collects, per locus, the evidence already produced by steps 11-15 and scores candidate genes transparently:
+Collects, per locus, the evidence already produced by steps 01-05 and scores candidate genes transparently:
   nearest gene (+1), top MAGMA gene among genes within 250 kb if p < 1e-3 (+1), coding variant in the fine-mapped credible set
   (PIP >= 0.01; +2 if PIP >= 0.1, else +1), GTEx eQTL colocalization (+2 if PP.H4 >= 0.8, +1 if 0.5-0.8), Open Targets L2G top gene (+1).
 A protein-coding gene with functional evidence (coding PIP >= 0.1 or eQTL PP.H4 >= 0.8) outranks proximity.
@@ -56,7 +56,7 @@ else:
            for k, v in js.items()}
     cache.write_text(json.dumps(b37))
 
-# nearest protein-coding gene (GRCh38, +/-1 Mb) for gene-desert loci without a nearest gene in step 11d
+# nearest protein-coding gene (GRCh38, +/-1 Mb) for gene-desert loci without a nearest gene in step 01d
 cache38 = BASE / "data/processed/psd_desert_nearest_genes.json"
 desert = {f"{c}:{p}": None for c, p, g in zip(loci.chr, loci.pos, loci.nearest_gene) if not isinstance(g, str)}
 near38 = json.loads(cache38.read_text()) if cache38.exists() else {}

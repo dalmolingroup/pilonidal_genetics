@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Step 19b: fill rsIDs missing from the result tables (indels that lacked an rsID in the harmonised cohort files).
+"""Step 09b: fill rsIDs missing from the result tables (indels that lacked an rsID in the harmonised cohort files).
 
 Missing variants are resolved with the Ensembl VEP REST endpoint (GRCh38), which left-aligns/normalises the VCF-style
 indel and returns the co-located dbSNP rsID. Results are cached in data/processed/indel_rsids_grch38.json.
 Every missing variant in these tables is an indel; one position (chr20:22130748, +A and +AA) is a multi-allelic repeat
-and both alleles share one rsID. Run after any rerun of steps 11b-11e, 14b or 15a, which regenerate these tables.
+and both alleles share one rsID. Run after any rerun of steps 01b-01e, 04b or 05a, which regenerate these tables.
 """
 import json, urllib.request
 from pathlib import Path

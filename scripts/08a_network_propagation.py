@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Step 18a: network propagation of PSD gene scores, following Visona et al. 2024 (Brief Bioinform 25:bbae014) and their code
+"""Step 08a: network propagation of PSD gene scores, following Visona et al. 2024 (Brief Bioinform 25:bbae014) and their code
 (github.com/gvisona/GWAS_NetworkPropagation @ 796ba7a, rwr_functions.py / constants.py / ensemble notebook).
 
-- Gene scores: MHC-free MAGMA gene p-values (step 16a), score = max(1e-16, -log10 p) (their load_pegasus_results).
+- Gene scores: MHC-free MAGMA gene p-values (step 06a), score = max(1e-16, -log10 p) (their load_pegasus_results).
 - Networks: their processed NCBI edge lists (BioPlex3, HumanNet v3, PCNet, ProteomeHD, STRING), undirected networkx graphs.
 - Propagation: networkx personalized PageRank with the gene scores as personalization (seed 0 for genes without a score),
   over their ALPHAS grid (0, 0.001-0.01, 0.02-0.9; 100 values).

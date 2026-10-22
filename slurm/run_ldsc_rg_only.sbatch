@@ -13,5 +13,5 @@ set -uo pipefail
 cd /mnt/beegfs/scratch/$USER/pilonidal_genetics
 ENVS=/mnt/beegfs/scratch/$USER/envs
 export DUCKDB_MEM=48GB DUCKDB_THREADS=16 LDSC_ENV=$ENVS/ldsc
-$ENVS/psd/bin/python scripts/12a_prepare_ldsc_inputs.py && bash scripts/12b_run_ldsc_rg.sh || echo "LDSC FAILED"
+$ENVS/psd/bin/python scripts/02a_prepare_ldsc_inputs.py && bash scripts/02b_run_ldsc_rg.sh || echo "LDSC FAILED"
 echo "=== ldsc finished $(date) ==="

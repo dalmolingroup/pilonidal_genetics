@@ -24,6 +24,6 @@ $ENVS/scdrs/bin/python -c "import scdrs, scanpy, duckdb; print('scdrs env ok')"
 # wait (max 60 min) for the concurrently running LDSC job to finish writing comparator inputs
 for i in $(seq 1 60); do [ -s data/processed/ldsc_in/BMI_Pulit2019.tsv ] && [ -s data/processed/ldsc_in/WHRadjBMI_Pulit2019.tsv ] && break; sleep 60; done
 sleep 30; ls -la data/processed/ldsc_in/*Pulit2019.tsv 2>/dev/null
-[ -s data/psd_meta_magma_scdrs.gs ] || PY=$ENVS/scdrs/bin/python bash scripts/13a_magma_gene_analysis.sh || { echo "MAGMA FAILED"; exit 1; }
-$ENVS/scdrs/bin/python scripts/13b_scdrs_meta_magma.py || echo "SCDRS FAILED"
+[ -s data/psd_meta_magma_scdrs.gs ] || PY=$ENVS/scdrs/bin/python bash scripts/03a_magma_gene_analysis.sh || { echo "MAGMA FAILED"; exit 1; }
+$ENVS/scdrs/bin/python scripts/03b_scdrs_meta_magma.py || echo "SCDRS FAILED"
 echo "=== magma+scdrs finished $(date) ==="

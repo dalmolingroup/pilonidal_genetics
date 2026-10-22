@@ -1,10 +1,10 @@
 #!/usr/bin/env Rscript
-# Step 15a: Bayesian colocalization (coloc.abf; priors as step 14b) of the non-MHC PSD loci with GTEx v8 cis-eQTLs, using the
+# Step 05a: Bayesian colocalization (coloc.abf; priors as step 04b) of the non-MHC PSD loci with GTEx v8 cis-eQTLs, using the
 # eQTL Catalogue uniformly processed summary statistics: skin sun-exposed (QTD000316), skin not sun-exposed (QTD000311),
 # subcutaneous adipose (QTD000116), visceral adipose (QTD000121) and cultured fibroblasts (QTD000216).
 # Region = PSD lead +/-500 kb (GRCh38); variants matched by position + alleles; a gene is tested when its eQTL p < 1e-4 in the window.
 # Inputs : data/processed/eqtl/<dataset>/chr<chr>_<pos>.tsv.gz (tabix extracts from slurm/run_eqtl_coloc.sbatch),
-#          data/processed/eqtl/ensembl105_genes.tsv, data/processed/shared/PSD_META_{EUR,ALL}.tsv.gz (step 14a)
+#          data/processed/eqtl/ensembl105_genes.tsv, data/processed/shared/PSD_META_{EUR,ALL}.tsv.gz (step 04a)
 # Output : results/eqtl_coloc_psd_gtex.tsv
 suppressMessages({library(data.table); library(coloc)})
 base <- normalizePath(file.path(dirname(sub("--file=", "", grep("--file=", commandArgs(FALSE), value = TRUE))), ".."))

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Step 13a: MAGMA v1.10 gene-level association (SNP-wise mean model; 1000G EUR LD reference; +10 kb / -1.5 kb windows)
+# Step 03a: MAGMA v1.10 gene-level association (SNP-wise mean model; 1000G EUR LD reference; +10 kb / -1.5 kb windows)
 # for the PSD meta-analyses and comparator traits, then scDRS gene sets (top 1,000 genes by MAGMA z, z-score weights).
 # PSD inputs use all rsID-mapped meta-analysis variants (k >= 2); comparators use their HapMap3 LDSC inputs.
 set -euo pipefail

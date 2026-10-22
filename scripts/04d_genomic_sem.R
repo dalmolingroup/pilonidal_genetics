@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Step 14d: Genomic SEM (Grotzinger et al. 2019). Multivariable LDSC on HapMap3-munged summary statistics, then:
+# Step 04d: Genomic SEM (Grotzinger et al. 2019). Multivariable LDSC on HapMap3-munged summary statistics, then:
 #  M1  common "follicular occlusion" factor  F =~ PSD + HS + ACNE_FG + ACNE_TL   (how much PSD genetic variance is shared vs PSD-specific)
 #  M1b same factor with only the three follicular-occlusion phenotypes PSD, HS, ACNE_FG (just-identified)
 #  M2a genetic multiple regression PSD ~ HS + BMI                               (is PSD-HS sharing independent of adiposity?)

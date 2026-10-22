@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 11c: Statistical fine-mapping of PSD meta-analysis loci.
+Step 01c: Statistical fine-mapping of PSD meta-analysis loci.
   (1) Approximate Bayes Factor (Wakefield 2009) 95% credible sets on META_ALL and META_EUR (LD-free).
   (2) SuSiE-RSS (Zou et al. 2022; susieR) on META_EUR using 1000 Genomes Phase 3 EUR (n=503, GRCh38) LD from plink2,
       with the kriging_rss LD/z-score consistency diagnostic.

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Step 19a: supplementary table of the 25 non-MHC PSD lead variants, with full statistical reporting in both meta-analyses.
+"""Step 09a: supplementary table of the 25 non-MHC PSD lead variants, with full statistical reporting in both meta-analyses.
 
 For each lead variant (results/psd_locus_to_gene.tsv; GRCh38) and each meta-analysis (META_EUR, META_ALL):
-  - GRCh38 and GRCh37 positions (GRCh37 from the Ensembl GRCh37 cache written by step 17a), rsID, effect/other allele, EAF
-  - fixed-effect IVW OR (95% CI) and p, as in step 11b
+  - GRCh38 and GRCh37 positions (GRCh37 from the Ensembl GRCh37 cache written by step 07a), rsID, effect/other allele, EAF
+  - fixed-effect IVW OR (95% CI) and p, as in step 01b
   - DerSimonian-Laird random-effects OR (95% CI) and p, tau^2, Cochran's Q, heterogeneity p and I^2
   - per-cohort OR (95% CI) and p
 Indels keep the VCF position (the padding base before the variant), so they sit 1 bp before the Ensembl start.
@@ -31,7 +31,7 @@ con.register("leads", leads[["chr", "pos"]])
 def ci(b, se):
     return f"{np.exp(b):.3f} ({np.exp(b - 1.96 * se):.3f}-{np.exp(b + 1.96 * se):.3f})"
 
-# per-cohort effects at the lead positions, with the same MAF filter and within-cohort de-duplication as step 11b
+# per-cohort effects at the lead positions, with the same MAF filter and within-cohort de-duplication as step 01b
 coh = []
 for c in sorted({c for v in COHORTS.values() for c in v}):
     f = BASE / f"data/processed/harmonized/PSD_{c}.harmonized.tsv.gz"

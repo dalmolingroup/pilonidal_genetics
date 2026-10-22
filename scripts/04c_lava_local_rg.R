@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Step 14c: LAVA v0.1.5 local genetic correlation (Werme et al. 2022) across the 2,495 LD-independent genomic blocks,
+# Step 04c: LAVA v0.1.5 local genetic correlation (Werme et al. 2022) across the 2,495 LD-independent genomic blocks,
 # with the UK Biobank LAVA LD reference (v1.1, 100k unrelated Europeans; recommended over 1000G by the LAVA authors).
 #  1) univariate local h2 test for every trait and block
 #  2) bivariate local rg: PSD vs each trait, in blocks where both have univariate p < 1e-4

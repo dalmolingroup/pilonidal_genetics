@@ -1,6 +1,6 @@
 #!/bin/bash
-# Step 13c: MHC-excluded scDRS gene sets. Drops every gene overlapping the MHC (GRCh37 chr6:28.4-33.5 Mb, NCBI37.3 gene loc)
-# from the MAGMA z-score table of step 13a, then re-selects the top 1,000 genes per trait with the same munge-gs settings,
+# Step 03c: MHC-excluded scDRS gene sets. Drops every gene overlapping the MHC (GRCh37 chr6:28.4-33.5 Mb, NCBI37.3 gene loc)
+# from the MAGMA z-score table of step 03a, then re-selects the top 1,000 genes per trait with the same munge-gs settings,
 # so HLA class II / antigen-presentation genes cannot drive immune cell-type associations.
 # Output: data/psd_meta_magma_scdrs_noMHC.gs
 set -euo pipefail

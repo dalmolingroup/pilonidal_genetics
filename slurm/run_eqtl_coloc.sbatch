@@ -8,9 +8,9 @@
 #SBATCH --time=04:00:00
 #SBATCH --output=slurm/psd_eqtl_coloc_%j.out
 #SBATCH --error=slurm/psd_eqtl_coloc_%j.err
-# Step 15a: GTEx v8 eQTL colocalization of the non-MHC PSD loci.
+# Step 05a: GTEx v8 eQTL colocalization of the non-MHC PSD loci.
 # (1) remote tabix extracts (lead +/-500 kb) of eQTL Catalogue summary statistics for 5 GTEx tissues, one process per dataset;
-# (2) Ensembl 105 gene id -> name table; (3) scripts/15a_eqtl_coloc_gtex.R
+# (2) Ensembl 105 gene id -> name table; (3) scripts/05a_eqtl_coloc_gtex.R
 set -uo pipefail
 cd /mnt/beegfs/scratch/$USER/pilonidal_genetics
 ENVS=/mnt/beegfs/scratch/$USER/envs
@@ -43,5 +43,5 @@ printf "QTD000316\nQTD000311\nQTD000116\nQTD000121\nQTD000216\n" | xargs -P 5 -I
 [ -s $EQ/ensembl105_genes.tsv ] || curl -sSL --retry 5 https://ftp.ensembl.org/pub/release-105/gtf/homo_sapiens/Homo_sapiens.GRCh38.105.gtf.gz | zcat \
   | awk -F'\t' '$3=="gene"{id=$9; sub(/.*gene_id "/,"",id); sub(/".*/,"",id); nm=id; if ($9 ~ /gene_name "/) {nm=$9; sub(/.*gene_name "/,"",nm); sub(/".*/,"",nm)}; print id"\t"nm}' > $EQ/ensembl105_genes.tsv
 echo "$(wc -l < $EQ/ensembl105_genes.tsv) Ensembl genes"
-Rscript scripts/15a_eqtl_coloc_gtex.R || echo "EQTL COLOC FAILED"
+Rscript scripts/05a_eqtl_coloc_gtex.R || echo "EQTL COLOC FAILED"
 echo "=== eqtl coloc finished $(date) ==="

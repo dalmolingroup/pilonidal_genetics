@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Step 14b: Bayesian colocalization (coloc.abf; Giambartolomei 2014, single causal variant per trait per region)
+# Step 04b: Bayesian colocalization (coloc.abf; Giambartolomei 2014, single causal variant per trait per region)
 # of PSD with HS, acne, balding, BMI and WHRadjBMI at (i) all 26 PSD genome-wide significant loci and (ii) all HS
 # genome-wide significant loci. Region = +/-500 kb around the lead (GRCh38, PSD coordinates); variants matched by rsID
 # with allele alignment. Priors p1 = p2 = 1e-4; p12 = 5e-6 (Wallace 2020) with p12 = 1e-5 as sensitivity.

@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
-"""Step 18b: go/no-go validation of the step-18a network propagation, replacing Visona et al.'s GWAS Catalog benchmark.
+"""Step 08b: go/no-go validation of the step-08a network propagation, replacing Visona et al.'s GWAS Catalog benchmark.
 
 Pre-set design (fixed before looking at any result):
 - Chromosome split: seed the propagation with MHC-free MAGMA scores of autosomal genes on odd chromosomes only (all other genes seed 0),
-  and evaluate the ensemble ranking of genes on even chromosomes; and vice versa. Same networks, propagation and ensemble as 18a.
+  and evaluate the ensemble ranking of genes on even chromosomes; and vice versa. Same networks, propagation and ensemble as 08a.
 - Targets on the held-out chromosomes: genes with MAGMA p < 1e-3 (same meta) plus the prioritised genes of the 25 PSD loci
   (results/psd_locus_to_gene.tsv). Universe: held-out autosomal genes in the ensemble (present in >= 2 networks).
 - Metric: average precision (AP) of the targets in the held-out ranking; statistic = mean AP over the two folds.
-- Propagation strength: alpha is chosen by the cross-check (argmax of the statistic over the 18a grid, alpha = 0 excluded).
+- Propagation strength: alpha is chosen by the cross-check (argmax of the statistic over the 08a grid, alpha = 0 excluded).
 - Connectivity baseline: genes ranked by degree (ensemble of degree rank / n_nodes across networks, same rule as the propagation ensemble).
 - Null: 1,000 degree-matched permutations of the seed scores (training-chromosome genes with a MAGMA score, shuffled within
   20 quantile bins of ensemble degree rank; same shuffle in all networks). The null statistic is also maximised over alpha,
   so the permutation p accounts for choosing alpha.
 - Rule (primary meta PSD_META_EUR; ALL reported alongside): GO only if the statistic beats the degree baseline AND permutation p < 0.05.
   Otherwise report a null supplementary result and stop.
-Deviation from 18a: per-network ranks use average ranks for ties (18a used ordinal), so genes tied at zero score are not ordered arbitrarily.
+Deviation from 08a: per-network ranks use average ranks for ties (08a used ordinal), so genes tied at zero score are not ordered arbitrarily.
 PageRank is a vectorised re-implementation of networkx's _pagerank_scipy (same matrix, tolerance and update); it is checked against the
-18a output before use.
+08a output before use.
 Outputs: results/netprop_validation_curve.tsv (per meta/fold/alpha: observed AP, null mean and 95th percentile),
          results/netprop_validation_summary.tsv (selected alpha, statistic, degree baseline, permutation p, verdict)
 """
@@ -32,7 +32,7 @@ from scipy.stats import rankdata
 BASE = Path(__file__).resolve().parents[1]
 NP = BASE / "data/netprop"
 NETWORKS = ["BioPlex3", "HumanNet", "PCNet", "ProteomeHD", "STRING"]
-ALPHAS = np.concatenate(([0.0], np.linspace(0.001, 0.01, 10), np.linspace(0.02, 0.9, 89)))   # same grid as 18a
+ALPHAS = np.concatenate(([0.0], np.linspace(0.001, 0.01, 10), np.linspace(0.02, 0.9, 89)))   # same grid as 08a
 METAS = ["PSD_META_EUR", "PSD_META_ALL"]
 FOLDS = {"odd_to_even": 1, "even_to_odd": 0}   # value = parity of the seeded chromosomes
 NPERM, NBINS, P_TARGET, SEED = 1000, 20, 1e-3, 18
@@ -135,7 +135,7 @@ def task(args):
     return meta, fold, j, average_precision(held_ensemble(meta, fold, per_net), st["y"])
 
 if __name__ == "__main__":
-    # check the vectorised PageRank against networkx and the 18a output
+    # check the vectorised PageRank against networkx and the 08a output
     G = GRAPHS["STRING"]; s = magma("PSD_META_EUR"); sc = np.maximum(1e-16, -np.log10(s))
     seeds = np.array([sc.get(n, 0.0) for n in G["nodes"]])
     z = np.load(NP / "PSD_META_EUR_STRING.npz")
@@ -147,7 +147,7 @@ if __name__ == "__main__":
         nx_ = pagerank(g, alpha=a, personalization=dict(zip(G["nodes"], seeds)))
         ref = z["scores"][:, int(np.argmin(np.abs(ALPHAS - a)))]
         print(f"PPR check alpha {a}: max |mine - networkx| {np.abs(mine - np.array([nx_[n] for n in G['nodes']])).max():.2e}, "
-              f"max |mine - 18a| {np.abs(mine - ref).max():.2e}", flush=True)
+              f"max |mine - 08a| {np.abs(mine - ref).max():.2e}", flush=True)
     for (meta, fold), st in SETUP.items():
         print(f"{meta} {fold}: {len(st['row'])} seeded genes, {len(st['held'])} held-out genes, {st['y'].sum()} targets "
               f"({sum(g in LOCUS_GENES for g in st['held'][st['y']])} locus genes)", flush=True)

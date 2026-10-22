@@ -1,9 +1,9 @@
 #!/bin/bash
-# Step 11a: Stream-harmonize PSD GWAS summary statistics (all GRCh38) into a common compact format.
+# Step 01a: Stream-harmonize PSD GWAS summary statistics (all GRCh38) into a common compact format.
 # Output columns: chr pos a1 a2 beta se p eaf n rsid
 #   a1 = effect allele after canonical ordering (a1 < a2 lexicographically; beta sign and EAF flipped if needed)
 #   beta = log(OR) scale for all cohorts. Filters: autosomes 1-22, MAF >= 0.005, finite SE > 0, INFO >= 0.3 if present.
-# Usage: 11a_harmonize_psd_cohorts.sh <cohort_name> [<cohort_name> ...]   (run cohorts in parallel with xargs -P)
+# Usage: 01a_harmonize_psd_cohorts.sh <cohort_name> [<cohort_name> ...]   (run cohorts in parallel with xargs -P)
 set -euo pipefail
 BASE=$(cd "$(dirname "$0")/.." && pwd)
 RAW=$BASE/data/raw/sumstats

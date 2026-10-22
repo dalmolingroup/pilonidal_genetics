@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Step 13b: scDRS (n_ctrl=1,000; z-score-weighted top-1,000 MAGMA genes) for PSD meta-analysis gene sets and comparator traits
-across the 5 CELLxGENE skin atlases (as in step 03), the GSE274880 HS/healthy skin atlas (as in step 09) and the GSE287304
-hair-follicle mesenchyme atlas (HTO demultiplexing as in step 08, rebuilt from the public GEO matrix).
-Gene sets: data/psd_meta_magma_scdrs.gs (from 13a). Outputs: results/scdrs_magma_group_stats_<atlas>.tsv, results/scdrs_magma_all_atlases.tsv
-Environment overrides: SCDRS_GS (gene-set file, e.g. the MHC-excluded one from 13c), SCDRS_TAG (output prefix, default scdrs_magma),
+Step 03b: scDRS (n_ctrl=1,000; z-score-weighted top-1,000 MAGMA genes) for PSD meta-analysis gene sets and comparator traits
+across the 5 CELLxGENE skin atlases (atlas helpers in scripts/lib/scdrs_atlases.py), the GSE274880 HS/healthy skin atlas (scripts/lib/gse274880_hs_atlas.py) and the GSE287304
+hair-follicle mesenchyme atlas (HTO demultiplexing rebuilt from the public GEO matrix).
+Gene sets: data/psd_meta_magma_scdrs.gs (from 03a). Outputs: results/scdrs_magma_group_stats_<atlas>.tsv, results/scdrs_magma_all_atlases.tsv
+Environment overrides: SCDRS_GS (gene-set file, e.g. the MHC-excluded one from 03c), SCDRS_TAG (output prefix, default scdrs_magma),
 SCDRS_ATLAS (score only this atlas key, for SLURM arrays), SCDRS_MERGE=1 (only merge per-atlas tables and compute FDR; no scoring).
 """
 import importlib.util, os, sys, urllib.request, gzip
@@ -38,8 +38,8 @@ if os.environ.get("SCDRS_MERGE") == "1":
 def load_module(name, fname):
     spec = importlib.util.spec_from_file_location(name, BASE / "scripts" / fname)
     mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod); return mod
-s03 = load_module("s03", "03_run_scdrs_and_specificity.py")        # also applies numpy/scipy compatibility patches
-s09 = load_module("s09", "09_hidradenitis_suppurativa_scdrs_comparison.py")
+s03 = load_module("s03", "lib/scdrs_atlases.py")        # also applies numpy/scipy compatibility patches
+s09 = load_module("s09", "lib/gse274880_hs_atlas.py")
 import pandas as pd, scanpy as sc, anndata as ad, scdrs, scipy.sparse as sp, scipy.io
 DATA, RES = BASE / "data", BASE / "results"
 gs = s03.load_gs_file(Path(os.environ.get("SCDRS_GS", DATA / "psd_meta_magma_scdrs.gs")))
@@ -77,7 +77,7 @@ def load_gse287304():
     bcs = pd.read_csv(d / "GSE287304_1_barcodes.tsv.gz", sep="\t", header=None, names=["barcode"])
     X = scipy.io.mmread(gzip.open(d / "GSE287304_1_matrix.mtx.gz")).tocsc().T.tocsr()      # cells x features
     rna = (feats.ftype == "Gene Expression").values; hto = (feats.ftype == "Antibody Capture").values
-    Xr = X[:, rna]; keep = np.asarray((Xr > 0).sum(axis=1)).ravel() >= 500                  # same pre-filter as step 08 triplets
+    Xr = X[:, rna]; keep = np.asarray((Xr > 0).sum(axis=1)).ravel() >= 500                  # same pre-filter as the original GSE287304 analysis
     Xr, Xh, bc = Xr[keep], X[keep][:, hto].toarray(), bcs.barcode.values[keep]
     names = feats.loc[hto, "id"].values
     h3 = Xh[:, [int(np.where(names == n)[0][0]) for n in ("HTO_C0252", "HTO_C0253", "HTO_C0254")]].astype(float)

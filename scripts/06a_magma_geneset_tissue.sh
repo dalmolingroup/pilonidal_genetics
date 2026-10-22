@@ -1,11 +1,11 @@
 #!/bin/bash
-# Step 16a: MAGMA v1.10 competitive gene-set and GTEx tissue gene-property analyses on MHC-free gene scores.
-# (1) MHC genes (GRCh37 chr6:28.4-33.5 Mb, NCBI37.3 gene loc) are dropped from the step-13a SNP->gene annotation and the gene
+# Step 06a: MAGMA v1.10 competitive gene-set and GTEx tissue gene-property analyses on MHC-free gene scores.
+# (1) MHC genes (GRCh37 chr6:28.4-33.5 Mb, NCBI37.3 gene loc) are dropped from the step-03a SNP->gene annotation and the gene
 #     analysis is rerun for every trait, so MHC genes are absent from the gene universe (not only from the sets);
 # (2) gene sets: MSigDB 2025.1 GO biological process + Reactome (Entrez), 10-500 genes; a priori follicle/keratinocyte/WNT sets flagged;
 # (3) tissues: GTEx v8 median TPM, log2(TPM+1) per tissue conditioned on the across-tissue average (FUMA model, one-sided);
 # (4) robustness for PSD: top sets rerun without their strongest locus (top gene +/-1 Mb) and without genome-wide significant genes.
-# Inputs : data/magma/in/<trait>.txt and data/magma/ref/* (step 13a)
+# Inputs : data/magma/in/<trait>.txt and data/magma/ref/* (step 03a)
 # Outputs: results/magma_genesets_nomhc.tsv, results/magma_gtex_tissues_nomhc.tsv, results/magma_genesets_psd_robustness.tsv
 set -euo pipefail
 BASE=$(cd "$(dirname "$0")/.." && pwd)

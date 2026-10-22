@@ -9,7 +9,7 @@
 #SBATCH --array=0-6
 #SBATCH --output=slurm/psd_scdrs_nomhc_%A_%a.out
 #SBATCH --error=slurm/psd_scdrs_nomhc_%A_%a.err
-# scDRS with MHC-excluded MAGMA gene sets (step 13c), one atlas per array task. Merge afterwards with SCDRS_MERGE=1 (see bottom).
+# scDRS with MHC-excluded MAGMA gene sets (step 03c), one atlas per array task. Merge afterwards with SCDRS_MERGE=1 (see bottom).
 set -uo pipefail
 cd /mnt/beegfs/scratch/$USER/pilonidal_genetics
 ENVS=/mnt/beegfs/scratch/$USER/envs
@@ -21,11 +21,11 @@ ATLASES=(tabula_sapiens_skin skin_12datasets_integrated skin_keratinocyte_subclu
 GS=data/psd_meta_magma_scdrs_noMHC.gs
 # task 0 builds the gene sets; the others wait for it
 if [ "$SLURM_ARRAY_TASK_ID" = 0 ]; then
-  [ -s $GS ] || PY=$ENVS/scdrs/bin/python bash scripts/13c_magma_genesets_exclude_mhc.sh || { echo "GENESETS FAILED"; exit 1; }
+  [ -s $GS ] || PY=$ENVS/scdrs/bin/python bash scripts/03c_magma_genesets_exclude_mhc.sh || { echo "GENESETS FAILED"; exit 1; }
 else
   for i in $(seq 1 30); do [ -s $GS ] && break; sleep 20; done
 fi
 sleep 5
-SCDRS_GS=$GS SCDRS_TAG=scdrs_magma_nomhc SCDRS_ATLAS=${ATLASES[$SLURM_ARRAY_TASK_ID]} $ENVS/scdrs/bin/python scripts/13b_scdrs_meta_magma.py || echo "SCDRS FAILED"
+SCDRS_GS=$GS SCDRS_TAG=scdrs_magma_nomhc SCDRS_ATLAS=${ATLASES[$SLURM_ARRAY_TASK_ID]} $ENVS/scdrs/bin/python scripts/03b_scdrs_meta_magma.py || echo "SCDRS FAILED"
 echo "=== ${ATLASES[$SLURM_ARRAY_TASK_ID]} finished $(date) ==="
-# merge (dependent job): SCDRS_TAG=scdrs_magma_nomhc SCDRS_MERGE=1 python scripts/13b_scdrs_meta_magma.py
+# merge (dependent job): SCDRS_TAG=scdrs_magma_nomhc SCDRS_MERGE=1 python scripts/03b_scdrs_meta_magma.py

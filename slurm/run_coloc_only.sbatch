@@ -11,5 +11,5 @@
 set -uo pipefail
 cd /mnt/beegfs/scratch/$USER/pilonidal_genetics
 export PATH=/mnt/beegfs/scratch/$USER/envs/rgen/bin:$PATH
-Rscript scripts/14b_coloc_psd_vs_traits.R || echo "COLOC FAILED"
+Rscript scripts/04b_coloc_psd_vs_traits.R || echo "COLOC FAILED"
 echo "=== coloc finished $(date) ==="
