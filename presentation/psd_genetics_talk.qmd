@@ -152,21 +152,21 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 
 ## Fine-mapping highlights {.smaller}
 
-| Locus | Top variant | PIP | Comment |
-|---|---|---:|---|
-| *SOX2* | rs1345417 | 0.97–1.00 | Single-variant credible set; dermal papilla transcription factor |
-| *PEX14 / KIF1B* | rs140563213 | 0.99 | One of 3 independent signals |
-| *PDE9A* | rs111363985 | 0.92–0.98 | |
-| chr17:71.5 Mb (*SOX9* desert) | rs714894 | 0.94 | Shared with HS |
-| *TMED10 / NEK9* | rs8013918 | 0.84 | Known locus |
-| chr13:73.4 Mb (near *KLF5*) | rs17090189 | 0.65–0.81 | Shared with HS |
-| *WNT10A* | rs121908120, p.Phe228Ile | 0.74 | Protective missense (OR 0.54); ectodermal-dysplasia gene^†^ |
+| Locus | Top variant | PIP ABF | PIP SuSiE | Comment |
+|---|---|---:|---:|---|
+| *SOX2* | rs1345417 | 1.00 | 0.97 | One-variant credible set |
+| *PDE9A* | rs111363985 | 0.90–0.98 | 0.92 | |
+| chr13:73.4 Mb (*KLF5*) | rs17090189 | 0.65–0.81 | 0.80 | Shared with HS |
+| *WNT10A* | rs121908120 (p.Phe228Ile) | 0.45–0.57 | 0.74 | Protective missense, OR 0.54^†^ |
+| *PEX14 / KIF1B* | rs140563213 | – | 0.99 | SuSiE only (3 sets) |
+| chr17:71.5 Mb (*SOX9*) | rs714894 | – | 0.94 | SuSiE only; shared with HS |
+| *TMED10 / NEK9* | rs8013918 | – | 0.84 | SuSiE only; known locus |
 
 <br>
 
-- Hair-follicle development genes recur: *SOX2*, *SOX9*, *WNT10A*, *DKK1*, *TWIST1*, *TBX15*
+- Hair-follicle development genes lie near several loci: *SOX2*, *SOX9*, *WNT10A*, *DKK1*, *TWIST1*, *TBX15*
 
-^†^ Suggestive after LDSC-intercept correction
+<small>^†^ Suggestive after LDSC-intercept correction. ABF: META_EUR and META_ALL. SuSiE-RSS: META_EUR with 1000 Genomes EUR LD, which fits the sample LD imperfectly, so SuSiE-only results are indicative.</small>
 
 ::: {.notes}
 **Fine-mapping**
@@ -209,9 +209,9 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 
 ![](figs/scdrs_mhc.png){width="78%" fig-align="center"}
 
-- With the MHC, 15–17 immune groups reach FDR < 0.05, but this is driven by 63 HLA genes from a single locus
+- With the MHC, 15–17 immune groups reach FDR < 0.05, but this is driven by the 63 MHC-region genes in the PSD gene set
 - **Without the MHC: 0 groups (EUR) / 1 group (ALL: Fibroblast IV, FDR 0.04)**. Fibroblast IV resembles NGFR⁺ Schwann-like F5 fibroblasts [@steele2025]
-- Positive control works: balding maps to the dermal papilla (z = 7.0)
+- Positive control works: balding maps to the dermal papilla and dermal sheath cup (z = 7.0 and 6.8)
 - **Conclusion:** weak but consistent fibroblast enrichment; no robust cell-type signal
 
 ## Result 4: gene expression (eQTL colocalization) {.smaller}
@@ -219,7 +219,7 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 ![](figs/eqtl_coloc.png){width="78%" fig-align="center"}
 
 - 25 loci × 5 GTEx v8 tissues from the eQTL Catalogue [@kerimov2021; @gtex2020]; 6 loci share a causal variant with at least one gene
-- ***SEMA4B***: the PSD risk allele **raises *SEMA4B* expression in skin** (PP.H4 0.97, resolved to one SNP, rs34560261). The same SNP leads the acne colocalization.
+- ***SEMA4B***: the PSD risk allele **raises *SEMA4B* expression in skin** (PP.H4 0.97, resolved to one SNP, rs34560261). The same SNP is the likely causal acne variant [@petridis2018].
 - ***CPED1* → *WNT16***: the risk allele raises *WNT16* in fibroblasts and fat; in skin, a different variant drives *WNT16*
 - No eQTL support for the developmental genes (*SOX2*, *SOX9*, *TBX15*, *DKK1*, *KLF5*): adult bulk tissue misses developmental regulation
 
@@ -236,10 +236,10 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 
 | Strongest evidence | Loci | Prioritised gene(s) |
 |---|---:|---|
-| Coding variant (PIP ≥ 0.1) or eQTL coloc, protein-coding gene | 3 | ***SEMA4B*** (skin eQTL) · ***WNT16*** at *CPED1* (fibroblast eQTL) · ***WNT10A*** (p.Phe228Ile) |
-| eQTL coloc with a lncRNA only | 4 | *CROCC2* (TANAR) · *PEX14* (antisense) · *SMG6* (antisense) · *CYP1B1* (RMDN2-AS1) |
+| Coding variant (PIP ≥ 0.1) or eQTL coloc, protein-coding gene | 3 | ***SEMA4B***^‡^ (skin eQTL) · ***WNT16*** at *CPED1* (fibroblast eQTL) · ***WNT10A***^‡^ (p.Phe228Ile) |
+| eQTL coloc with a lncRNA only | 4 | *CROCC2* (TANAR) · *PEX14* (antisense) · *SMG6* (antisense) · *CYP1B1*^‡^ (RMDN2-AS1) |
 | Two or more weaker lines | 8 | *PRKAR1B* · *TMED10* · *SOX2* · *TCHH* · *TBX15* · *FAM227B* · *KDM1A* · *HDAC9* |
-| One line (mostly proximity) | 10 | *PDE9A* · *LYPLAL1* · *DKK1*/*MBL2* · *NRBF2* · *CCER1* · *MRPS22* · gene deserts: *SOX9*, *KLF12*^†^, *PAX1*, *TNS3* |
+| One line (mostly proximity) | 10 | *PDE9A* · *LYPLAL1* · *DKK1*/*MBL2* · *NRBF2* · *CCER1* · *MRPS22*^‡^ · gene deserts: *SOX9*, *KLF12*^†^, *PAX1*, *TNS3* |
 
 <br>
 
@@ -247,7 +247,7 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 - **Only 3 of 25 loci have a functional effector gene.** The developmental genes (*SOX2*, *SOX9*, *DKK1*) rest on proximity plus locus-level sharing with balding or HS.
 - 4 loci are gene deserts (nearest gene 250–600 kb away): their targets need developmental or skin-specific regulatory data.
 
-<small>^†^ chr13:73.4 Mb: the nearest protein-coding gene is *KLF12* (254 kb); "*KLF5* region" follows the HS GWAS naming [@sun2023].</small>
+<small>^†^ chr13:73.4 Mb: the nearest protein-coding gene is *KLF12* (254 kb); "*KLF5* region" follows the HS GWAS naming [@sun2023]. ^‡^ p = 5–8×10⁻⁸ after LDSC-intercept correction (suggestive).</small>
 
 ::: {.notes}
 **How a candidate effector gene is defined**
@@ -304,16 +304,16 @@ flowchart LR
 ```
 
 - Hair axis: shared with balding, PSD-specific relative to HS. Epithelial axis: shared with HS and acne.
-- No polygenic immune signal beyond HLA class II, so inflammation is more likely a consequence than the trigger
+- No polygenic immune signal beyond HLA class II: consistent with inflammation being secondary, although genetic data cannot establish the order of events
 - Testable predictions: hair-shaft properties by genotype; *SEMA4B*, *KLF5* and *SOX9* enhancer activity in follicular keratinocytes
 
 ## Summary
 
-1. **Largest and first multi-ancestry PSD GWAS**: 25 loci, 19 novel, including several hair-follicle development genes
+1. **Largest PSD GWAS to date** (5 cohorts, 4 ancestry groups): 25 loci, 19 novel, including several hair-follicle development genes
 2. PSD shares **most of its common-variant liability with HS** (rg 0.76), plus specific causal variants with HS (*KLF5*, *SOX9* regions) and acne (*SEMA4B*)
-3. The **obesity link is mediated by HS-shared liability**; obesity loci carry different variants
+3. The **obesity link is explained by the HS-shared liability**; obesity loci carry different variants
 4. A distinct **hair-patterning** axis: the balding link [@roberson2024] is pinned to specific shared variants (*HDAC9*, *DKK1*, *TCHH*, *SOX2*)
-5. Best-supported effector genes: *SEMA4B* (skin) and *WNT16* (fibroblasts); no robust cell-type signal once the MHC is removed
+5. Candidate effector genes: *SEMA4B* (skin) and *WNT16* (fibroblasts); no robust cell-type signal once the MHC is removed
 
 ## Limitations and next steps {.smaller}
 
@@ -325,6 +325,8 @@ flowchart LR
 - The HS comparator shares cohorts with PSD. This is handled with LDSC intercepts, and the non-overlap rg is 0.54.
 - ICD-code phenotypes
 - LD-reference mismatch in fine-mapping
+- Between-cohort heterogeneity at 4 loci (*DKK1/MBL2*, *TCHH*, *KDM1A*, *HDAC9*; I² 67–81%); random effects as sensitivity analysis
+- 19 novel loci reach significance only in the meta-analysis
 - No fully independent replication cohort yet
 :::
 ::: {.column width="50%"}
@@ -372,7 +374,7 @@ flowchart LR
 ![](figs/coloc_heatmap.png){height="600"}
 :::
 ::: {.column width="48%"}
-- **HS**: 6 PSD loci share a causal variant, including the *KLF5* region, a known HS locus [@peacker2026]. Three of the six replicate with the independent FinnGen HS GWAS.
+- **HS**: 6 PSD loci share a causal variant, including the *KLF5* region, a known HS locus [@peacker2026]. Three of the six also colocalize with the FinnGen-only HS GWAS (a subset of the main HS GWAS, not an independent replication).
 - **Acne**: *SEMA4B*, *LYPLAL1*
 - **Balding**: *HDAC9*, *DKK1/MBL2*, *S100A11/TCHH*, *SOX2*, chr20:22.1 Mb. The PSD risk allele goes with more balding.
 - **BMI / WHR**: overlapping loci carry **different** causal variants (×). *LYPLAL1* shares with HS and acne but not with fat distribution.
