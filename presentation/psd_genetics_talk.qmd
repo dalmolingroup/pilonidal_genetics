@@ -106,7 +106,7 @@ Shared feature: follicular occlusion and rupture
 ::: {.columns}
 ::: {.column width="33%"}
 ### 1 · Discovery
-- Harmonize to GRCh38; MAF ≥ 1%; variant present in ≥ 2 cohorts
+- Harmonize to GRCh38 (all coordinates in this talk are GRCh38); MAF ≥ 1%; variant present in ≥ 2 cohorts
 - Fixed-effect inverse-variance meta-analysis [@willer2010]
 - Distinct loci (±500 kb), labeled known or novel against prior articles
 - LDSC intercept correction [@bulik2015ldsc]
