@@ -191,7 +191,7 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 
 - Each column zooms in: whole genome → joint model of all traits → ~1 Mb blocks → single variants
 - **HS is the main partner at every scale**; the BMI link disappears once HS is in the model, and obesity loci carry different variants
-- A separate **hair-patterning** axis: PSD risk goes with balding genome-wide, locally and at shared variants [@roberson2024]
+- A separate **hair-patterning** axis: PSD risk goes with balding genome-wide and locally; 5 shared variants (same direction at 3) [@roberson2024]
 
 <small>Details in backup slides. PSD META_EUR; MHC excluded. Joint models: PSD ~ HS + BMI, and PSD ~ HS + acne + BMI + WHR + balding.</small>
 
@@ -376,7 +376,7 @@ flowchart LR
 ::: {.column width="48%"}
 - **HS**: 6 PSD loci share a causal variant, including the *KLF5* region, a known HS locus [@peacker2026]. Three of the six also colocalize with the FinnGen-only HS GWAS (a subset of the main HS GWAS, not an independent replication).
 - **Acne**: *SEMA4B*, *LYPLAL1*
-- **Balding**: *HDAC9*, *DKK1/MBL2*, *S100A11/TCHH*, *SOX2*, chr20:22.1 Mb. The PSD risk allele goes with more balding.
+- **Balding**: *HDAC9*, *DKK1/MBL2*, *S100A11/TCHH*, *SOX2*, chr20:22.1 Mb. The PSD risk allele goes with more balding at *HDAC9*, *TCHH* and chr20:22.1 Mb, and with less at *DKK1/MBL2* and *SOX2*.
 - **BMI / WHR**: overlapping loci carry **different** causal variants (×). *LYPLAL1* shares with HS and acne but not with fat distribution.
 
 <small>coloc.abf, ±500 kb, p₁₂ = 5×10⁻⁶; shared = PP.H4 > 0.8</small>
