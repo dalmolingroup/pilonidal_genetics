@@ -12,7 +12,6 @@ data/processed/
 data/GSE*/
 data/ldsc_ref/
 data/ldsc_sumstats_hm3/
-!data/ldsc_seg_genesets/*.tsv
 
 # Python virtual environments and caches
 .venv/
@@ -26,4 +25,7 @@ slurm/*.out
 slurm/*.err
 *.log
 *.tmp
-!data/opentargets_pilonidal_targets.tsv
+!data/psd_known_loci_prior_art.tsv
+
+# Papers consulted (copyrighted PDFs)
+resources/
