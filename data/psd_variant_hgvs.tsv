@@ -1,0 +1,28 @@
+rsid	chr	pos_grch38	ref	alt	hgvs_g	hgvs_c	hgvs_p	consequence	gene	role	locus_gene
+rs35369699	7	543758	C	T	NC_000007.14:g.543758C>T			intergenic_variant		lead variant	PRKAR1B
+rs73313647	14	75226898	A	T	NC_000014.9:g.75226898A>T			intron_variant	FOS-AS1	lead variant	TMED10
+rs1345417	3	181794163	C	G	NC_000003.12:g.181794163C>G			downstream_gene_variant	SOX2-OT	fine-mapped (SOX2 locus lead)	SOX2
+rs111363985	21	42644024	G	T	NC_000021.9:g.42644024G>T			downstream_gene_variant		fine-mapped (PDE9A)	PDE9A
+rs17090189	13	73432270	A	G	NC_000013.11:g.73432270A>G			intron_variant	LINC00393	fine-mapped (KLF5 region)	KLF12
+rs56155367	2	240936015	GA	G	NC_000002.12:g.240936022del			intron_variant	CROCC2	lead variant	CROCC2
+rs141106808	1	219024094	G	GA	NC_000001.11:g.219024104dup			intron_variant	LYPLAL1-DT	lead variant	LYPLAL1
+rs7905367	10	52574893	G	C	NC_000010.11:g.52574893G>C			intron_variant		lead variant	MBL2
+rs2707521	7	121300382	C	T	NC_000007.14:g.121300382C>T			downstream_gene_variant	CPED1	lead variant	CPED1
+rs284265	1	10598164	T	C	NC_000001.11:g.10598164T>C			intron_variant	PEX14	lead variant	PEX14
+rs12123975	1	152032328	A	G	NC_000001.11:g.152032328A>G			downstream_gene_variant	S100A11	lead variant	S100A11
+rs10923703	1	118947259	C	T	NC_000001.11:g.118947259C>T			intron_variant	TBX15	lead variant	TBX15
+rs201150	20	22109943	T	A	NC_000020.11:g.22109943T>A			intergenic_variant		lead variant	PAX1
+rs11650850	17	2152586	C	A	NC_000017.11:g.2152586C>A			intron_variant	SMG6	lead variant	SMG6
+rs17226067	17	71519473	A	G	NC_000017.11:g.71519473A>G			intron_variant		lead variant	SOX9
+rs72824926	10	63085128	A	G	NC_000010.11:g.63085128A>G			regulatory_region_variant		lead variant	NRBF2
+rs2089111	12	90786242	C	G	NC_000012.12:g.90786242C>G			intron_variant	LINC02822	lead variant	CCER1
+rs17483319	15	49715064	T	G	NC_000015.10:g.49715064T>G			intergenic_variant		lead variant	DTWD1
+rs579098	1	23080604	A	G	NC_000001.11:g.23080604A>G			downstream_gene_variant	LUZP1	lead variant	KDM1A
+rs35536284	7	18874234	G	GT	NC_000007.14:g.18874248dup			intron_variant	HDAC9	lead variant	HDAC9
+rs151096	2	38089429	C	A	NC_000002.12:g.38089429C>A			intron_variant	CYP1B1-AS1	lead variant	CYP1B1
+rs1399238	15	90210523	G	A	NC_000015.10:g.90210523G>A			intron_variant	SEMA4B	lead variant	SEMA4B
+rs10951876	7	46848844	A	C	NC_000007.14:g.46848844A>C			intron_variant		lead variant	TNS3
+rs940190	3	139120151	A	C	NC_000003.12:g.139120151A>C			intron_variant	BPESC1	lead variant	MRPS22
+rs121908120	2	218890289	T	A	NC_000002.12:g.218890289T>A	NM_025216.3:c.682T>A	NP_079492.2:p.(Phe228Ile)	missense_variant	WNT10A	fine-mapped coding variant (WNT10A)	WNT10A
+rs34560261	15	90191194	C	T	NC_000015.10:g.90191194C>T			intron_variant	SEMA4B	eQTL-colocalised variant (SEMA4B)	
+rs1281932	6	32619573	G	A	NC_000006.12:g.32619573G>A			non_coding_transcript_exon_variant		MHC lead (not analysed further)	

@@ -10,8 +10,8 @@ statistics, and its overlap with the follicular occlusion disorders (hidradeniti
   13–15% (liability scale); LDSC intercept 1.05.
 - **PSD shares most of its common-variant liability with HS** (rg 0.76). The PSD–BMI correlation is explained by the
   HS-shared liability (Genomic SEM), and loci shared with BMI carry different causal variants (coloc).
-- **A separate hair-patterning component**: PSD risk goes with balding genome-wide, in local blocks (LAVA) and at shared
-  causal variants (*HDAC9*, *DKK1/MBL2*, *TCHH*, *SOX2*, chr20:22.1 Mb).
+- **A separate hair-patterning component**: PSD risk goes with balding genome-wide and in local blocks (LAVA), and PSD
+  shares causal variants with balding at 5 loci (*HDAC9*, *DKK1/MBL2*, *TCHH*, *SOX2*, chr20:22.1 Mb; same direction at 3).
 - **Candidate effector genes**: *SEMA4B* (skin eQTL), *WNT16* (fibroblast eQTL) and *WNT10A* (protective p.Phe228Ile).
 - No robust cell-type or pathway signal once the MHC is removed.
 
@@ -51,6 +51,7 @@ scripts are in `slurm/`. Steps marked *local* are lightweight.
 | 08a–b | `08a_network_propagation.py`, `08b_netprop_chromosome_split.py` | Network propagation (Visonà et al. 2024) and its chromosome-split validation | `netprop_*.tsv` |
 | 09a | `09a_lead_variant_supplementary_table.py` | Lead variants: fixed and random effects, heterogeneity, per-cohort ORs, GRCh38 and GRCh37 positions | `psd_lead_variants_supplementary.tsv` |
 | 09b | `09b_fill_missing_rsids.py` *(local)* | Fill indel rsIDs via Ensembl VEP; rerun after regenerating steps 01–05 | updates the tables above |
+| 10a | `10a_format_gwas_catalog.py` (`slurm/run_gwas_catalog.sbatch`) | Both meta-analyses in GWAS-SSF format for GWAS Catalog deposition, validated with `gwas-ssf validate` | `data/processed/gwas_catalog/psd_meta_{ALL,EUR}_GRCh38.tsv.gz`, `md5sums.txt` |
 
 `scripts/lib/` holds two helper modules, `scdrs_atlases.py` and `gse274880_hs_atlas.py`, that step 03b imports for atlas
 download and annotation. They come from the early exploratory pipeline, which was removed.

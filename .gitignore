@@ -26,6 +26,22 @@ slurm/*.err
 *.log
 *.tmp
 !data/psd_known_loci_prior_art.tsv
+!data/psd_cohort_methods.tsv
+!data/psd_variant_hgvs.tsv
 
 # Papers consulted (copyrighted PDFs)
 resources/
+
+# Thinned Miami-plot input pulled from the cluster (17 MB; regenerate with paper/cluster_manhattan.py)
+paper/data/
+
+# LaTeX build files and generated submission bundle (rebuild with `make -C paper pdf docx`)
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.xdv
+paper/submission/
