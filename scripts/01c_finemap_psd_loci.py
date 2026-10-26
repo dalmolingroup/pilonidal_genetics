@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Step 01c: Statistical fine-mapping of PSD meta-analysis loci.
-  (1) Approximate Bayes Factor (Wakefield 2009) 95% credible sets on META_ALL and META_EUR (LD-free).
+  (1) Approximate Bayes Factor (Wakefield 2009; coloc::finemap.abf) 95% credible sets on META_ALL and META_EUR (LD-free).
   (2) SuSiE-RSS (Zou et al. 2022; susieR) on META_EUR using 1000 Genomes Phase 3 EUR (n=503, GRCh38) LD from plink2,
       with the kriging_rss LD/z-score consistency diagnostic.
   (3) Functional annotation of credible-set variants: Ensembl VEP (consequence, regulatory feature, TF motif disruption)
@@ -31,7 +31,16 @@ FM = BASE / "data" / "processed" / "finemap"
 FM.mkdir(parents=True, exist_ok=True)
 PLINK2 = os.environ.get("PLINK2", "/tmp/claude-1000/-home-jvfe-dev-pesquisa-minor-contribs-pilonidal-genetics/5cd42c41-c3f4-4a05-a060-fe0ffae56124/scratchpad/bin/plink2")
 WINDOW = 500_000
-W_PRIOR = 0.2 ** 2          # prior variance of log-OR effect (sd = 0.2)
+COLOC_RSCRIPT = os.environ.get("COLOC_RSCRIPT", "Rscript")   # an Rscript whose library has coloc
+CC_FRACTION = {"ALL": 7868 / 1606360, "EUR": 6771 / 1381000}  # case fraction and N, as in 04b
+N_TOTAL = {"ALL": 1606360, "EUR": 1381000}
+ABF_RSCRIPT = """
+suppressMessages(library(coloc))
+a <- commandArgs(trailingOnly=TRUE); d <- read.delim(a[1], colClasses=c(snp="character"))
+r <- finemap.abf(list(beta=d$beta, varbeta=d$se^2, snp=d$snp, type="cc", s=as.numeric(a[2]), N=as.numeric(a[3])))
+r <- r[r$snp != "null", c("snp", "SNP.PP")]; r$SNP.PP <- r$SNP.PP / sum(r$SNP.PP)   # condition on one causal variant (Maller 2012)
+write.table(r, a[4], sep="\\t", quote=FALSE, row.names=FALSE)
+"""
 P_LOCUS = float(os.environ.get("FINEMAP_P", "5e-8"))   # loci to fine-map (default genome-wide significant)
 N_EFF_EUR = 4 / (1 / 1433 + 1 / 448820) + 4 / (1 / 1466 + 1 / 456974) + 4 / (1 / 3872 + 1 / 468418)
 GTEX_TISSUES = ["Skin_Sun_Exposed_Lower_leg", "Skin_Not_Sun_Exposed_Suprapubic", "Adipose_Subcutaneous", "Adipose_Visceral_Omentum"]
@@ -51,13 +60,16 @@ def http_json(url, payload=None, retries=3):
             time.sleep(3 * (i + 1))
 
 
-def abf_credible_set(df):
-    """Wakefield ABF with prior W on log-OR; returns df with abf, pip, in_cs95."""
-    v = df["se"].values ** 2
-    z = df["beta"].values / df["se"].values
-    log_abf = 0.5 * np.log(v / (v + W_PRIOR)) + 0.5 * z ** 2 * W_PRIOR / (v + W_PRIOR)   # log BF for H1 vs H0
-    log_abf -= log_abf.max()
-    pip = np.exp(log_abf) / np.exp(log_abf).sum()
+def abf_credible_set(df, m, tag):
+    """Wakefield ABF via coloc::finemap.abf (type "cc", prior sd 0.2 on log-OR), PIPs renormalised over SNPs (one causal variant);
+    returns df with abf_pip, abf_cs95."""
+    inp, out = FM / f"{tag}_{m}.abf_in.tsv", FM / f"{tag}_{m}.abf_out.tsv"
+    df = df.reset_index(drop=True)
+    pd.DataFrame({"snp": df.index.astype(str), "beta": df["beta"], "se": df["se"]}).to_csv(inp, sep="\t", index=False)
+    subprocess.run([COLOC_RSCRIPT, str(FM / "run_abf.R"), str(inp), str(CC_FRACTION[m]), str(N_TOTAL[m]), str(out)], check=True,
+                   stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+    pp = pd.read_csv(out, sep="\t", dtype={"snp": str})
+    pip = pp.set_index("snp")["SNP.PP"].reindex(df.index.astype(str)).values
     df = df.assign(abf_pip=pip).sort_values("abf_pip", ascending=False)
     df["abf_cum"] = df["abf_pip"].cumsum()
     cs = np.zeros(len(df), dtype=bool)
@@ -122,6 +134,7 @@ flag <- if (!is.null(cond)) cond$conditional_dist$logLR > 2 & abs(z) > 2 else re
 write.table(data.frame(pip=pip, cs=cs, purity=purity, ldflag=flag, s_rss=lam), out, sep="\\t", quote=FALSE, row.names=FALSE)
 """
     (FM / "run_susie.R").write_text(rscript)
+    (FM / "run_abf.R").write_text(ABF_RSCRIPT)
 
     print("[3/5] ABF + SuSiE fine-mapping per locus...", flush=True)
     for reg in regions:
@@ -132,7 +145,7 @@ write.table(data.frame(pip=pip, cs=cs, purity=purity, ldflag=flag, s_rss=lam), o
             d = meta[m][(meta[m].chr == c) & (meta[m].pos.between(lo, hi))].copy()
             if d.empty:
                 continue
-            d = abf_credible_set(d)
+            d = abf_credible_set(d, m, tag)
             d["meta"] = m; d["locus"] = tag
             d["susie_pip"] = np.nan; d["susie_cs"] = np.nan; d["susie_cs_purity"] = np.nan; d["susie_ld_mismatch_flag"] = np.nan
             if m == "EUR":

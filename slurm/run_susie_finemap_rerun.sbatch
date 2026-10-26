@@ -16,7 +16,7 @@ export PLINK2=$BASE/bin/plink2 OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8
 if [ ! -x $ENVS/rsusie/bin/Rscript ]; then
   echo "[env] creating conda env with r-susier"; ~/miniconda3/bin/conda create -y -q -p $ENVS/rsusie -c conda-forge r-base=4.3 r-susier r-data.table > slurm/rsusie_env_create.log 2>&1 || echo "[env] r-susier env creation FAILED"
 fi
-export PATH=$ENVS/rsusie/bin:$PATH
+export PATH=$ENVS/rsusie/bin:$PATH COLOC_RSCRIPT=$ENVS/rgen/bin/Rscript
 Rscript -e 'cat("susieR", requireNamespace("susieR",quietly=TRUE), as.character(packageVersion("susieR")), "\n")'
 if [ ! -s results/psd_meta_ALL_loci.tsv ]; then echo "meta loci missing; main job did not finish"; exit 1; fi
 mkdir -p results/finemap_abf_only && cp -f results/psd_finemap_*.tsv results/finemap_abf_only/ 2>/dev/null || true
