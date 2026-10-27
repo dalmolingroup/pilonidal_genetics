@@ -13,7 +13,8 @@ Two independent-sample meta-analyses:
   META_ALL (multi-ancestry): MVP_MultiAncestry + UKB_EUR + FinnGen_R13 + GH_SAS   (7,868 cases)
   META_EUR (European only): MVP_EUR + UKB_EUR + FinnGen_R13                      (6,771 cases; used for EUR-LD fine-mapping)
 
-Per-variant inclusion: MAF >= 0.01 within cohort. Discovery claims require >= 2 contributing cohorts.
+Per-variant inclusion: MAF >= 0.01 within cohort, exact duplicates collapsed, multi-allelic sites excluded (more than one
+allele pair at a position within a cohort or across the cohorts of a meta-analysis). Discovery claims require >= 2 contributing cohorts.
 Outputs: data/processed/meta/psd_meta_{ALL,EUR}.tsv.gz, results/psd_meta_*_loci.tsv, results/psd_meta_cohort_qc.tsv,
          results/psd_published_loci_replication.tsv, figures/psd_meta_manhattan_qq.png
 """
@@ -113,21 +114,29 @@ def main():
                    CASE WHEN rsid LIKE 'rs%' THEN split_part(rsid,'|',1) ELSE NULL END AS rsid,
                    CASE WHEN rsid LIKE '%|%' THEN split_part(rsid,'|',2) ELSE NULL END AS mvp_direction
             FROM read_csv('{f}', delim='\\t', header=true, all_varchar=true, quote='', escape='', comment='', strict_mode=false, ignore_errors=true, max_line_size=1000000)
-            WHERE CAST(eaf AS DOUBLE) BETWEEN {MAF_MIN} AND {1-MAF_MIN} AND CAST(se AS DOUBLE) > 0 AND isfinite(CAST(beta AS DOUBLE))
+            WHERE CAST(se AS DOUBLE) > 0 AND isfinite(CAST(beta AS DOUBLE))
         """)
     con.execute("CREATE TABLE long_raw AS " + " UNION ALL ".join(union_parts))
     # De-duplicate within cohort: one row per (cohort, chr, pos, a1, a2), keeping the smallest-SE record
-    # (multi-allelic splits / duplicated indels otherwise inflate k and double-count a cohort).
+    # (exact duplicates otherwise inflate k and double-count a cohort).
     con.execute("""
-        CREATE TABLE long AS
+        CREATE TABLE long_dedup AS
         SELECT cohort, chr, pos, a1, a2,
                arg_min(beta, se) AS beta, MIN(se) AS se, arg_min(p, se) AS p, arg_min(eaf, se) AS eaf,
                arg_min(n, se) AS n, arg_min(rsid, se) AS rsid, arg_min(mvp_direction, se) AS mvp_direction
         FROM long_raw GROUP BY cohort, chr, pos, a1, a2
     """)
-    n_raw, n_dedup = con.execute("SELECT (SELECT COUNT(*) FROM long_raw), (SELECT COUNT(*) FROM long)").fetchone()
-    print(f"   de-duplicated within-cohort keys: {n_raw:,} -> {n_dedup:,} rows", flush=True)
-    con.execute("DROP TABLE long_raw")
+    # Exclude multi-allelic sites: positions with more than one allele pair within a cohort (checked before the MAF filter,
+    # on the harmonized MAF >= 0.005 records). Positions whose allele pairs differ between cohorts are removed per meta below.
+    con.execute("""
+        CREATE TABLE long AS
+        SELECT * FROM long_dedup
+        ANTI JOIN (SELECT cohort, chr, pos FROM long_dedup GROUP BY cohort, chr, pos HAVING COUNT(*) > 1) USING (cohort, chr, pos)
+    """)
+    n_raw, n_dedup, n_biallelic = con.execute("SELECT (SELECT COUNT(*) FROM long_raw), (SELECT COUNT(*) FROM long_dedup), (SELECT COUNT(*) FROM long)").fetchone()
+    print(f"   de-duplicated within-cohort keys: {n_raw:,} -> {n_dedup:,} rows; after removing multi-allelic sites: {n_biallelic:,}", flush=True)
+    con.execute("DROP TABLE long_raw"); con.execute("DROP TABLE long_dedup")
+    con.execute(f"DELETE FROM long WHERE eaf < {MAF_MIN} OR eaf > {1 - MAF_MIN}")
 
     # ---------- 2. Per-cohort QC ----------
     print("[2/6] Per-cohort QC (lambda_GC, mean chi2)...", flush=True)
@@ -157,9 +166,10 @@ def main():
         con.execute(f"DROP TABLE IF EXISTS meta_{meta_name}")
         con.execute(f"""
             CREATE TABLE meta_{meta_name} AS
-            WITH l AS (
+            WITH l0 AS (SELECT * FROM long WHERE cohort IN ({cohort_list})),
+            l AS (
                 SELECT *, 1.0/(se*se) AS w, (CASE cohort {neff_scale} END) AS n_eff_c
-                FROM long WHERE cohort IN ({cohort_list})
+                FROM l0 ANTI JOIN (SELECT chr, pos FROM l0 GROUP BY chr, pos HAVING COUNT(DISTINCT a1 || ':' || a2) > 1) USING (chr, pos)
             ),
             g AS (
                 SELECT chr, pos, a1, a2,

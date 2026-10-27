@@ -2,11 +2,14 @@
 """
 Step 01c: Statistical fine-mapping of PSD meta-analysis loci.
   (1) Approximate Bayes Factor (Wakefield 2009; coloc::finemap.abf) 95% credible sets on META_ALL and META_EUR (LD-free).
-  (2) SuSiE-RSS (Zou et al. 2022; susieR) on META_EUR using 1000 Genomes Phase 3 EUR (n=503, GRCh38) LD from plink2,
-      with the kriging_rss LD/z-score consistency diagnostic.
+  (2) SuSiE-RSS (Zou et al. 2022; susieR) on META_EUR with the kriging_rss LD/z-score consistency diagnostic, using
+      UK Biobank LD (Weissbrod et al. 2020; 337k British-ancestry participants, GRCh37, matched by rsID and alleles) as the
+      primary reference (susie_* columns) and 1000 Genomes Phase 3 EUR (n=503, GRCh38) LD from plink2 as a sensitivity
+      analysis (susie_kg_* columns).
   (3) Functional annotation of credible-set variants: Ensembl VEP (consequence, regulatory feature, TF motif disruption)
       and GTEx v8 skin / subcutaneous adipose single-tissue eQTL lookup.
-Inputs : results/psd_meta_{ALL,EUR}_loci.tsv, data/processed/meta/psd_meta_{ALL,EUR}.tsv.gz, data/raw/1kg_hg38/
+Inputs : results/psd_meta_{ALL,EUR}_loci.tsv, data/processed/meta/psd_meta_{ALL,EUR}.tsv.gz, data/raw/1kg_hg38/,
+         data/lava/ref/*.info, UK Biobank LD from s3://broad-alkesgroup-ukbb-ld (cached in data/raw/ukbb_ld/)
 Outputs: results/psd_finemap_credible_sets.tsv, results/psd_finemap_locus_summary.tsv, results/psd_finemap_vep_annotation.tsv,
          results/psd_finemap_gtex_eqtl.tsv, figures/psd_finemap_locuszoom_*.png
 """
@@ -20,6 +23,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import duckdb
+from scipy import sparse
 from scipy.stats import norm
 
 BASE = Path(__file__).resolve().parent.parent
@@ -29,6 +33,10 @@ FIG = BASE / "figures"
 KG = BASE / "data" / "raw" / "1kg_hg38"
 FM = BASE / "data" / "processed" / "finemap"
 FM.mkdir(parents=True, exist_ok=True)
+LAVA_REF = BASE / "data" / "lava" / "ref"          # LAVA UKB .info files (GRCh37 positions by rsID)
+UKB_LD = BASE / "data" / "raw" / "ukbb_ld"         # cached UK Biobank LD matrices
+UKB_LD.mkdir(parents=True, exist_ok=True)
+UKB_LD_URL = "https://broad-alkesgroup-ukbb-ld.s3.amazonaws.com/UKBB_LD"
 PLINK2 = os.environ.get("PLINK2", "/tmp/claude-1000/-home-jvfe-dev-pesquisa-minor-contribs-pilonidal-genetics/5cd42c41-c3f4-4a05-a060-fe0ffae56124/scratchpad/bin/plink2")
 WINDOW = 500_000
 COLOC_RSCRIPT = os.environ.get("COLOC_RSCRIPT", "Rscript")   # an Rscript whose library has coloc
@@ -79,6 +87,101 @@ def abf_credible_set(df, m, tag):
     return df
 
 
+def url_exists(url):
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, method="HEAD"), timeout=60) as r:
+            return r.status == 200
+    except Exception:
+        return False
+
+
+def fetch_ukb_ld(name):
+    dest = UKB_LD / name
+    if not (dest.exists() and (UKB_LD / f"{name}.done").exists()):
+        subprocess.run(["curl", "-sSL", "--retry", "6", "--retry-delay", "15", "-C", "-", "-o", str(dest), f"{UKB_LD_URL}/{name}"], check=True)
+        (UKB_LD / f"{name}.done").touch()
+    return dest
+
+
+def ukb_ld_window(chrom, centre37):
+    """3 Mb UKB LD file (starts at 1 + k Mb) whose centre is closest to centre37; falls back to neighbours at chromosome ends."""
+    k0 = max(0, int(round((centre37 - 1_500_000) / 1_000_000)))
+    for k in (k0, k0 - 1, k0 + 1, k0 - 2, k0 + 2):
+        if k < 0:
+            continue
+        prefix = f"chr{chrom}_{k * 1_000_000 + 1}_{k * 1_000_000 + 3_000_001}"
+        if url_exists(f"{UKB_LD_URL}/{prefix}.gz"):
+            return prefix
+    return None
+
+
+def ukb_ld_inputs(d, c, lo, hi, lava_info):
+    """Match window variants to the UK Biobank LD (GRCh37) by rsID and allele pair; returns keys, z, R, LD file, lead sign concordance."""
+    w = d[d.p.notna() & d.rsid.str.startswith("rs", na=False)].drop_duplicates("rsid")
+    if c not in lava_info:
+        lava_info[c] = pd.read_csv(LAVA_REF / f"lava-ukb-v1.1_chr{c}.info", sep="\t", usecols=["SNP", "POS"])
+    off = w.merge(lava_info[c], left_on="rsid", right_on="SNP")   # GRCh37 positions of window variants
+    if off.empty:
+        return None
+    prefix = ukb_ld_window(c, int((lo + hi) / 2 + np.median(off.POS - off.pos)))
+    if prefix is None:
+        return None
+    snps = pd.read_csv(fetch_ukb_ld(f"{prefix}.gz"), sep="\t", dtype={"chromosome": str})
+    snps["idx"] = np.arange(len(snps))
+    mm = w.merge(snps, on="rsid")
+    mm = mm[((mm.a1 == mm.allele1) & (mm.a2 == mm.allele2)) | ((mm.a1 == mm.allele2) & (mm.a2 == mm.allele1))].drop_duplicates("rsid")
+    if len(mm) < 20:
+        return None
+    mm = mm.sort_values("idx").reset_index(drop=True)
+    U = sparse.load_npz(fetch_ukb_ld(f"{prefix}.npz")).tocsr()
+    assert sparse.tril(U, k=-1).nnz == 0 or sparse.triu(U, k=1).nnz == 0, "expected a triangular LD matrix"
+    sub_ = U[mm.idx.values][:, mm.idx.values].toarray()
+    R = sub_ + sub_.T
+    np.fill_diagonal(R, 1.0)
+    # z for the meta a1 allele, aligned to the UKB allele1 so that z and R refer to the same allele at every variant
+    z = (mm.beta / mm.se).values * np.where(mm.a1 == mm.allele1, 1.0, -1.0)
+    lead = int(np.argmax(np.abs(z)))
+    strong = (np.abs(R[lead]) > 0.8) & (np.arange(len(z)) != lead)
+    sign_ok = round(float(np.mean(np.sign(z[strong]) == np.sign(R[lead, strong] * z[lead]))), 3) if strong.any() else np.nan
+    return mm.key.values, z, R, prefix, sign_ok
+
+
+def run_susie(z, R, keys, tag):
+    """SuSiE-RSS (run_susie.R) on z and LD matrix R; returns per-variant pip/cs/purity/ldflag/s_rss with key, or None."""
+    np.savetxt(FM / f"{tag}.z", z)
+    R.astype("<f8").tofile(FM / f"{tag}.R.bin")
+    out = FM / f"{tag}.susie.tsv"
+    try:
+        subprocess.run(["Rscript", str(FM / "run_susie.R"), str(FM / f"{tag}.z"), str(FM / f"{tag}.R.bin"), str(int(N_EFF_EUR)), str(out)], check=True,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, timeout=3600)
+    except subprocess.CalledProcessError as e:
+        print(f"    SuSiE failed for {tag}: {e.stderr.decode()[-300:]}", flush=True); return None
+    except subprocess.TimeoutExpired:
+        print(f"    SuSiE timed out for {tag}", flush=True); return None
+    finally:
+        (FM / f"{tag}.R.bin").unlink(missing_ok=True)
+    s = pd.read_csv(out, sep="\t")
+    s["key"] = keys
+    return s
+
+
+def add_susie(d, s, pre):
+    if s is None:
+        return d
+    s = s.rename(columns={"pip": f"{pre}_pip", "cs": f"{pre}_cs", "purity": f"{pre}_cs_purity", "ldflag": f"{pre}_ld_mismatch_flag", "s_rss": f"{pre}_s_rss"})
+    return d.drop(columns=[c for c in s.columns if c != "key"]).merge(s, on="key", how="left")
+
+
+def susie_summary(d, pre):
+    if not d[f"{pre}_pip"].notna().any():
+        return {}
+    cs = d[f"{pre}_cs"].dropna()
+    return {f"{pre}_n_cs": int(cs.nunique()), f"{pre}_s_rss": float(d[f"{pre}_s_rss"].dropna().iloc[0]),
+            f"{pre}_top_rsid": d.sort_values(f"{pre}_pip", ascending=False).iloc[0].rsid, f"{pre}_top_pip": round(float(d[f"{pre}_pip"].max()), 3),
+            f"{pre}_cs_sizes": ";".join(str(int((d[f"{pre}_cs"] == i).sum())) for i in sorted(cs.unique())),
+            f"{pre}_n_ld_mismatch_flags": int(d[f"{pre}_ld_mismatch_flag"].fillna(False).astype(bool).sum())}
+
+
 def main():
     con = duckdb.connect()
     loci = {m: pd.read_csv(RES / f"psd_meta_{m}_loci.tsv", sep="\t") for m in ("ALL", "EUR")}
@@ -121,7 +224,9 @@ def main():
     rscript = """
 suppressMessages(library(susieR))
 args <- commandArgs(trailingOnly=TRUE)
-z <- scan(args[1], quiet=TRUE); R <- as.matrix(read.table(args[2])); n <- as.numeric(args[3]); out <- args[4]
+z <- scan(args[1], quiet=TRUE); p <- length(z)
+con <- file(args[2], "rb"); R <- matrix(readBin(con, "double", p * p, size=8, endian="little"), p, p); close(con)
+n <- as.numeric(args[3]); out <- args[4]
 R[is.na(R)] <- 0; diag(R) <- 1
 fit <- tryCatch(susie_rss(z=z, R=R, n=n, L=10, coverage=0.95, min_abs_corr=0.5, estimate_residual_variance=TRUE, max_iter=500, verbose=FALSE), error=function(e) NULL)
 if (is.null(fit)) fit <- susie_rss(z=z, R=R, n=n, L=10, coverage=0.95, min_abs_corr=0.5, estimate_residual_variance=FALSE, max_iter=500, verbose=FALSE)
@@ -136,6 +241,7 @@ write.table(data.frame(pip=pip, cs=cs, purity=purity, ldflag=flag, s_rss=lam), o
     (FM / "run_susie.R").write_text(rscript)
     (FM / "run_abf.R").write_text(ABF_RSCRIPT)
 
+    lava_info = {}
     print("[3/5] ABF + SuSiE fine-mapping per locus...", flush=True)
     for reg in regions:
         c, p0 = reg["chr"], reg["pos"]
@@ -147,10 +253,21 @@ write.table(data.frame(pip=pip, cs=cs, purity=purity, ldflag=flag, s_rss=lam), o
                 continue
             d = abf_credible_set(d, m, tag)
             d["meta"] = m; d["locus"] = tag
-            d["susie_pip"] = np.nan; d["susie_cs"] = np.nan; d["susie_cs_purity"] = np.nan; d["susie_ld_mismatch_flag"] = np.nan
+            d["key"] = d.chr + ":" + d.pos.astype(str) + ":" + d.a1 + ":" + d.a2
+            for pre in ("susie", "susie_kg"):
+                for col in ("pip", "cs", "cs_purity", "ld_mismatch_flag", "s_rss"):
+                    d[f"{pre}_{col}"] = np.nan
+            n_cs = int(d.abf_cs95.sum())
+            top = d.iloc[0]
+            srow = {"locus": tag, "meta": m, "chr": c, "window_start": lo, "window_end": hi, "lead_rsid": reg["lead_rsid"], "lead_gene": reg["lead_gene"],
+                    "n_variants_window": len(d), "abf_top_rsid": top.rsid, "abf_top_pos": int(top.pos), "abf_top_pip": round(float(top.abf_pip), 3), "abf_cs95_size": n_cs,
+                    "abf_cs95_span_bp": int(d[d.abf_cs95].pos.max() - d[d.abf_cs95].pos.min()) if n_cs else 0}
             if m == "EUR":
-                # ---- SuSiE-RSS with 1000G EUR LD ----
-                d["key"] = d.chr + ":" + d.pos.astype(str) + ":" + d.a1 + ":" + d.a2
+                # ---- SuSiE-RSS: UK Biobank LD (primary) and 1000G EUR LD (sensitivity) ----
+                ukb = ukb_ld_inputs(d, c, lo, hi, lava_info)
+                if ukb is not None:
+                    keys, z, R, srow["susie_ld_file"], srow["susie_lead_sign_concordance"] = ukb
+                    d = add_susie(d, run_susie(z, R, keys, f"{tag}_ukb"), "susie")
                 mm = d.merge(pvar[["key", "id", "ref", "alt"]], on="key", how="inner")
                 mm = mm[mm.p.notna()].drop_duplicates("key")
                 if len(mm) >= 20:
@@ -161,41 +278,20 @@ write.table(data.frame(pip=pip, cs=cs, purity=purity, ldflag=flag, s_rss=lam), o
                     ld_ids = [l.strip() for l in open(str(pref) + ".unphased.vcor1.vars")]
                     R = np.loadtxt(str(pref) + ".unphased.vcor1")
                     mm = mm.set_index("id").loc[ld_ids].reset_index()
-                    # correlations are REF-based; align z to the 1000G REF allele then flip back for reporting
+                    # correlations are REF-based; align z to the 1000G REF allele
                     z = (mm.beta / mm.se).values * np.where(mm.a1 == mm.ref, 1.0, -1.0)
-                    np.savetxt(FM / f"{tag}.z", z)
-                    np.savetxt(FM / f"{tag}.R", R, fmt="%.5f")
-                    out = FM / f"{tag}.susie.tsv"
-                    try:
-                        subprocess.run(["Rscript", str(FM / "run_susie.R"), str(FM / f"{tag}.z"), str(FM / f"{tag}.R"), str(int(N_EFF_EUR)), str(out)], check=True,
-                                       stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, timeout=1800)
-                        s = pd.read_csv(out, sep="\t")
-                        s["key"] = mm.key.values
-                        d = d.merge(s.rename(columns={"pip": "susie_pip_", "cs": "susie_cs_", "purity": "susie_cs_purity_", "ldflag": "susie_ld_mismatch_flag_", "s_rss": "susie_s_rss"}), on="key", how="left")
-                        for col in ("susie_pip", "susie_cs", "susie_cs_purity", "susie_ld_mismatch_flag"):
-                            d[col] = d[col + "_"]; d.drop(columns=[col + "_"], inplace=True)
-                    except subprocess.CalledProcessError as e:
-                        print(f"    SuSiE failed for {tag}: {e.stderr.decode()[-300:]}", flush=True)
-                    except subprocess.TimeoutExpired:
-                        print(f"    SuSiE timed out for {tag}", flush=True)
-            n_cs = int(d.abf_cs95.sum())
-            top = d.iloc[0]
-            srow = {"locus": tag, "meta": m, "chr": c, "window_start": lo, "window_end": hi, "lead_rsid": reg["lead_rsid"], "lead_gene": reg["lead_gene"],
-                    "n_variants_window": len(d), "abf_top_rsid": top.rsid, "abf_top_pos": int(top.pos), "abf_top_pip": round(float(top.abf_pip), 3), "abf_cs95_size": n_cs,
-                    "abf_cs95_span_bp": int(d[d.abf_cs95].pos.max() - d[d.abf_cs95].pos.min()) if n_cs else 0}
-            if m == "EUR" and d.susie_pip.notna().any():
-                ncs = int(d.susie_cs.dropna().nunique())
-                srow.update({"susie_n_cs": ncs, "susie_s_rss": float(d.get("susie_s_rss", pd.Series([np.nan])).dropna().iloc[0]) if "susie_s_rss" in d and d["susie_s_rss"].notna().any() else np.nan,
-                             "susie_top_rsid": d.sort_values("susie_pip", ascending=False).iloc[0].rsid, "susie_top_pip": round(float(d.susie_pip.max()), 3),
-                             "susie_cs_sizes": ";".join(str(int((d.susie_cs == i).sum())) for i in sorted(d.susie_cs.dropna().unique())),
-                             "susie_n_ld_mismatch_flags": int(d.susie_ld_mismatch_flag.fillna(False).astype(bool).sum())})
+                    d = add_susie(d, run_susie(z, R, mm.key.values, f"{tag}_kg"), "susie_kg")
+                for pre in ("susie", "susie_kg"):
+                    srow.update(susie_summary(d, pre))
             summary_rows.append(srow)
-            keep = d[(d.abf_cs95) | (d.susie_cs.notna()) | (d.susie_pip > 0.05)]
+            keep = d[(d.abf_cs95) | (d.susie_cs.notna()) | (d.susie_pip > 0.05) | (d.susie_kg_cs.notna()) | (d.susie_kg_pip > 0.05)]
             cs_rows.append(keep)
-            print(f"   {tag} META_{m}: window n={len(d)}, ABF top {top.rsid} PIP={top.abf_pip:.2f}, CS95 size={n_cs}" + (f", SuSiE CS={srow.get('susie_n_cs')} s_rss={srow.get('susie_s_rss')}" if m == "EUR" else ""), flush=True)
+            print(f"   {tag} META_{m}: window n={len(d)}, ABF top {top.rsid} PIP={top.abf_pip:.2f}, CS95 size={n_cs}"
+                  + (f", SuSiE UKB CS={srow.get('susie_n_cs')} s_rss={srow.get('susie_s_rss')}, 1000G CS={srow.get('susie_kg_n_cs')} s_rss={srow.get('susie_kg_s_rss')}" if m == "EUR" else ""), flush=True)
 
     cs = pd.concat(cs_rows, ignore_index=True)
-    cs_cols = ["locus", "meta", "chr", "pos", "rsid", "a1", "a2", "eaf", "k", "direction", "beta", "se", "p", "abf_pip", "abf_cs95", "susie_pip", "susie_cs", "susie_cs_purity", "susie_ld_mismatch_flag"]
+    cs_cols = ["locus", "meta", "chr", "pos", "rsid", "a1", "a2", "eaf", "k", "direction", "beta", "se", "p", "abf_pip", "abf_cs95", "susie_pip", "susie_cs", "susie_cs_purity", "susie_ld_mismatch_flag",
+               "susie_kg_pip", "susie_kg_cs", "susie_kg_cs_purity", "susie_kg_ld_mismatch_flag"]
     cs = cs[[c for c in cs_cols if c in cs.columns]].sort_values(["locus", "meta", "abf_pip"], ascending=[True, True, False])
     cs.to_csv(RES / "psd_finemap_credible_sets.tsv", sep="\t", index=False, float_format="%.4g")
     pd.DataFrame(summary_rows).to_csv(RES / "psd_finemap_locus_summary.tsv", sep="\t", index=False, float_format="%.4g")
