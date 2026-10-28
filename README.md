@@ -13,7 +13,8 @@ statistics, and its overlap with the follicular occlusion disorders (hidradeniti
 - **A separate hair-patterning component**: PSD risk goes with balding genome-wide and in local blocks (LAVA), and PSD
   shares causal variants with balding at 5 loci (*HDAC9*, *DKK1/MBL2*, *TCHH*, *SOX2*, chr20:22.1 Mb; same direction at 3).
 - **Candidate effector genes**: *SEMA4B* (skin eQTL), *WNT16* (fibroblast eQTL) and *WNT10A* (protective p.Phe228Ile).
-- No robust cell-type or pathway signal once the MHC is removed.
+- No robust cell-type signal once the MHC is removed. One MHC-free gene set, GO intermediate filament organization,
+  passes Bonferroni in META_ALL only (p = 5e-6, p_bonf = 0.033), driven partly by *TCHH*.
 
 All coordinates are **GRCh38** unless stated. MAGMA and LAVA run on GRCh37 references; every cross-dataset match is by
 rsID, so builds are never mixed. The MHC (chr6:28–34 Mb) is excluded from locus counts, coloc, LAVA and gene sets.
