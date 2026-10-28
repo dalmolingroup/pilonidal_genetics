@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Figures for the PSD genetics talk (presentation/psd_genetics_talk.qmd), built from the small result tables only:
-Manhattan crop (figures/psd_meta_manhattan_qq.png), LDSC rg forest plot, coloc PP.H4 heatmap, LAVA bar chart and
-scDRS MHC-included vs MHC-excluded comparison. Output: presentation/figs/*.png
+Manhattan crop (figures/psd_meta_manhattan_qq.png), LDSC rg forest plot, coloc PP.H4 heatmap, LAVA bar chart, MHC-free
+MAGMA gene sets and eQTL coloc heatmap. Output: presentation/figs/*.png
 """
 from pathlib import Path
 import numpy as np
@@ -93,35 +93,19 @@ ax.set_ylabel("Blocks with FDR < 0.05")
 ax.legend(frameon=False, loc="upper right")
 fig.savefig(OUT / "lava_counts.png"); plt.close(fig)
 
-# ---- scDRS: MHC included vs excluded (PSD_META_EUR) ----
-old = pd.read_csv(RES / "scdrs_magma_all_atlases_zfdr.tsv", sep="\t")
-new = pd.read_csv(RES / "scdrs_magma_nomhc_all_atlases.tsv", sep="\t")
-key = ["trait", "atlas", "group_col", "group_level"]
-mm = old[key + ["assoc_mcz"]].merge(new[key + ["assoc_mcz"]], on=key, suffixes=("_mhc", "_nomhc"))
-sel = [("skin_12datasets_integrated", "cell_type", "leukocyte", "Leukocyte (skin atlas)"),
-       ("tabula_sapiens_skin", "cell_type", "Langerhans cell", "Langerhans cell (Tabula Sapiens)"),
-       ("tabula_sapiens_skin", "cell_type", "macrophage", "Macrophage (Tabula Sapiens)"),
-       ("GSE274880_HS", "cell_type", "Macrophage / Myeloid DC", "Macrophage / myeloid DC (HS atlas)"),
-       ("tabula_sapiens_skin", "cell_type", "fibroblast", "Fibroblast (Tabula Sapiens)"),
-       ("GSE274880_HS", "cell_type", "Dermal Fibroblast", "Dermal fibroblast (HS atlas)"),
-       ("skin_fibroblast_subclusters", None, "Fibroblast IV", "Fibroblast IV (fibroblast atlas)")]
-rows = []
-for atlas, gcol, grp, lab in sel:
-    q = mm[(mm.trait == "PSD_META_EUR") & (mm.atlas == atlas) & (mm.group_level == grp)]
-    if gcol:
-        q = q[q.group_col == gcol]
-    rows.append((lab, q.assoc_mcz_mhc.iloc[0], q.assoc_mcz_nomhc.iloc[0]))
-sd = pd.DataFrame(rows, columns=["label", "mhc", "nomhc"])[::-1].reset_index(drop=True)
-fig, ax = plt.subplots(figsize=(9, 4.8))
-for i, r in sd.iterrows():
-    ax.annotate("", xy=(r.nomhc, i), xytext=(r.mhc, i), arrowprops=dict(arrowstyle="->", color=GREY, lw=1.8))
-ax.scatter(sd.mhc, sd.index, color=GREY, s=70, label="MHC genes included", zorder=3)
-ax.scatter(sd.nomhc, sd.index, color=NAVY, s=70, label="MHC genes excluded (primary)", zorder=3)
-ax.axvline(0, color="black", lw=0.8)
-ax.set_yticks(sd.index, sd.label)
-ax.set_xlabel("scDRS association z (PSD, EUR meta-analysis)")
-ax.legend(frameon=False, loc="lower right", fontsize=11)
-fig.savefig(OUT / "scdrs_mhc.png"); plt.close(fig)
+# ---- MHC-free MAGMA gene sets: top PSD_META_ALL sets, with META_EUR and the comparator traits ----
+gs = pd.read_csv(RES / "magma_genesets_nomhc.tsv", sep="\t")
+top = gs[gs.trait == "PSD_META_ALL"].nsmallest(8, "P").gene_set.tolist()
+lp = gs[gs.gene_set.isin(top)].assign(mlp=lambda d: -np.log10(d.P)).pivot(index="gene_set", columns="trait", values="mlp").reindex(top[::-1])
+fig, ax = plt.subplots(figsize=(10, 4.8))
+y = np.arange(len(top))
+ax.barh(y + 0.2, lp.PSD_META_ALL, height=0.4, color=NAVY, label="PSD, META_ALL")
+ax.barh(y - 0.2, lp.PSD_META_EUR, height=0.4, color=GREY, label="PSD, META_EUR")
+ax.axvline(-np.log10(0.05 / gs[gs.trait == "PSD_META_ALL"].shape[0]), color=RED, ls="--", lw=1.2, label="Bonferroni (6,717 sets)")
+ax.set_yticks(y, [("GO: " if s.startswith("GOBP_") else "Reactome: ") + s.split("_", 1)[1].replace("_", " ").lower()[:48] for s in lp.index], fontsize=10.5)
+ax.set_xlabel("−log10 p (MAGMA competitive test, MHC genes removed)")
+ax.legend(frameon=False, loc="lower right", fontsize=10)
+fig.savefig(OUT / "genesets.png"); plt.close(fig)
 
 # ---- GTEx eQTL coloc (META_EUR): locus -> gene pairs with PP.H4 >= 0.6 in any tissue ----
 eq = pd.read_csv(RES / "eqtl_coloc_psd_gtex.tsv", sep="\t")

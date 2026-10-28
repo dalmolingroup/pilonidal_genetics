@@ -17,7 +17,7 @@ statistics, and its overlap with the follicular occlusion disorders (hidradeniti
   passes Bonferroni in META_ALL only (p = 5e-6, p_bonf = 0.033), driven partly by *TCHH*.
 
 All coordinates are **GRCh38** unless stated. MAGMA and LAVA run on GRCh37 references; every cross-dataset match is by
-rsID, so builds are never mixed. The MHC (chr6:28–34 Mb) is excluded from locus counts, coloc, LAVA and gene sets.
+rsID, so builds are never mixed. The MHC (chr6:25–34 Mb) is excluded from locus counts, coloc, LAVA and gene sets.
 
 ## Data
 

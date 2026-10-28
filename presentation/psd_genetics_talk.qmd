@@ -50,7 +50,7 @@ Shared feature: follicular occlusion and rupture
 
 - European ancestry only; at most 2,835 cases
 - No comparison with HS or acne, and no locus-level test of the hair and body-shape links
-- No cell-type or tissue mapping of the polygenic signal
+- No gene- or pathway-level interpretation of the polygenic signal
 
 ## Aims
 
@@ -58,7 +58,7 @@ Shared feature: follicular occlusion and rupture
 
 1. **Discover** PSD risk loci with a multi-biobank, multi-ancestry meta-GWAS and fine-map them
 2. **Partition** what PSD shares with HS, acne, balding and body shape, both genome-wide and locus by locus
-3. **Map** the polygenic signal onto skin and hair-follicle cell types and tissues
+3. **Prioritise** candidate effector genes and test which pathways carry the polygenic signal
 
 ## Data: PSD summary statistics {.smaller}
 
@@ -75,62 +75,48 @@ Shared feature: follicular occlusion and rupture
 - All public summary statistics: GWAS Catalog [@sollis2023] and FinnGen public release
 - About 2.8× the cases of the previous largest PSD GWAS
 
-## Data: comparator traits and single-cell atlases {.smaller}
-
-::: {.columns}
-::: {.column width="50%"}
-**Comparator GWAS**
+## Data: comparator traits {.smaller}
 
 - **HS**: MVP + UKB + FinnGen, EUR + AFR (3,941 cases) [@peacker2026]; FinnGen R13 (1,453 cases)
 - **Acne**: FinnGen R13 (4,812 cases); @tederlaving2024 (34,422 cases)
 - **Balding**: UKB men, hair pattern 1 [@jiang2021] and pattern 4 (Neale lab UKB GWAS)
 - **BMI, WHR adj. BMI**: GIANT + UKB [@pulit2019]
 - **Alopecia areata**: FinnGen R13
-:::
-::: {.column width="50%"}
-**Single-cell RNA-seq (7 atlases)**
-
-- Tabula Sapiens skin, 17,786 cells [@tabulasapiens2022]
-- CELLxGENE skin atlases [@cellxgene2025]:
-  - 12-dataset dermis + epidermis (15,243 cells)
-  - Keratinocytes (9,471 cells)
-  - Fibroblasts (2,303 cells)
-  - Scalp, trunk and foreskin (68,036 cells)
-- HS lesions + healthy skin, GSE274880 [@kashyap2024]
-- Hair-follicle mesenchyme: dermal papilla, dermal sheath cup and upper dermal sheath (GSE287304)
-:::
-:::
+- **eQTL**: GTEx v8 skin, fibroblasts and adipose tissue, via the eQTL Catalogue [@kerimov2021; @gtex2020]
 
 ## Methods {.smaller}
 
 ::: {.columns}
 ::: {.column width="33%"}
 ### 1 · Discovery
-- Harmonize to GRCh38 (all coordinates in this talk are GRCh38); MAF ≥ 1%; variant present in ≥ 2 cohorts
-- Fixed-effect inverse-variance meta-analysis [@willer2010]
+- Harmonize to GRCh38 (all coordinates in this talk are GRCh38); MAF ≥ 1%; multi-allelic sites removed; variant present in ≥ 2 cohorts
+- Fixed-effect inverse-variance meta-analysis in METAL [@willer2010]
 - Distinct loci (±500 kb), labeled known or novel against prior articles
 - LDSC intercept correction [@bulik2015ldsc]
-- Leave-FinnGen-out check
-- Fine-mapping: ABF [@wakefield2009] + SuSiE-RSS [@zou2022]
+- Leave-FinnGen-out check; random effects at heterogeneous loci
+- Fine-mapping: ABF [@wakefield2009] + SuSiE-RSS with UK Biobank LD [@zou2022]
 :::
 ::: {.column width="33%"}
 ### 2 · Shared genetics
-- LDSC rg & COLOC: How much of the signal is shared with HS, balding, etc?
+- Genome-wide: LDSC rg
+- Joint model: Genomic SEM
+- Local: LAVA, ~1 Mb blocks
+- Variant: coloc
+- How much of the signal is shared with HS, acne, balding and adiposity?
 :::
 ::: {.column width="33%"}
-### 3 · Genes and cells
-- Gene-level scores: MAGMA [@deleeuw2015]
-- Top 1,000 genes, z-weighted
-- scDRS on 7 atlases, 1,000 control gene sets [@zhang2022]
-- Balding as a positive control
+### 3 · Genes and pathways
 - eQTL coloc with GTEx v8 skin, fat and fibroblasts [@kerimov2021; @gtex2020]
+- Locus-to-gene scoring
+- Gene-level scores: MAGMA [@deleeuw2015]
+- Gene sets: 6,717 GO BP and Reactome sets, MHC genes removed, Bonferroni
 :::
 :::
 
 <br>
 
 ::: {.callout-important appearance="simple"}
-The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAVA and gene sets, because its long-range LD inflates every gene-level method.
+The **MHC** (chr6:25–34 Mb) is excluded from locus counts, colocalization, LAVA and gene sets, because its long-range LD inflates every gene-level method.
 :::
 
 ## Result 1: 25 risk loci, 19 novel {.smaller}
@@ -154,19 +140,16 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 
 | Locus | Top variant | PIP ABF | PIP SuSiE | Comment |
 |---|---|---:|---:|---|
-| *SOX2* | rs1345417 | 1.00 | 0.97 | One-variant credible set |
+| *SOX2* | rs1345417 | 1.00 | 0.99 | One-variant credible set |
 | *PDE9A* | rs111363985 | 0.90–0.98 | 0.92 | |
-| chr13:73.4 Mb (*KLF5*) | rs17090189 | 0.65–0.81 | 0.80 | Shared with HS |
-| *WNT10A* | rs121908120 (p.Phe228Ile) | 0.45–0.57 | 0.74 | Protective missense, OR 0.54^†^ |
-| *PEX14 / KIF1B* | rs140563213 | – | 0.99 | SuSiE only (3 sets) |
-| chr17:71.5 Mb (*SOX9*) | rs714894 | – | 0.94 | SuSiE only; shared with HS |
-| *TMED10 / NEK9* | rs8013918 | – | 0.84 | SuSiE only; known locus |
+| chr13:73.4 Mb (*KLF5*) | rs17090189 | 0.65–0.81 | 0.79 | Same lead variant as HS |
+| *WNT10A* | rs121908120 (p.Phe228Ile) | 0.45–0.57 | 0.73 | Protective missense, OR 0.54^†^ |
 
 <br>
 
 - Hair-follicle development genes lie near several loci: *SOX2*, *SOX9*, *WNT10A*, *DKK1*, *TWIST1*, *TBX15*
 
-<small>^†^ Suggestive after LDSC-intercept correction. ABF: META_EUR and META_ALL. SuSiE-RSS: META_EUR with 1000 Genomes EUR LD, which fits the sample LD imperfectly, so SuSiE-only results are indicative.</small>
+<small>^†^ Suggestive after LDSC-intercept correction. ABF: META_EUR and META_ALL. SuSiE-RSS: META_EUR with UK Biobank European LD, with LD-mismatch diagnostics.</small>
 
 ::: {.notes}
 **Fine-mapping**
@@ -174,7 +157,7 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 - A GWAS hit is a tower of correlated SNPs; fine-mapping uses their LD pattern to find which one best explains the tower.
 - **PIP** (posterior inclusion probability) = the probability that a variant is the causal one. 0.97 → almost certainly this SNP; 0.02 → one of many candidates.
 - **Credible set** = the smallest group of variants that together contain the causal one with 95% probability. Small set = resolved locus.
-- Caveat: it needs the sample's LD; we used 1000 Genomes EUR, which doesn't match perfectly.
+- Caveat: SuSiE needs the sample's LD; we used UK Biobank European LD matrices, which approximate a mostly European meta-analysis but not exactly.
 :::
 
 ## Result 2: shared genetics with other traits {.smaller}
@@ -205,14 +188,14 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 - They agree: HS is the main partner everywhere; for BMI there's no shared liability beyond HS, no local correlation, and different variants at overlapping loci.
 :::
 
-## Result 3: cell types (scDRS) {.smaller}
+## Result 3: gene sets (MAGMA, MHC-free) {.smaller}
 
-![](figs/scdrs_mhc.png){width="78%" fig-align="center"}
+![](figs/genesets.png){width="85%" fig-align="center"}
 
-- With the MHC, 15–17 immune groups reach FDR < 0.05, but this is driven by the 63 MHC-region genes in the PSD gene set
-- **Without the MHC: 0 groups (EUR) / 1 group (ALL: Fibroblast IV, FDR 0.04)**. Fibroblast IV resembles NGFR⁺ Schwann-like F5 fibroblasts [@steele2025]
-- Positive control works: balding maps to the dermal papilla and dermal sheath cup (z = 7.0 and 6.8)
-- **Conclusion:** weak but consistent fibroblast enrichment; no robust cell-type signal
+- One set passes Bonferroni across 6,717: **intermediate filament organisation** (74 genes, p = 5×10⁻⁶, p~Bonf~ = 0.03, META_ALL)
+- Driven by *TCHH* and hair and inner root sheath keratins (*KRT31*, *KRT35*, *KRT36*, *KRT40*, *KRT71*), none genome-wide significant; holds without the *TCHH* region (p = 3×10⁻⁵)
+- Same direction in META_EUR (p = 7×10⁻⁵, not significant); not associated with HS, acne or BMI (p > 0.6)
+- **No immune pathway enriched outside the MHC**
 
 ## Result 4: gene expression (eQTL colocalization) {.smaller}
 
@@ -265,7 +248,7 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 ### Hair (shared with balding)
 - *SOX2* marks the dermal papilla cells that set hair-follicle type [@driskell2009]
 - *WNT10A*: the protective allele (p.Phe228Ile, OR 0.54) is a known ectodermal-dysplasia allele (ClinVar 4462); loss of *WNT10A* gives sparse hair [@adaimy2007]
-- *TCHH* builds the hair shaft; its mutations cause uncombable hair [@basmanav2016]
+- *TCHH* builds the hair shaft; its mutations cause uncombable hair [@basmanav2016]. Hair-shaft and inner root sheath keratins are enriched genome-wide
 - *DKK1* is induced by androgens in balding dermal papilla [@kwack2008]; *HDAC9/TWIST1* is a balding locus [@roberson2024], where the PSD risk allele raises a skin lncRNA overlapping *TWIST1* (suggestive eQTL coloc)
 
 **→ Inherited hair-shaft and follicle traits, partly androgen-driven, may make hairs likelier to penetrate the natal cleft [@karydakis1992]. This could help explain the male excess.**
@@ -285,7 +268,7 @@ The **MHC** (chr6:28–34 Mb) is excluded from locus counts, colocalization, LAV
 **TWIST1 thread (suggestive only)**
 
 - At the *HDAC9* locus, the PSD risk allele raises an unnamed lncRNA (ENSG00000232821) that overlaps *TWIST1*, in non-sun-exposed skin. PP.H4 0.62 (EUR) / 0.75 (ALL), below our 0.8 cut-off.
-- At the *CROCC2* locus, the coloc partner is *TANAR*, "TWIST1-associated lncRNA regulated by androgen receptor". The name comes from a single kidney-cancer study (Oncogene 2021): androgen receptor induces *TANAR*, which affects *TWIST1* RNA decay. The coloc is in visceral fat (PP.H4 0.92).
+- At the *CROCC2* locus, the coloc partner is *TANAR*, "TWIST1-associated lncRNA regulated by androgen receptor". The name comes from a single kidney-cancer study (Oncogene 2021): androgen receptor induces *TANAR*, which affects *TWIST1* RNA decay. The coloc is in visceral fat (PP.H4 0.88 EUR / 0.92 ALL).
 - *TWIST1* is a dermal papilla transcription factor, so this fits the hair/androgen axis, but the evidence is thin: one cancer cell-line study and one sub-threshold coloc.
 :::
 
@@ -304,7 +287,7 @@ flowchart LR
 ```
 
 - Hair axis: shared with balding, PSD-specific relative to HS. Epithelial axis: shared with HS and acne.
-- No polygenic immune signal beyond HLA class II: consistent with inflammation being secondary, although genetic data cannot establish the order of events
+- Outside the MHC, no immune pathway is enriched: consistent with inflammation being secondary, although genetic data cannot establish the order of events
 - Testable predictions: hair-shaft properties by genotype; *SEMA4B*, *KLF5* and *SOX9* enhancer activity in follicular keratinocytes
 
 ## Summary
@@ -313,7 +296,7 @@ flowchart LR
 2. PSD shares **most of its common-variant liability with HS** (rg 0.76), plus specific causal variants with HS (*KLF5*, *SOX9* regions) and acne (*SEMA4B*)
 3. The **obesity link is explained by the HS-shared liability**; obesity loci carry different variants
 4. A distinct **hair-patterning** axis: the balding link [@roberson2024] is pinned to specific shared variants (*HDAC9*, *DKK1*, *TCHH*, *SOX2*)
-5. Candidate effector genes: *SEMA4B* (skin) and *WNT16* (fibroblasts); no robust cell-type signal once the MHC is removed
+5. Candidate effector genes: *SEMA4B* (skin), *WNT16* (fibroblasts) and *WNT10A* (missense); hair-shaft keratin genes enriched genome-wide
 
 ## Limitations and next steps {.smaller}
 
@@ -333,7 +316,7 @@ flowchart LR
 **Next steps**
 
 - coloc-SuSiE at multi-signal loci (*PEX14*, *SEMA4B*)
-- Manuscript
+- Manuscript submission (EJHG)
 :::
 :::
 
@@ -359,7 +342,7 @@ flowchart LR
 |---|---|
 | PSD ~ HS + BMI | HS **β = 0.75** (p = 1×10⁻⁸) · BMI β = 0.01 (p = 0.89) |
 | PSD ~ HS + acne + BMI + WHR + balding | HS **0.73** · no-balding **−0.25** (p = 1×10⁻⁵) · others not significant |
-| Common factor (PSD, HS, acne) | PSD loading **0.94**; residual variance 0.13 (SE 0.26) |
+| Common factor (PSD, HS, acne) | PSD loading **0.94**; residual variance 0.12 (SE 0.26) |
 
 <br>
 
