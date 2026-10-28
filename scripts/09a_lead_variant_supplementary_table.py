@@ -3,8 +3,9 @@
 
 For each lead variant (results/psd_locus_to_gene.tsv; GRCh38) and each meta-analysis (META_EUR, META_ALL):
   - GRCh38 and GRCh37 positions (GRCh37 from the Ensembl GRCh37 cache written by step 07a), rsID, effect/other allele, EAF
-  - fixed-effect IVW OR (95% CI) and p, as in step 01b
-  - DerSimonian-Laird random-effects OR (95% CI) and p, tau^2, Cochran's Q, heterogeneity p and I^2
+  - fixed-effect IVW OR (95% CI) and p, Cochran's Q, heterogeneity p and I^2 from METAL (step 01f, data/processed/metal),
+    which reproduces step 01b; check_beta_vs_01b is the METAL minus 01b log-OR (METAL writes effects with 4 decimals)
+  - DerSimonian-Laird random-effects OR (95% CI), p and tau^2 from the per-cohort effects (METAL has no random-effects model)
   - per-cohort OR (95% CI) and p
 Indels keep the VCF position (the padding base before the variant), so they sit 1 bp before the Ensembl start.
 Output: results/psd_lead_variants_supplementary.tsv
@@ -51,6 +52,12 @@ rows = []
 for meta, cohorts in COHORTS.items():
     f = BASE / f"data/processed/meta/psd_meta_{meta}.tsv.gz"
     d = con.execute(f"SELECT m.* FROM read_csv_auto('{f}', delim='\t', header=true) m JOIN leads USING (chr, pos)").df()
+    mt = con.execute(f"""SELECT CAST(split_part(MarkerName, ':', 1) AS INTEGER) AS chr, CAST(split_part(MarkerName, ':', 2) AS BIGINT) AS pos,
+                                 upper(Allele1) AS al1, Effect, StdErr, "P-value" AS p_metal, HetISq, HetChiSq, HetPVal
+                          FROM read_csv('{BASE}/data/processed/metal/META_{meta}1.tbl', delim='\t', header=true) m
+                          JOIN leads l ON m.MarkerName = CAST(l.chr AS VARCHAR) || ':' || CAST(l.pos AS VARCHAR)""").df()
+    d = d.merge(mt, on=["chr", "pos"], how="left")
+    d["beta_metal"] = np.where(d.al1 == d.a1, d.Effect, -d.Effect)                         # METAL reports the effect of Allele1
     for c in cohorts:                                                                     # attach cohort columns, matched on alleles
         x = coh[coh.cohort == c][["chr", "pos", "a1", "a2", "beta", "se", "p"]].rename(columns={"beta": f"{c}_beta", "se": f"{c}_se", "p": f"{c}_p"})
         d = d.merge(x, on=["chr", "pos", "a1", "a2"], how="left")
@@ -66,13 +73,13 @@ for meta, cohorts in COHORTS.items():
         b = np.array([h[f"{c}_beta"] for c in cohorts], float); se = np.array([h[f"{c}_se"] for c in cohorts], float)
         ok = ~np.isnan(b) & ~np.isnan(se); b, se = b[ok], se[ok]; k = len(b)
         w = 1 / se**2; bf = (w * b).sum() / w.sum(); sef = w.sum() ** -0.5
-        Q = (w * (b - bf) ** 2).sum(); tau2 = max(0.0, (Q - (k - 1)) / (w.sum() - (w**2).sum() / w.sum())) if k > 1 else 0.0
+        Q = h.HetChiSq; tau2 = max(0.0, (Q - (k - 1)) / (w.sum() - (w**2).sum() / w.sum())) if k > 1 else 0.0
         wr = 1 / (se**2 + tau2); br = (wr * b).sum() / wr.sum(); ser = wr.sum() ** -0.5
         out.update(effect_allele=h.a1, other_allele=h.a2, eaf=round(h.eaf_meta, 4), k_cohorts=k, n_eff=round(h.n_eff),
-                   or_fixed_95ci=ci(bf, sef), p_fixed=2 * norm.sf(abs(bf / sef)),
+                   or_fixed_95ci=ci(h.beta_metal, h.StdErr), p_fixed=h.p_metal,
                    or_random_95ci=ci(br, ser), p_random=2 * norm.sf(abs(br / ser)), tau2=tau2,
-                   cochran_q=Q, p_het=chi2.sf(Q, k - 1) if k > 1 else np.nan, i2=max(0.0, (Q - (k - 1)) / Q) * 100 if Q > 0 else 0.0,
-                   check_beta_vs_11b=round(bf - h.beta_meta, 6))
+                   cochran_q=Q, p_het=h.HetPVal if k > 1 else np.nan, i2=h.HetISq,
+                   check_beta_vs_01b=round(h.beta_metal - h.beta_meta, 6), check_beta_ivw_vs_01b=round(bf - h.beta_meta, 6))
         for c in cohorts:
             bc, sc = h[f"{c}_beta"], h[f"{c}_se"]
             out[f"{c}_or_95ci"] = "" if pd.isna(bc) else ci(bc, sc)
@@ -83,5 +90,5 @@ res = pd.DataFrame(rows)
 res.to_csv(BASE / "results/psd_lead_variants_supplementary.tsv", sep="\t", index=False, float_format="%.4g")
 pd.set_option("display.width", 250)
 print(res[["locus", "meta", "rsid", "pos_grch37", "or_fixed_95ci", "p_fixed", "or_random_95ci", "p_random", "i2", "p_het"]].to_string(index=False))
-print("max |beta_fixed - beta_11b|:", res.check_beta_vs_11b.abs().max())
+print("max |beta_METAL - beta_01b|:", res.check_beta_vs_01b.abs().max(), " max |beta_IVW - beta_01b|:", res.check_beta_ivw_vs_01b.abs().max())
 print("LEAD_TABLE_DONE")
