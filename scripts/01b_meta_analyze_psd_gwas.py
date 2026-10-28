@@ -98,7 +98,7 @@ def nearest_genes(chrom, pos, window=250_000):
 def main():
     con = duckdb.connect()
     con.execute(f"SET memory_limit='{os.environ.get('DUCKDB_MEM','12GB')}'; SET threads={os.environ.get('DUCKDB_THREADS','12')};")
-    con.execute(f"SET temp_directory='{META_DIR}/duckdb_tmp';")
+    con.execute(f"SET temp_directory='{os.environ.get('DUCKDB_TMP', META_DIR / 'duckdb_tmp')}';")
 
     # ---------- 1. Load harmonized cohorts into one long table ----------
     print("[1/6] Loading harmonized cohorts...", flush=True)
@@ -128,15 +128,18 @@ def main():
     """)
     # Exclude multi-allelic sites: positions with more than one allele pair within a cohort (checked before the MAF filter,
     # on the harmonized MAF >= 0.005 records). Positions whose allele pairs differ between cohorts are removed per meta below.
-    con.execute("""
+    con.execute("CREATE TABLE multi_sites AS SELECT cohort, chr, pos FROM long_dedup GROUP BY cohort, chr, pos HAVING COUNT(*) > 1")
+    n_raw, n_dedup, n_multi = con.execute(
+        "SELECT (SELECT COUNT(*) FROM long_raw), (SELECT COUNT(*) FROM long_dedup), (SELECT COUNT(*) FROM long_dedup SEMI JOIN multi_sites USING (cohort, chr, pos))"
+    ).fetchone()
+    print(f"   de-duplicated within-cohort keys: {n_raw:,} -> {n_dedup:,} rows; {n_multi:,} rows at multi-allelic sites removed", flush=True)
+    con.execute(f"""
         CREATE TABLE long AS
-        SELECT * FROM long_dedup
-        ANTI JOIN (SELECT cohort, chr, pos FROM long_dedup GROUP BY cohort, chr, pos HAVING COUNT(*) > 1) USING (cohort, chr, pos)
+        SELECT * FROM long_dedup ANTI JOIN multi_sites USING (cohort, chr, pos)
+        WHERE eaf BETWEEN {MAF_MIN} AND {1 - MAF_MIN}
     """)
-    n_raw, n_dedup, n_biallelic = con.execute("SELECT (SELECT COUNT(*) FROM long_raw), (SELECT COUNT(*) FROM long_dedup), (SELECT COUNT(*) FROM long)").fetchone()
-    print(f"   de-duplicated within-cohort keys: {n_raw:,} -> {n_dedup:,} rows; after removing multi-allelic sites: {n_biallelic:,}", flush=True)
-    con.execute("DROP TABLE long_raw"); con.execute("DROP TABLE long_dedup")
-    con.execute(f"DELETE FROM long WHERE eaf < {MAF_MIN} OR eaf > {1 - MAF_MIN}")
+    con.execute("DROP TABLE long_raw"); con.execute("DROP TABLE long_dedup"); con.execute("DROP TABLE multi_sites")
+    print(f"   {time.strftime('%H:%M:%S')} long table ready", flush=True)
 
     # ---------- 2. Per-cohort QC ----------
     print("[2/6] Per-cohort QC (lambda_GC, mean chi2)...", flush=True)
@@ -163,13 +166,12 @@ def main():
         neff_scale = " ".join(
             f"WHEN '{c}' THEN {COHORTS[c]['n_eff']} * LEAST(1.0, COALESCE(n,{COHORTS[c]['n_max']})/{COHORTS[c]['n_max']})" for c in cohorts
         )
-        con.execute(f"DROP TABLE IF EXISTS meta_{meta_name}")
+        con.execute(f"DROP TABLE IF EXISTS meta_{meta_name}"); con.execute(f"DROP TABLE IF EXISTS meta_{meta_name}_raw")
         con.execute(f"""
-            CREATE TABLE meta_{meta_name} AS
-            WITH l0 AS (SELECT * FROM long WHERE cohort IN ({cohort_list})),
-            l AS (
+            CREATE TABLE meta_{meta_name}_raw AS
+            WITH l AS (
                 SELECT *, 1.0/(se*se) AS w, (CASE cohort {neff_scale} END) AS n_eff_c
-                FROM l0 ANTI JOIN (SELECT chr, pos FROM l0 GROUP BY chr, pos HAVING COUNT(DISTINCT a1 || ':' || a2) > 1) USING (chr, pos)
+                FROM long WHERE cohort IN ({cohort_list})
             ),
             g AS (
                 SELECT chr, pos, a1, a2,
@@ -190,8 +192,17 @@ def main():
                    {"||".join(f"COALESCE(d{i},'?')" for i in range(len(cohorts)))} AS direction
             FROM g
         """)
+        # Exclude positions with more than one allele pair across the cohorts of this meta-analysis (one row per allele pair).
+        con.execute(f"""
+            CREATE TABLE meta_{meta_name} AS
+            SELECT * FROM meta_{meta_name}_raw
+            ANTI JOIN (SELECT chr, pos FROM meta_{meta_name}_raw GROUP BY chr, pos HAVING COUNT(*) > 1) USING (chr, pos)
+        """)
+        con.execute(f"DROP TABLE meta_{meta_name}_raw")
+        print(f"   {time.strftime('%H:%M:%S')} meta table built", flush=True)
         # p-values & heterogeneity in pandas (vectorized, accurate tails)
         df = con.execute(f"SELECT * FROM meta_{meta_name}").df()
+        print(f"   {time.strftime('%H:%M:%S')} meta table loaded into pandas", flush=True)
         z = df["z_meta"].values
         df["p_meta"] = 2.0 * norm.sf(np.abs(z))
         logp = -(norm.logsf(np.abs(z)) + math.log(2.0)) / math.log(10.0)
