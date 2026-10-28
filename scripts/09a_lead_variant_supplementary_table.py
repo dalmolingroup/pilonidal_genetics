@@ -5,12 +5,13 @@ For each lead variant (results/psd_locus_to_gene.tsv; GRCh38) and each meta-anal
   - GRCh38 and GRCh37 positions (GRCh37 from the Ensembl GRCh37 cache written by step 07a), rsID, effect/other allele, EAF
   - fixed-effect IVW OR (95% CI) and p, Cochran's Q, heterogeneity p and I^2 from METAL (step 01f, data/processed/metal),
     which reproduces step 01b; check_beta_vs_01b is the METAL minus 01b log-OR (METAL writes effects with 4 decimals)
-  - DerSimonian-Laird random-effects OR (95% CI), p and tau^2 from the per-cohort effects (METAL has no random-effects model)
+  - DerSimonian-Laird random-effects OR (95% CI), p and tau^2 from the per-cohort effects with metafor::rma(method = "DL")
+    (METAL has no random-effects model); METAFOR_RSCRIPT is an Rscript whose library has metafor
   - per-cohort OR (95% CI) and p
 Indels keep the VCF position (the padding base before the variant), so they sit 1 bp before the Ensembl start.
 Output: results/psd_lead_variants_supplementary.tsv
 """
-import json, os
+import json, os, subprocess, tempfile
 from pathlib import Path
 import duckdb, numpy as np, pandas as pd
 from scipy.stats import norm, chi2
@@ -25,6 +26,17 @@ leads = pd.DataFrame({"locus": l2g.locus, "chr": loc[0], "pos": loc[1], "lead_rs
 cls = pd.read_csv(BASE / "results/psd_meta_locus_classification.tsv", sep="\t")[["chr", "pos", "a1", "a2"]]
 leads = leads.merge(cls, on=["chr", "pos"], how="left")
 b37 = json.loads((BASE / "data/processed/psd_leads_grch37.json").read_text())
+METAFOR_RSCRIPT = os.environ.get("METAFOR_RSCRIPT", "Rscript")
+RMA_R = """
+suppressMessages(library(metafor))
+a <- commandArgs(TRUE); d <- read.delim(a[1])
+out <- do.call(rbind, lapply(split(d, d$id), function(x) {
+  f <- rma(yi = x$b, sei = x$se, method = "DL")
+  data.frame(id = x$id[1], beta_random = f$beta[1], se_random = f$se, p_random = f$pval, tau2 = f$tau2, q_rma = f$QE)
+}))
+write.table(out, a[2], sep = "\\t", row.names = FALSE, quote = FALSE)
+"""
+
 con = duckdb.connect()
 con.execute(f"SET threads={os.environ.get('NCPU', 4)}")
 con.register("leads", leads[["chr", "pos"]])
@@ -48,7 +60,7 @@ for c in sorted({c for v in COHORTS.values() for c in v}):
         GROUP BY r.chr, r.pos, r.a1, r.a2""").df())
 coh = pd.concat(coh)
 
-rows = []
+rows, re_in = [], []
 for meta, cohorts in COHORTS.items():
     f = BASE / f"data/processed/meta/psd_meta_{meta}.tsv.gz"
     d = con.execute(f"SELECT m.* FROM read_csv_auto('{f}', delim='\t', header=true) m JOIN leads USING (chr, pos)").df()
@@ -73,12 +85,10 @@ for meta, cohorts in COHORTS.items():
         b = np.array([h[f"{c}_beta"] for c in cohorts], float); se = np.array([h[f"{c}_se"] for c in cohorts], float)
         ok = ~np.isnan(b) & ~np.isnan(se); b, se = b[ok], se[ok]; k = len(b)
         w = 1 / se**2; bf = (w * b).sum() / w.sum(); sef = w.sum() ** -0.5
-        Q = h.HetChiSq; tau2 = max(0.0, (Q - (k - 1)) / (w.sum() - (w**2).sum() / w.sum())) if k > 1 else 0.0
-        wr = 1 / (se**2 + tau2); br = (wr * b).sum() / wr.sum(); ser = wr.sum() ** -0.5
+        re_in += [{"id": len(rows), "b": bi, "se": si} for bi, si in zip(b, se)]
         out.update(effect_allele=h.a1, other_allele=h.a2, eaf=round(h.eaf_meta, 4), k_cohorts=k, n_eff=round(h.n_eff),
                    or_fixed_95ci=ci(h.beta_metal, h.StdErr), p_fixed=h.p_metal,
-                   or_random_95ci=ci(br, ser), p_random=2 * norm.sf(abs(br / ser)), tau2=tau2,
-                   cochran_q=Q, p_het=h.HetPVal if k > 1 else np.nan, i2=h.HetISq,
+                   cochran_q=h.HetChiSq, p_het=h.HetPVal if k > 1 else np.nan, i2=h.HetISq,
                    check_beta_vs_01b=round(h.beta_metal - h.beta_meta, 6), check_beta_ivw_vs_01b=round(bf - h.beta_meta, 6))
         for c in cohorts:
             bc, sc = h[f"{c}_beta"], h[f"{c}_se"]
@@ -86,7 +96,20 @@ for meta, cohorts in COHORTS.items():
             out[f"{c}_p"] = h[f"{c}_p"]
         rows.append(out)
 
+# random effects with metafor, one rma() fit per lead variant and meta-analysis
+with tempfile.TemporaryDirectory() as tmp:
+    pd.DataFrame(re_in).to_csv(f"{tmp}/in.tsv", sep="\t", index=False)
+    open(f"{tmp}/rma.R", "w").write(RMA_R)
+    subprocess.run([METAFOR_RSCRIPT, f"{tmp}/rma.R", f"{tmp}/in.tsv", f"{tmp}/out.tsv"], check=True)
+    re_out = pd.read_csv(f"{tmp}/out.tsv", sep="\t").set_index("id")
 res = pd.DataFrame(rows)
+res = res.join(re_out)
+res["or_random_95ci"] = [ci(b, s) if pd.notna(b) else "" for b, s in zip(res.beta_random, res.se_random)]
+print("max |Q_metafor - Q_METAL|:", (res.q_rma - res.cochran_q).abs().max())
+res = res.drop(columns=["beta_random", "se_random", "q_rma"])
+cols = [c for c in res.columns if c not in ("or_random_95ci", "p_random", "tau2")]
+i = cols.index("p_fixed") + 1
+res = res[cols[:i] + ["or_random_95ci", "p_random", "tau2"] + cols[i:]]
 res.to_csv(BASE / "results/psd_lead_variants_supplementary.tsv", sep="\t", index=False, float_format="%.4g")
 pd.set_option("display.width", 250)
 print(res[["locus", "meta", "rsid", "pos_grch37", "or_fixed_95ci", "p_fixed", "or_random_95ci", "p_random", "i2", "p_het"]].to_string(index=False))
