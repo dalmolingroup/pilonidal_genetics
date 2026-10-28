@@ -98,19 +98,20 @@ def url_exists(url):
 def fetch_ukb_ld(name):
     dest = UKB_LD / name
     if not (dest.exists() and (UKB_LD / f"{name}.done").exists()):
-        subprocess.run(["curl", "-sSL", "--retry", "6", "--retry-delay", "15", "-C", "-", "-o", str(dest), f"{UKB_LD_URL}/{name}"], check=True)
+        subprocess.run(["curl", "-fsSL", "--retry", "6", "--retry-delay", "15", "-C", "-", "-o", str(dest), f"{UKB_LD_URL}/{name}"], check=True)
         (UKB_LD / f"{name}.done").touch()
     return dest
 
 
 def ukb_ld_window(chrom, centre37):
-    """3 Mb UKB LD file (starts at 1 + k Mb) whose centre is closest to centre37; falls back to neighbours at chromosome ends."""
+    """3 Mb UKB LD file (starts at 1 + k Mb) whose centre is closest to centre37; falls back to neighbours at chromosome ends.
+    Windows without an .npz matrix (the MHC windows are only published as .npz2) are skipped."""
     k0 = max(0, int(round((centre37 - 1_500_000) / 1_000_000)))
     for k in (k0, k0 - 1, k0 + 1, k0 - 2, k0 + 2):
         if k < 0:
             continue
         prefix = f"chr{chrom}_{k * 1_000_000 + 1}_{k * 1_000_000 + 3_000_001}"
-        if url_exists(f"{UKB_LD_URL}/{prefix}.gz"):
+        if url_exists(f"{UKB_LD_URL}/{prefix}.gz") and url_exists(f"{UKB_LD_URL}/{prefix}.npz"):
             return prefix
     return None
 
@@ -265,7 +266,9 @@ write.table(data.frame(pip=pip, cs=cs, purity=purity, ldflag=flag, s_rss=lam), o
             if m == "EUR":
                 # ---- SuSiE-RSS: UK Biobank LD (primary) and 1000G EUR LD (sensitivity) ----
                 ukb = ukb_ld_inputs(d, c, lo, hi, lava_info)
-                if ukb is not None:
+                if ukb is None:
+                    print(f"    no UKB LD window for {tag}; 1000G LD only", flush=True)
+                else:
                     keys, z, R, srow["susie_ld_file"], srow["susie_lead_sign_concordance"] = ukb
                     d = add_susie(d, run_susie(z, R, keys, f"{tag}_ukb"), "susie")
                 mm = d.merge(pvar[["key", "id", "ref", "alt"]], on="key", how="inner")
