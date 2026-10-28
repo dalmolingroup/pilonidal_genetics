@@ -40,13 +40,14 @@ scripts are in `slurm/`. Steps marked *local* are lightweight.
 | 01a | `01a_harmonize_psd_cohorts.sh` | Harmonise the 5 PSD cohorts to GRCh38 | `data/processed/harmonized/` |
 | 01b | `01b_meta_analyze_psd_gwas.py` | IVW fixed-effect meta-analyses META_EUR and META_ALL, cohort QC | `psd_meta_{EUR,ALL}_loci.tsv`, `psd_meta_cohort_qc.tsv`, `psd_published_loci_replication.tsv` |
 | 01c | `01c_finemap_psd_loci.py` | ABF and SuSiE fine-mapping, VEP and GTEx annotation | `psd_finemap_*.tsv` |
-| 01d | `01d_classify_meta_loci.py` *(local)* | Merge loci, known vs novel, intercept correction, leave-one-cohort-out | `psd_meta_locus_classification.tsv`, `psd_meta_loci_intercept_corrected.tsv`, `psd_meta_loci_nonfinngen_replication.tsv` |
+| 01d | `01d_classify_meta_loci.py` *(local)* | Merge loci, known vs novel, leave-one-cohort-out | `psd_meta_locus_classification.tsv` |
 | 01e | `01e_reannotate_vep_by_rsid.py` *(local)* | Re-annotate credible-set variants with VEP by rsID | `psd_finemap_vep_by_rsid.tsv` |
-| 02a–b | `02a_prepare_ldsc_inputs.py`, `02b_run_ldsc_rg.sh` | LDSC h2, intercepts and genetic correlations | `ldsc_v2_*.tsv`, `ldsc_logs_v2/` |
+| 02a–b | `02a_prepare_ldsc_inputs.py`, `02b_run_ldsc_rg.sh` | LDSC h2, intercepts and genetic correlations | `ldsc_logs/` (tabulated by 06b) |
 | 03a–c | `03a_magma_gene_analysis.sh`, `03b_scdrs_meta_magma.py`, `03c_magma_genesets_exclude_mhc.sh` | MAGMA gene scores; scDRS cell-type mapping with and without the MHC | `magma_genes_*.tsv`, `scdrs_magma_*.tsv` |
 | 04a–d | `04a_prepare_shared_genetics_inputs.py`, `04b_coloc_psd_vs_traits.R`, `04c_lava_local_rg.R`, `04d_genomic_sem.R` | Shared genetics with HS, acne, balding, BMI, WHR: coloc, LAVA local rg, Genomic SEM | `coloc_psd_vs_traits.tsv`, `lava_bivariate_psd_noMHC.tsv`, `genomicsem_*.tsv`, `hs_gws_loci.tsv` |
 | 05a | `05a_eqtl_coloc_gtex.R` | eQTL colocalisation in GTEx skin, adipose and fibroblasts | `eqtl_coloc_psd_gtex.tsv` |
 | 06a | `06a_magma_geneset_tissue.sh` | MHC-free MAGMA gene-set (GO BP, Reactome) and GTEx tissue analyses | `magma_genesets_*.tsv`, `magma_gtex_tissues_nomhc.tsv` |
+| 06b | `06b_derived_summary_tables.py` | LDSC tables from the logs, LDSC-intercept-corrected lead p-values, non-FinnGen check, MHC-free LAVA with FDR, MHC flag on coloc | `ldsc_v2_*.tsv`, `psd_meta_loci_intercept_corrected.tsv`, `psd_meta_loci_nonfinngen_replication.tsv`, `lava_bivariate_psd_noMHC.tsv` |
 | 07a | `07a_locus_to_gene_table.py` *(local)* | Locus-to-gene evidence scoring for the 25 loci | `psd_locus_to_gene.tsv` |
 | 08a–b | `08a_network_propagation.py`, `08b_netprop_chromosome_split.py` | Network propagation (Visonà et al. 2024) and its chromosome-split validation | `netprop_*.tsv` |
 | 09a | `09a_lead_variant_supplementary_table.py` | Lead variants: fixed and random effects, heterogeneity, per-cohort ORs, GRCh38 and GRCh37 positions | `psd_lead_variants_supplementary.tsv` |
