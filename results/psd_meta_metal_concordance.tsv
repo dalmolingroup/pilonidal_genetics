@@ -1,0 +1,3 @@
+meta	n_ours	n_metal	n_matched	n_k_differ	r_beta	r_log10p	max_abs_d_beta	max_abs_d_se	max_abs_d_log10p	max_abs_d_i2	n_gws_ours	n_gws_metal	n_gws_discordant
+META_ALL	16159373	16159360	16159360	0	1	1	5e-05	5e-05	0.000217093	0.05	685	685	0
+META_EUR	11243818	11243811	11243811	0	1	1	5e-05	5e-05	0.000217093	0.05	677	677	0

@@ -43,6 +43,7 @@ scripts are in `slurm/`. Steps marked *local* are lightweight.
 | 01c | `01c_finemap_psd_loci.py` | ABF and SuSiE fine-mapping, VEP and GTEx annotation | `psd_finemap_*.tsv` |
 | 01d | `01d_classify_meta_loci.py` *(local)* | Merge loci, known vs novel, leave-one-cohort-out | `psd_meta_locus_classification.tsv` |
 | 01e | `01e_reannotate_vep_by_rsid.py` *(local)* | Re-annotate credible-set variants with VEP by rsID | `psd_finemap_vep_by_rsid.tsv` |
+| 01f | `01f_metal_validation.py` (`slurm/run_metal_validation.sbatch`) | Reproduce both meta-analyses with METAL (STDERR scheme, no genomic control) and compare variant by variant | `psd_meta_metal_concordance.tsv`, `psd_meta_metal_leads.tsv` |
 | 02a–b | `02a_prepare_ldsc_inputs.py`, `02b_run_ldsc_rg.sh` | LDSC h2, intercepts and genetic correlations | `ldsc_logs/` (tabulated by 06b) |
 | 03a–c | `03a_magma_gene_analysis.sh`, `03b_scdrs_meta_magma.py`, `03c_magma_genesets_exclude_mhc.sh` | MAGMA gene scores; scDRS cell-type mapping with and without the MHC | `magma_genes_*.tsv`, `scdrs_magma_*.tsv` |
 | 04a–d | `04a_prepare_shared_genetics_inputs.py`, `04b_coloc_psd_vs_traits.R`, `04c_lava_local_rg.R`, `04d_genomic_sem.R` | Shared genetics with HS, acne, balding, BMI, WHR: coloc, LAVA local rg, Genomic SEM | `coloc_psd_vs_traits.tsv`, `lava_bivariate_psd_noMHC.tsv`, `genomicsem_*.tsv`, `hs_gws_loci.tsv` |
