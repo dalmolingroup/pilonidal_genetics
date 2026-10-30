@@ -11,4 +11,4 @@
 # Paper Figure 1 Miami plot and supplementary QQ plots from the full meta-analysis summary statistics.
 set -uo pipefail
 cd /mnt/beegfs/scratch/$USER/pilonidal_genetics
-NCPU=4 /mnt/beegfs/scratch/$USER/envs/psd/bin/python paper/cluster_manhattan.py || echo "MANHATTAN FAILED"
+NCPU=4 /mnt/beegfs/scratch/$USER/envs/psd/bin/python scripts/11a_paper_manhattan_qq.py || echo "MANHATTAN FAILED"

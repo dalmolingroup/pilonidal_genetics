@@ -55,6 +55,8 @@ scripts are in `slurm/`. Steps marked *local* are lightweight.
 | 09a | `09a_lead_variant_supplementary_table.py` | Lead variants: fixed and random effects, heterogeneity, per-cohort ORs, GRCh38 and GRCh37 positions | `psd_lead_variants_supplementary.tsv` |
 | 09b | `09b_fill_missing_rsids.py` *(local)* | Fill indel rsIDs via Ensembl VEP; rerun after regenerating steps 01–05 | updates the tables above |
 | 10a | `10a_format_gwas_catalog.py` (`slurm/run_gwas_catalog.sbatch`) | Both meta-analyses in GWAS-SSF format for GWAS Catalog deposition, validated with `gwas-ssf validate` | `data/processed/gwas_catalog/psd_meta_{ALL,EUR}_GRCh38.tsv.gz`, `md5sums.txt` |
+| 11a | `11a_paper_manhattan_qq.py` (`slurm/run_paper_manhattan.sbatch`) | Thinned Miami-plot input and supplementary QQ plots from the full meta-analyses | `$PSD_PAPER/data/miami_thinned.tsv.gz`, `$PSD_PAPER/figures/figS1_qq.png` |
+| 11b–d | `11b_paper_miami.py`, `11c_paper_figures.py`, `11d_paper_tables.py` *(local)* | Manuscript figures and tables from `results/` (`PSD_PAPER` sets the manuscript directory, default `paper/`) | `$PSD_PAPER/figures/`, `$PSD_PAPER/tables/` |
 
 `scripts/lib/` holds two helper modules, `scdrs_atlases.py` and `gse274880_hs_atlas.py`, that step 03b imports for atlas
 download and annotation. They come from the early exploratory pipeline, which was removed.

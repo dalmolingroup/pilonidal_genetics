@@ -32,7 +32,7 @@ slurm/*.err
 # Papers consulted (copyrighted PDFs)
 resources/
 
-# Thinned Miami-plot input pulled from the cluster (17 MB; regenerate with paper/cluster_manhattan.py)
+# Thinned Miami-plot input pulled from the cluster (17 MB; regenerate with scripts/11a_paper_manhattan_qq.py)
 paper/data/
 
 # LaTeX build files and generated submission bundle (rebuild with `make -C paper pdf docx`)
