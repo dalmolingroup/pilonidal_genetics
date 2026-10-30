@@ -37,7 +37,7 @@ LAVA_REF = BASE / "data" / "lava" / "ref"          # LAVA UKB .info files (GRCh3
 UKB_LD = BASE / "data" / "raw" / "ukbb_ld"         # cached UK Biobank LD matrices
 UKB_LD.mkdir(parents=True, exist_ok=True)
 UKB_LD_URL = "https://broad-alkesgroup-ukbb-ld.s3.amazonaws.com/UKBB_LD"
-PLINK2 = os.environ.get("PLINK2", "/tmp/claude-1000/-home-jvfe-dev-pesquisa-minor-contribs-pilonidal-genetics/5cd42c41-c3f4-4a05-a060-fe0ffae56124/scratchpad/bin/plink2")
+PLINK2 = os.environ.get("PLINK2", str(BASE / "bin" / "plink2"))
 WINDOW = 500_000
 COLOC_RSCRIPT = os.environ.get("COLOC_RSCRIPT", "Rscript")   # an Rscript whose library has coloc
 CC_FRACTION = {"ALL": 7868 / 1606360, "EUR": 6771 / 1381000}  # case fraction and N, as in 04b

@@ -3,7 +3,7 @@
 # between PSD and follicular-occlusion / hair / adiposity traits, plus cross-cohort PSD rg among independent cohorts.
 set -euo pipefail
 BASE=$(cd "$(dirname "$0")/.." && pwd)
-LDSC_ENV=${LDSC_ENV:-/tmp/claude-1000/-home-jvfe-dev-pesquisa-minor-contribs-pilonidal-genetics/5cd42c41-c3f4-4a05-a060-fe0ffae56124/scratchpad/ldsc_env}
+LDSC_ENV=${LDSC_ENV:-/mnt/beegfs/scratch/$USER/envs/ldsc}
 PY=$LDSC_ENV/bin/python
 REF=$BASE/data/ldsc_ref/eur_w_ld_chr
 IN=$BASE/data/processed/ldsc_in

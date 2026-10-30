@@ -12,5 +12,6 @@
 set -uo pipefail
 cd /mnt/beegfs/scratch/$USER/pilonidal_genetics
 module load softwares/R/4.5.0-gnu11.2 2>/dev/null || true
+Rscript -e 'if (!requireNamespace("metafor", quietly = TRUE)) { dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE, showWarnings = FALSE); install.packages("metafor", repos = "https://cloud.r-project.org", lib = Sys.getenv("R_LIBS_USER")) }'
 zcat data/processed/meta/psd_meta_EUR.tsv.gz | head -1
 NCPU=4 METAFOR_RSCRIPT=${METAFOR_RSCRIPT:-Rscript} /mnt/beegfs/scratch/$USER/envs/psd/bin/python scripts/09a_lead_variant_supplementary_table.py || echo "LEAD TABLE FAILED"
