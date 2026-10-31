@@ -1,6 +1,6 @@
 #!/bin/bash
 # Step 03a: MAGMA v1.10 gene-level association (SNP-wise mean model; 1000G EUR LD reference; +10 kb / -1.5 kb windows)
-# for the PSD meta-analyses and comparator traits, then scDRS gene sets (top 1,000 genes by MAGMA z, z-score weights).
+# for the PSD meta-analyses and comparator traits.
 # PSD inputs use all rsID-mapped meta-analysis variants (k >= 2); comparators use their HapMap3 LDSC inputs.
 set -euo pipefail
 BASE=$(cd "$(dirname "$0")/.." && pwd)
@@ -38,23 +38,16 @@ run_magma() { t=$1; [ -s $M/out/$t.genes.out ] && return; $M/ref/magma --bfile $
 export -f run_magma; export M
 ls $M/in/*.txt | xargs -n1 basename | sed 's/\.txt$//' | xargs -P 6 -I{} bash -c 'run_magma {}'
 
-# ---- z-score table (gene symbols) + scDRS gene sets ----
+# ---- per-trait gene tables (gene symbols) ----
 $PY - <<PYEOF
 import pandas as pd, glob, os
 M = "$M"; B = "$BASE"
 loc = pd.read_csv(f"{M}/ref/NCBI37.3.gene.loc", sep=r"\s+", header=None, names=["GENE","CHR","START","STOP","STRAND","SYMBOL"])
-z = None
 for f in sorted(glob.glob(f"{M}/out/*.genes.out")):
     t = os.path.basename(f).replace(".genes.out", "")
     d = pd.read_csv(f, sep=r"\s+")[["GENE", "ZSTAT", "P"]].merge(loc[["GENE", "SYMBOL"]], on="GENE")
     d.to_csv(f"{B}/results/magma_genes_{t}.tsv", sep="\t", index=False)
     n_sig = int((d.P < 0.05 / len(d)).sum())
     print(f"{t}: {len(d):,} genes, Bonferroni-significant {n_sig}; top: {', '.join(d.sort_values('P').SYMBOL.head(12))}")
-    s = d.drop_duplicates("SYMBOL").set_index("SYMBOL")["ZSTAT"].rename(t)
-    z = s.to_frame() if z is None else z.join(s, how="outer")
-z = z.fillna(0.0); z.index.name = "GENE"
-z.to_csv(f"{M}/out/magma_zscores.tsv", sep="\t")
 PYEOF
-scdrs munge-gs --out-file $BASE/data/psd_meta_magma_scdrs.gs --zscore-file $M/out/magma_zscores.tsv --weight zscore --n-max 1000
-awk -F'\t' 'NR>1{n=split($2,a,","); print $1, n" genes"}' $BASE/data/psd_meta_magma_scdrs.gs
 echo MAGMA_DONE

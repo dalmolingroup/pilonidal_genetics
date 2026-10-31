@@ -8,10 +8,10 @@
 #SBATCH --time=06:00:00
 #SBATCH --output=slurm/psd_magma_gsa_%j.out
 #SBATCH --error=slurm/psd_magma_gsa_%j.err
-# Step 06a: MHC-free MAGMA gene-set (GO BP + Reactome) and GTEx tissue analyses for PSD and comparators.
+# Step 06a: MHC-free MAGMA gene-set analyses (GO BP + Reactome) for PSD and comparators.
 set -uo pipefail
 cd /mnt/beegfs/scratch/$USER/pilonidal_genetics
 ENVS=/mnt/beegfs/scratch/$USER/envs
-module load softwares/python/3.13.7-gnu8   # scdrs venv python links against this module's libpython
-PY=$ENVS/scdrs/bin/python bash scripts/06a_magma_geneset_tissue.sh || echo "MAGMA GENESETS FAILED"
+module load softwares/python/3.13.7-gnu8   # magma venv python links against this module's libpython
+PY=$ENVS/magma/bin/python bash scripts/06a_magma_genesets.sh || echo "MAGMA GENESETS FAILED"
 echo "=== magma gene-set analysis finished $(date) ==="

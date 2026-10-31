@@ -30,8 +30,8 @@ BK=results_backup_pre_biallelic
 [ -d $BK ] || { cp -a results $BK && mkdir -p $BK/meta && cp -a data/processed/meta/psd_meta_*.tsv.gz $BK/meta/; }
 rm -f results/psd_meta_ALL_loci.tsv results/psd_meta_EUR_loci.tsv results/psd_finemap_locus_summary.tsv
 rm -rf data/processed/ldsc_in data/processed/ldsc_munged results/ldsc_logs results/ldsc_overlap
-rm -f data/magma/in/PSD_* data/magma/out/PSD_* data/magma/out/magma_zscores* data/magma/out_nomhc/PSD_* data/psd_meta_magma_scdrs*.gs
-rm -f data/processed/shared/PSD_* data/lava/sumstats/PSD_* data/netprop/PSD_META_*.npz
+rm -f data/magma/in/PSD_* data/magma/out/PSD_* data/magma/out_nomhc/PSD_*
+rm -f data/processed/shared/PSD_* data/lava/sumstats/PSD_*
 rm -f results/coloc_psd_vs_traits.tsv results/genomicsem_models.tsv results/lava_bivariate_psd.tsv
 
 $PY scripts/01b_meta_analyze_psd_gwas.py || { echo "META FAILED"; exit 1; }

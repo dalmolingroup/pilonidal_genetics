@@ -1,12 +1,11 @@
 #!/bin/bash
-# Step 06a: MAGMA v1.10 competitive gene-set and GTEx tissue gene-property analyses on MHC-free gene scores.
+# Step 06a: MAGMA v1.10 competitive gene-set analyses on MHC-free gene scores.
 # (1) MHC genes (GRCh37 chr6:28.4-33.5 Mb, NCBI37.3 gene loc) are dropped from the step-03a SNP->gene annotation and the gene
 #     analysis is rerun for every trait, so MHC genes are absent from the gene universe (not only from the sets);
 # (2) gene sets: MSigDB 2025.1 GO biological process + Reactome (Entrez), 10-500 genes; a priori follicle/keratinocyte/WNT sets flagged;
-# (3) tissues: GTEx v8 median TPM, log2(TPM+1) per tissue conditioned on the across-tissue average (FUMA model, one-sided);
-# (4) robustness for PSD: top sets rerun without their strongest locus (top gene +/-1 Mb) and without genome-wide significant genes.
+# (3) robustness for PSD: top sets rerun without their strongest locus (top gene +/-1 Mb) and without genome-wide significant genes.
 # Inputs : data/magma/in/<trait>.txt and data/magma/ref/* (step 03a)
-# Outputs: results/magma_genesets_nomhc.tsv, results/magma_gtex_tissues_nomhc.tsv, results/magma_genesets_psd_robustness.tsv
+# Outputs: results/magma_genesets_nomhc.tsv, results/magma_genesets_psd_robustness.tsv
 set -euo pipefail
 BASE=$(cd "$(dirname "$0")/.." && pwd)
 PY=${PY:-python3}
@@ -32,14 +31,11 @@ export -f run_gene; export M R O MAGMA
 TRAITS=$(ls $M/in/*.txt | xargs -n1 basename | sed 's/\.txt$//')
 echo "$TRAITS" | xargs -P 7 -I{} bash -c 'run_gene {}'
 
-# ---- (2) gene sets and (3) GTEx covariates ----
+# ---- (2) gene sets ----
 V=2025.1.Hs; U=https://data.broadinstitute.org/gsea-msigdb/msigdb/release/$V
 for c in c5.go.bp c2.cp.reactome; do [ -s $G/$c.gmt ] || curl -sSL --retry 5 -o $G/$c.gmt $U/$c.v$V.entrez.gmt; done
-[ -s $G/gtex_v8_median_tpm.gct.gz ] || curl -sSL --retry 5 -o $G/gtex_v8_median_tpm.gct.gz \
-  https://storage.googleapis.com/adult-gtex/bulk-gex/v8/rna-seq/GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_median_tpm.gct.gz
 $PY - <<PYEOF
-import pandas as pd, numpy as np
-R, G = "$R", "$G"
+G = "$G"
 n = 0
 with open(f"{G}/msigdb_gobp_reactome.sets", "w") as fo:
     for c in ("c5.go.bp", "c2.cp.reactome"):
@@ -47,25 +43,14 @@ with open(f"{G}/msigdb_gobp_reactome.sets", "w") as fo:
             f = line.rstrip("\n").split("\t")
             if 10 <= len(f) - 2 <= 500: fo.write(" ".join([f[0]] + f[2:]) + "\n"); n += 1
 print(f"{n} gene sets (10-500 genes)")
-loc = pd.read_csv(f"{R}/NCBI37.3.gene.loc", sep=r"\s+", header=None, names=["GENE","CHR","START","STOP","STRAND","SYMBOL"])
-loc = loc[~loc.SYMBOL.duplicated(keep=False)]
-g = pd.read_csv(f"{G}/gtex_v8_median_tpm.gct.gz", sep="\t", skiprows=2).drop(columns="Name")
-g = g[~g.Description.duplicated(keep=False)].set_index("Description")
-g = np.log2(g + 1); g.columns = [c.replace(" - ", "_").replace(" ", "_").replace("(", "").replace(")", "") for c in g.columns]
-g["Average"] = g.mean(axis=1)
-g = g.join(loc.set_index("SYMBOL").GENE, how="inner").set_index("GENE")
-g.to_csv(f"{G}/gtex_v8_log2tpm.covar", sep=" ", index_label="GENE")
-print(f"GTEx covariates: {len(g)} genes x {g.shape[1] - 1} tissues")
 PYEOF
 
 run_sets() { t=$1
-  [ -s $O/$t.gsa.out ] || $MAGMA --gene-results $O/$t.genes.raw --set-annot $G/msigdb_gobp_reactome.sets --out $O/$t > $O/$t.sets.stdout 2>&1 || echo "set analysis failed $t"
-  [ -s $O/${t}_gtex.gsa.out ] || $MAGMA --gene-results $O/$t.genes.raw --gene-covar $G/gtex_v8_log2tpm.covar \
-      --model condition-hide=Average direction=greater --out $O/${t}_gtex > $O/$t.gtex.stdout 2>&1 || echo "tissue analysis failed $t"; }
+  [ -s $O/$t.gsa.out ] || $MAGMA --gene-results $O/$t.genes.raw --set-annot $G/msigdb_gobp_reactome.sets --out $O/$t > $O/$t.sets.stdout 2>&1 || echo "set analysis failed $t"; }
 export -f run_sets; export G
 echo "$TRAITS" | xargs -P 7 -I{} bash -c 'run_sets {}'
 
-# ---- summaries + (4) PSD robustness sets ----
+# ---- summaries + (3) PSD robustness sets ----
 $PY - <<PYEOF
 import pandas as pd, numpy as np, glob, os
 from statsmodels.stats.multitest import multipletests
@@ -77,25 +62,20 @@ def read_gsa(f):
     d = pd.read_csv(f, sep=r"\s+", comment="#")
     if "FULL_NAME" in d: d["VARIABLE"] = d.FULL_NAME
     return d.drop(columns=[c for c in ("FULL_NAME", "TYPE") if c in d])
-sets, tis = [], []
+sets = []
 for f in sorted(glob.glob(f"{O}/*.gsa.out")):
     t = os.path.basename(f).replace(".gsa.out", "")
-    if t.endswith("_robust"): continue
+    if t.endswith("_robust") or t.endswith("_gtex"): continue
     d = read_gsa(f)
-    if t.endswith("_gtex"):
-        d.insert(0, "trait", t[:-5]); d["P_bonf"] = np.minimum(d.P * len(d), 1); tis.append(d)
-    else:
-        d.insert(0, "trait", t); d["collection"] = np.where(d.VARIABLE.str.startswith("GOBP_"), "GO_BP", "Reactome")
-        d["FDR"] = multipletests(d.P, method="fdr_bh")[1]; d["P_bonf"] = np.minimum(d.P * len(d), 1)
-        d["a_priori"] = d.VARIABLE.isin(APRIORI)
-        d["P_bonf_apriori"] = np.where(d.a_priori, np.minimum(d.P * d.a_priori.sum(), 1), np.nan); sets.append(d)
-sets = pd.concat(sets).rename(columns={"VARIABLE": "gene_set"}); tis = pd.concat(tis).rename(columns={"VARIABLE": "tissue"})
+    d.insert(0, "trait", t); d["collection"] = np.where(d.VARIABLE.str.startswith("GOBP_"), "GO_BP", "Reactome")
+    d["FDR"] = multipletests(d.P, method="fdr_bh")[1]; d["P_bonf"] = np.minimum(d.P * len(d), 1)
+    d["a_priori"] = d.VARIABLE.isin(APRIORI)
+    d["P_bonf_apriori"] = np.where(d.a_priori, np.minimum(d.P * d.a_priori.sum(), 1), np.nan); sets.append(d)
+sets = pd.concat(sets).rename(columns={"VARIABLE": "gene_set"})
 sets.to_csv(f"{B}/results/magma_genesets_nomhc.tsv", sep="\t", index=False)
-tis.to_csv(f"{B}/results/magma_gtex_tissues_nomhc.tsv", sep="\t", index=False)
 for t in sorted(sets.trait.unique()):
-    s = sets[sets.trait == t].sort_values("P"); x = tis[tis.trait == t].sort_values("P")
-    print(f"\n== {t}: {len(s)} sets, FDR<0.05 {(s.FDR < 0.05).sum()}, Bonferroni {(s.P_bonf < 0.05).sum()}; "
-          f"tissues Bonferroni {(x.P_bonf < 0.05).sum()} (top {', '.join(x.tissue.head(3))})")
+    s = sets[sets.trait == t].sort_values("P")
+    print(f"\n== {t}: {len(s)} sets, FDR<0.05 {(s.FDR < 0.05).sum()}, Bonferroni {(s.P_bonf < 0.05).sum()}")
     print(s.head(8)[["gene_set", "NGENES", "BETA", "P", "FDR"]].to_string(index=False))
 print("\n== a priori sets (Bonferroni over", len(APRIORI), ")")
 print(sets[sets.a_priori].pivot(index="gene_set", columns="trait", values="P").map(lambda p: f"{p:.1e}").to_string())

@@ -44,10 +44,10 @@ scripts are in `slurm/`. Steps marked *local* are lightweight.
 | 01e | `01e_reannotate_vep_by_rsid.py` *(local)* | Re-annotate credible-set variants with VEP by rsID | `psd_finemap_vep_by_rsid.tsv` |
 | 01f | `01f_metal_validation.py` (`slurm/run_metal_validation.sbatch`) | Reproduce both meta-analyses with METAL (STDERR scheme, no genomic control) and compare variant by variant | `psd_meta_metal_concordance.tsv`, `psd_meta_metal_leads.tsv` |
 | 02a–b | `02a_prepare_ldsc_inputs.py`, `02b_run_ldsc_rg.sh` | LDSC h2, intercepts and genetic correlations | `ldsc_logs/` (tabulated by 06b) |
-| 03a, 03c | `03a_magma_gene_analysis.sh`, `03c_magma_genesets_exclude_mhc.sh` | MAGMA gene scores, with and without the MHC | `magma_genes_*.tsv` |
+| 03a | `03a_magma_gene_analysis.sh` | MAGMA gene scores | `magma_genes_*.tsv` |
 | 04a–d | `04a_prepare_shared_genetics_inputs.py`, `04b_coloc_psd_vs_traits.R`, `04c_lava_local_rg.R`, `04d_genomic_sem.R` | Shared genetics with HS, acne, balding, BMI, WHR: coloc, LAVA local rg, Genomic SEM | `coloc_psd_vs_traits.tsv`, `lava_bivariate_psd_noMHC.tsv`, `genomicsem_*.tsv`, `hs_gws_loci.tsv` |
 | 05a | `05a_eqtl_coloc_gtex.R` | eQTL colocalisation in GTEx skin, adipose and fibroblasts | `eqtl_coloc_psd_gtex.tsv` |
-| 06a | `06a_magma_geneset_tissue.sh` | MHC-free MAGMA gene-set analysis (GO BP, Reactome) | `magma_genesets_*.tsv` |
+| 06a | `06a_magma_genesets.sh` | MHC-free MAGMA gene-set analysis (GO BP, Reactome) | `magma_genesets_*.tsv` |
 | 06b | `06b_derived_summary_tables.py` | LDSC tables from the logs, LDSC-intercept-corrected lead p-values, non-FinnGen check, MHC-free LAVA with FDR, MHC flag on coloc | `ldsc_v2_*.tsv`, `psd_meta_loci_intercept_corrected.tsv`, `psd_meta_loci_nonfinngen_replication.tsv`, `lava_bivariate_psd_noMHC.tsv` |
 | 07a | `07a_locus_to_gene_table.py` *(local)* | Locus-to-gene evidence scoring for the 25 loci | `psd_locus_to_gene.tsv` |
 | 09a | `09a_lead_variant_supplementary_table.py` | Lead variants: fixed and random effects, heterogeneity, per-cohort ORs, GRCh38 and GRCh37 positions | `psd_lead_variants_supplementary.tsv` |
