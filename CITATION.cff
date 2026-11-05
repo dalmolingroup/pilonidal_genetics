@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+message: "If you use this code or the meta-analysis summary statistics, please cite the preprint below."
+type: software
+title: "pilonidal_genetics: analysis code for the genome-wide meta-analysis of pilonidal sinus disease"
+authors:
+  - family-names: Cavalcante
+    given-names: João V. F.
+    email: joao.cavalcante.073@ufrn.edu.br
+    orcid: "https://orcid.org/0000-0001-7513-7376"
+    affiliation: "Bioinformatics Multidisciplinary Environment, Federal University of Rio Grande do Norte, Natal, Brazil"
+  - family-names: de Amorim
+    given-names: Julia A.
+    orcid: "https://orcid.org/0000-0002-8539-527X"
+    affiliation: "Bioinformatics Multidisciplinary Environment, Federal University of Rio Grande do Norte, Natal, Brazil"
+  - family-names: Dalmolin
+    given-names: Rodrigo J. S.
+    orcid: "https://orcid.org/0000-0002-1688-6155"
+    affiliation: "Bioinformatics Multidisciplinary Environment and Department of Biochemistry, Federal University of Rio Grande do Norte, Natal, Brazil"
+repository-code: "https://github.com/dalmolingroup/pilonidal_genetics"
+identifiers:
+  - type: doi
+    value: 10.64898/2026.10.31.26366973
+    description: "medRxiv preprint"
+  - type: doi
+    value: 10.5281/zenodo.23835851
+    description: "Meta-analysis summary statistics (Zenodo, all versions)"
+keywords:
+  - pilonidal sinus disease
+  - hidradenitis suppurativa
+  - genome-wide association study
+  - meta-analysis
+  - genetic correlation
+  - hair follicle
+preferred-citation:
+  type: article
+  title: "Genome-wide meta-analysis of pilonidal sinus disease and its genetic overlap with hidradenitis suppurativa, hair patterning and adiposity"
+  authors:
+    - family-names: Cavalcante
+      given-names: João V. F.
+      orcid: "https://orcid.org/0000-0001-7513-7376"
+    - family-names: de Amorim
+      given-names: Julia A.
+      orcid: "https://orcid.org/0000-0002-8539-527X"
+    - family-names: Dalmolin
+      given-names: Rodrigo J. S.
+      orcid: "https://orcid.org/0000-0002-1688-6155"
+  journal: medRxiv
+  year: 2026
+  doi: 10.64898/2026.10.31.26366973
+  url: "https://doi.org/10.64898/2026.10.31.26366973"
+  notes: "Preprint"
