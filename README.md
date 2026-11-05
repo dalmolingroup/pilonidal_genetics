@@ -4,6 +4,15 @@ A multi-biobank, multi-ancestry meta-analysis of PSD genome-wide association stu
 statistics, and its overlap with the follicular occlusion disorders (hidradenitis suppurativa, acne), hair patterning
 (balding) and adiposity.
 
+## Citation
+
+Cavalcante JVF, de Amorim JA, Dalmolin RJS. Genome-wide meta-analysis of pilonidal sinus disease and its genetic overlap
+with hidradenitis suppurativa, hair patterning and adiposity. medRxiv 2026.
+[doi:10.64898/2026.10.31.26366973](https://doi.org/10.64898/2026.10.31.26366973)
+
+The meta-analysis summary statistics are on Zenodo: [doi:10.5281/zenodo.23835851](https://doi.org/10.5281/zenodo.23835851).
+Citation metadata are in `CITATION.cff`.
+
 ## Main results
 
 - **25 genome-wide significant loci outside the MHC, 19 novel** (6,771 EUR / 7,868 multi-ancestry cases). SNP heritability
